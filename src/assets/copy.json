@@ -1,0 +1,49 @@
+{
+  "hero": [
+    {
+      "title": "Welcome to DKAN",
+      "intro": "DKAN is an open-source data management platform. It treats data as content so that you can easily publish, manage, and maintain your open data no matter the size of your team or the level of technical expertise.",
+      "ref": "0"
+    }
+  ],
+  "stats": [
+    {
+        "content": "Dataset Downloads",
+        "title": "582k",
+        "icon": "fa fa-download",
+        "ref": "1"
+    },
+    {
+        "content": "API Queries Run",
+        "title": "317k",
+        "icon": "fa fa-refresh",
+        "ref": "2"
+    },
+    {
+        "content": "Total Datasets",
+        "title": "2.63k",
+        "icon": "fa fa-database",
+        "ref": "3"
+    }
+  ],
+  "api": [
+    {
+      "title": "Before you start",
+      "body": "The full documentation is a great way to explore all the features to the API. You might also want to check out example apps, or familiarize yourself with the development console.",
+      "step": "1",
+      "ref": "11"
+    },
+    {
+      "title": "Obtain your API URL & Key",
+      "body": "In order to enable an integration between our Provider Quality Data Catalog and a 3rd party application, you will need to first obtain your API URL and Key.",
+      "step": "2",
+      "ref": "12"
+    },
+    {
+      "title": "Call the API",
+      "body": "When you provide the API URL and key to a 3rd party application, they will be able to access the Provider Quality Data Catalog to sync information or perform other tasks.",
+      "step": "3",
+      "ref": "13"
+    }
+  ]
+}

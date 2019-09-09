@@ -1,0 +1,67 @@
+{
+  "name": "data-catalog-frontend",
+  "homepage": "https://interra.github.io/data-catalog-frontend",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "@cmsgov/design-system-core": "^3.0.0",
+    "axios": "^0.19.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "bootstrap": "^4.2.1",
+    "gatsby": "^2.13.32",
+    "gatsby-cli": "^2.7.17",
+    "gatsby-image": "^2.2.6",
+    "gatsby-plugin-manifest": "^2.2.3",
+    "gatsby-plugin-offline": "^2.2.4",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-sharp": "^2.2.7",
+    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-source-filesystem": "^2.1.5",
+    "gatsby-transformer-sharp": "^2.2.3",
+    "interra-data-catalog-components": "^0.0.40",
+    "lodash": "^4.17.15",
+    "lunr": "^2.3.6",
+    "node-sass": "^4.11.0",
+    "papaparse": "^4.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dnd": "^7.4.5",
+    "react-dnd-html5-backend": "^7.4.4",
+    "react-dnd-multi-backend": "^3.2.1",
+    "react-dnd-touch-backend": "^0.8.1",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-js-pagination": "^3.0.2",
+    "react-loader-advanced": "^1.7.1",
+    "react-loading-spin": "^1.0.9",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.0.1",
+    "react-socks": "^1.0.1",
+    "react-spinjs": "^3.0.0",
+    "react-table": "^6.10.0",
+    "styled-components": "^4.3.2",
+    "swagger-ui-react": "^3.23.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build --prefix-paths",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
