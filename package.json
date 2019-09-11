@@ -1,6 +1,5 @@
 {
   "name": "data-catalog-frontend",
-  "homepage": "https://interra.github.io/data-catalog-frontend",
   "private": true,
   "version": "0.0.1",
   "dependencies": {
