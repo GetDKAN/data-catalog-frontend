@@ -19,13 +19,14 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   await Promise.all(jsonData.map(data => {
     return new Promise((resolve, reject) => {
-      axios.get(`http://dkan/api/v1/datastore/${data.identifier}?values=both`)
+      axios.get(`http://dkan/api/v1/dataset/${data.identifier}?values=both`)
       .then(function (response) {
         // handle success
         resolve(response.data);
       })
       .catch(function (error) {
         // handle error
+        console.log(error)
         resolve(data);
       })
     });
