@@ -1,16 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import { FontAwesomeIcon, NavBar } from "interra-data-catalog-components";
-import links from "../assets/menu.json";
+import { FontAwesomeIcon } from "interra-data-catalog-components";
 
 const Groups = ({path}) => (
   <Layout path={path} title="Publishers">
-    <NavBar
-      navItems={links.main.map((item) => (<Link activeClassName="active" to={item.url}>{item.label}</Link>))}
-      customClasses="container-fluid main-navigation"  
-    />
     <Wrapper className="page container-fluid">
       <div className="section">
         <h1>Dataset Publishers</h1>
