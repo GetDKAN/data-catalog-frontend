@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import { FontAwesomeIcon } from "interra-data-catalog-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Groups = ({path}) => (
   <Layout path={path} title="Publishers">
@@ -18,7 +18,7 @@ const Groups = ({path}) => (
             </p>
           </div>
           <div className="block info">
-              <p><FontAwesomeIcon icon="info-circle" fill="#27AAE1"/> Update this with text specific to your site. </p>
+              <p><FontAwesomeIcon icon="info-circle" color="#27AAE1"/> Update this with text specific to your site. </p>
           </div>
         </div>
       </div>

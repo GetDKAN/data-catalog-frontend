@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
-import { Title, Organization } from "interra-data-catalog-components";
+import {
+  Title,
+  Organization } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
 import backend from "../../services/backend";
 import ApiDocs from "../../components/ApiDocs";

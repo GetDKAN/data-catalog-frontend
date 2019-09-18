@@ -9,7 +9,7 @@ import React from "react";
 import { Link } from 'gatsby';
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { Footer, NavBar } from 'interra-data-catalog-components';
+import { NavBar, Footer } from '@civicactions/data-catalog-components';
 import Header from "../Header";
 import links from "../../assets/menu.json"
 

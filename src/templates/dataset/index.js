@@ -7,7 +7,7 @@ import {
   Text,
   Organization,
   FileDownload,
-  Table } from "interra-data-catalog-components";
+  Table } from "@civicactions/data-catalog-components";
 import Tags from "../../components/Tags";
 import Layout from "../../components/Layout";
 import DataTable from "../../components/DataTable";

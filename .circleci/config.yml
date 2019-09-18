@@ -1,0 +1,69 @@
+version: 2
+jobs:
+  build:
+    parallelism: 1
+    machine:
+      image: circleci/classic:latest
+    environment:
+      TEST_RESULTS: /tmp/test-results
+      DRUPAL_VERSION: V8
+    steps:
+      - checkout
+      - run:
+          name: Install DKTL
+          command: |
+            cd ~
+            git clone --single-branch --depth 1 https://github.com/GetDKAN/dkan-tools.git
+            chmod 777 ./dkan-tools/bin/dktl
+            export PATH=$PATH:~/dkan-tools/bin
+            which dktl
+      - run:
+          name: Initialize Project
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            mkdir ~/sandbox
+            cd ~/sandbox
+            dktl init
+            mv ~/project ./src/frontend
+      - run:
+          name: Get Drupal
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl get 8.7.7
+      - run:
+          name: Make DKAN
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            sudo chmod 777 src/make/composer.json
+            bash -c 'if [[ -z "${CIRCLE_PR_USERNAME}" ]]; then                                                                                                                             !6354
+              sudo echo "{\"description\":\"Project\",\"minimum-stability\":\"dev\",\"repositories\":[{\"type\":\"vcs\",\"url\":\"https://github.com/fmizzell/json_form\"},{\"type\":\"composer\",\"url\":\"https://asset-packagist.org\"}],\"require\":{\"getdkan/dkan2\":\"2.0.2\"}}" > src/make/composer.json
+            else
+              CIRCLE_PR_BRANCH=`curl -s https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/pulls/${CIRCLE_PR_NUMBER} | jq -r '.head.ref'`
+              sudo echo "{\"description\":\"Project\",\"minimum-stability\":\"dev\",\"repositories\":[{\"type\":\"vcs\",\"url\":\"https://github.com/$CIRCLE_PR_USERNAME/dkan2\"},{\"type\":\"vcs\",\"url\":\"https://github.com/fmizzell/json_form\"},{\"type\":\"vcs\",\"url\":\"https://github.com/civicactions/lunr.php\"},{\"type\":\"composer\",\"url\":\"https://asset-packagist.org\"}],\"require\":{\"getdkan/dkan2\":\"2.0.2\"}}" > src/make/composer.json
+            fi'
+            cat src/make/composer.json
+            dktl make --frontend
+            dktl updatedrush -y 
+      - run:
+          name: Install site
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl install
+      - run:
+          name: Run cypress tests
+          command: |
+            export PATH=$PATH:~/dkan-tools/bin
+            cd ~/sandbox
+            dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
+            dktl drush dkan-dummy-content:create
+            dktl dc exec cli npm run build --prefix /var/www/docroot/data-catalog-frontend
+            dktl dc exec web chmod -R 777 /var/www/docroot/sites/default/files/dkan-tmp
+            dktl drush cr
+            dktl dkan:test-cypress frontend
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/screenshots
+      - store_artifacts:
+          path: ~/sandbox/src/frontend/cypress/videos

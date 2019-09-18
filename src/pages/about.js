@@ -1,5 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon, Title } from "interra-data-catalog-components";
+import { Title } from "@civicactions/data-catalog-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
 
@@ -14,7 +15,7 @@ const About = ({path}) => (
             <p>This tool helps create open data catalogs using React and other libraries.</p>
           </div>
           <div className="block info">
-            <p><FontAwesomeIcon icon="info-circle" fill="#27AAE1"/> Update this about page before publishing. </p>
+            <p><FontAwesomeIcon icon="info-circle" color="#27AAE1"/> Update this about page before publishing. </p>
           </div>
         </div>
       </div>

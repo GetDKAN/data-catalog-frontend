@@ -1,5 +1,5 @@
 import React from "react";
-import { Blocks, Hero, IconList, StatBlock } from "interra-data-catalog-components";
+import { Blocks, Hero, IconList, StatBlock } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
 import IconListItem from "../../components/IconListItem";
 import FeaturedDatasets from "../../containers/FeaturedDatasets";

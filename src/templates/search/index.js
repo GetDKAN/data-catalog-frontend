@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
+<<<<<<< HEAD
 import { PageHeader, SearchList } from "interra-data-catalog-components";
+=======
+import { PageHeader, SearchList, NavBar } from "@civicactions/data-catalog-components";
+>>>>>>> Add circleci/config.yml
 import { Select, FormLabel } from "@cmsgov/design-system-core";
 import FacetList from "../../components/FacetList";
 import search from "../../services/search";
