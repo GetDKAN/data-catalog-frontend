@@ -3,11 +3,11 @@ import { Link } from "gatsby";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
 import {
+  ApiDocs,
   Title,
   Organization } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
 import backend from "../../services/backend";
-import ApiDocs from "../../components/ApiDocs";
 
 class ApiDocsSpecific extends Component {
 

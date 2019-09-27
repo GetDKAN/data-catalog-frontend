@@ -157,7 +157,12 @@ class Dataset extends Component {
         const pages = r.data.pages;
         if ('format' in r.data ) {
           return <div key={dataKey}>
-              <FileDownload resource={r.data} key={r.title}/>
+              <FileDownload 
+                format={r.data.format} 
+                downloadURL={r.data.downloadURL}
+                title={r.data.title} 
+                key={r.title}
+              />
               <strong>Rows:</strong> {values.length}
                 <DataTable
                   index={i}

@@ -1,7 +1,11 @@
 import React from "react";
-import { Blocks, Hero, IconList, StatBlock } from "@civicactions/data-catalog-components";
+import { 
+  Blocks, 
+  Hero, 
+  IconList, 
+  IconListItem,  
+  StatBlock } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
-import IconListItem from "../../components/IconListItem";
 import FeaturedDatasets from "../../containers/FeaturedDatasets";
 import copy from "../../assets/copy.json";
 
@@ -10,8 +14,8 @@ const Home = ({ pageContext: { collections }, path }) => {
     let item = {
       identifier: x.identifier,
       ref: `search?theme=${x.data}`,
-      icon: x.data,
-      title: x.data
+      title: x.data,
+      size: "80"
       };
       return item;
     })
