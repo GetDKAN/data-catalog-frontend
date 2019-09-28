@@ -5,7 +5,7 @@ beforeEach(() => {
   })
 
   it('When on the home page I should see 5 topics in the Dataset Topics region', () => {
-    cy.wait(5000)
+    cy.wait(6000)
     var topics = [
       'Transportation',
       'City Planning',
