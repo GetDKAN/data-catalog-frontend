@@ -1,16 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
-import { FontAwesomeIcon, NavBar, Title } from "interra-data-catalog-components";
+import { FontAwesomeIcon, Title } from "interra-data-catalog-components";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import links from "../assets/menu.json";
 
 const About = ({path}) => (
   <Layout path={path} title="About">
-    <NavBar
-      navItems={links.main.map((item) => (<Link activeClassName="active" to={item.url}>{item.label}</Link>))}
-      customClasses="container-fluid main-navigation"  
-    />
     <Wrapper className="page container-fluid">
       <div className="section">
         <Title headerLevel="h1" title="About this site" />

@@ -7,14 +7,12 @@ import {
   Text,
   Organization,
   FileDownload,
-  NavBar,
   Table } from "interra-data-catalog-components";
 import Tags from "../../components/Tags";
 import Layout from "../../components/Layout";
 import DataTable from "../../components/DataTable";
 import backend from "../../services/backend";
 import datastore from "../../services/datastore";
-import links from "../../assets/menu.json";
 
 class Dataset extends Component {
 
@@ -243,10 +241,6 @@ class Dataset extends Component {
 
     return (
       <Layout path={this.props.path} title={item.title}>
-        <NavBar
-          navItems={links.main.map((item) => (<Link activeClassName="active" to={item.url}>{item.label}</Link>))}
-          customClasses="container-fluid main-navigation"  
-        />
         <div className="dataset-page container-fluid">
           <div className="row">
             <div className="col-md-3 col-sm-12 p-5">

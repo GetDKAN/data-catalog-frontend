@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
-import { PageHeader, SearchList, NavBar } from "interra-data-catalog-components";
+import { PageHeader, SearchList } from "interra-data-catalog-components";
 import { Select, FormLabel } from "@cmsgov/design-system-core";
 import FacetList from "../../components/FacetList";
 import search from "../../services/search";
@@ -12,7 +12,6 @@ import Pagination from "react-js-pagination";
 import StyledPagination from "../../theme/pagination.js"
 import SearchInput from "./SearchInput";
 import Wrapper from "./Wrapper";
-import links from "../../assets/menu.json";
 
 const InitialState = {
     items: [{
@@ -298,10 +297,6 @@ class Search extends Component {
 
     return (
       <Layout path={this.props.path} title="Search">
-        <NavBar
-          navItems={links.main.map((item) => (<Link activeClassName="active" to={item.url}>{item.label}</Link>))}
-          customClasses="container-fluid main-navigation"  
-        />
         <Wrapper className="search-page containter-fluid m-5">
           <div className="row">
             <PageHeader title="Datasets" />
