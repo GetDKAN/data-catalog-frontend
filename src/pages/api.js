@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import { ApiDocs, Title } from "@civicactions/data-catalog-components";
-//import ApiDocs from "../components/ApiDocs";
+import { Title } from "@civicactions/data-catalog-components";
+import ApiDocs from "../components/ApiDocs";
 
 const ApiDocsFull = ({path}) => (
   <Layout path={path} title="DKAN API Documentation">

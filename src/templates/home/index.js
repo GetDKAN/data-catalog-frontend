@@ -2,8 +2,8 @@ import React from "react";
 import { 
   Blocks, 
   Hero, 
-  IconList, 
-  IconListItem,  
+  IconList,
+  IconListItem,   
   StatBlock } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
 import FeaturedDatasets from "../../containers/FeaturedDatasets";
@@ -15,7 +15,7 @@ const Home = ({ pageContext: { collections }, path }) => {
       identifier: x.identifier,
       ref: `search?theme=${x.data}`,
       title: x.data,
-      size: "80"
+      size: "100"
       };
       return item;
     })
@@ -28,7 +28,6 @@ const Home = ({ pageContext: { collections }, path }) => {
             component={IconListItem}
             paneTitle="Dataset Topics"
             className="opendata-icon-list"
-            color="#ff0000"
           />
           <Blocks items={copy.stats} component={StatBlock} className="StatBlock" />
           <FeaturedDatasets />

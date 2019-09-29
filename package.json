@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
-    "@civicactions/data-catalog-components": "0.0.5",
+    "@civicactions/data-catalog-components": "0.0.6",
     "@cmsgov/design-system-core": "^3.0.0",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
@@ -17,7 +17,7 @@
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sharp": "^2.2.7",
-    "gatsby-plugin-styled-components": "^3.1.2",
+    "gatsby-plugin-styled-components": "^3.1.8",
     "gatsby-source-filesystem": "^2.1.5",
     "gatsby-transformer-sharp": "^2.2.3",
     "lodash": "^4.17.15",

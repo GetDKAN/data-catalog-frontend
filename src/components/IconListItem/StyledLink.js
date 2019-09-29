@@ -1,7 +1,9 @@
+import React from 'react'
 import styled from "styled-components";
 import { Link } from "gatsby";
-
+//const StyledLink = styled(props => <Link {...props} />)`
 const StyledLink = styled(Link)`
+
   border: 1px solid ${props => props.theme.borderColor};
   border-radius: 8px;
   margin-bottom: 20px;
