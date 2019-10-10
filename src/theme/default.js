@@ -38,13 +38,13 @@ const defaultTheme = {
   danger: "#DB3545",
   success: "#28A645",
   // Format
-  csvIcon: "#dfb100",
-  rdfIcon: "#0b4498",
-  jsonIcon: "#ef7100",
-  pdfIcon: "#e0051e",
-  xmlIcon: "#5e962c",
-  zipIcon: "1700b2",
-  dataIcon: "#666666"
+  csvIcon: '#a64300',
+  rdfIcon: '#0b4498',
+  jsonIcon: '#005051',
+  pdfIcon: '#e0051e',
+  xmlIcon: '#5e962c',
+  zipIcon: '#3B0053',
+  dataIcon: '#666666',
 };
 
 export default defaultTheme;

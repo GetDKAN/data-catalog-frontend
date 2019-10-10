@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import styled from "styled-components";
 import { Link } from "gatsby";
 
@@ -9,12 +11,24 @@ const StyledLink = styled(Link)`
   background-color: white;
   position: relative;
   display: block;
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.linkColor};
   font-size: 1.15em;
   padding: 1em 2em;
   min-width: 260px;
   text-decoration: none;
   text-align: center;
+  svg path {
+    fill: ${props => props.theme.linkColor};
+  }
+  &.active,
+  &:hover {
+    background-color: ${props => props.theme.secondaryLight};
+    text-decoration: none;
+    color: ${props => props.theme.primaryDark}
+    svg path {
+      fill: ${props => props.theme.primaryDark}
+    }
+  }
   img {
     max-width: 150px;
     max-height: 100px;
@@ -22,20 +36,6 @@ const StyledLink = styled(Link)`
   }
   svg {
     margin: 10px;
-    fill: ${props => props.theme.primary};
-    &:focus,
-    &:hover {
-      fill: ${props => props.theme.primaryDark};
-    }
-  }  
-  &:focus,
-  &:hover {
-    color: ${props => props.theme.primaryDark};
-    background-color: ${props => props.theme.secondaryLight};
-    text-decoration: none;
-    svg {
-      fill: ${props => props.theme.primaryDark};
-    }
   }
 `;
 

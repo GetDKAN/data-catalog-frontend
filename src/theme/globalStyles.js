@@ -1,9 +1,13 @@
 import { createGlobalStyle } from "styled-components"
 import { css } from 'bootstrap/dist/css/bootstrap.min.css'; // eslint-disable-line no-unused-vars
 //import { cms_css } from '@cmsgov/design-system-core/dist/index.css';
-import defaultTheme from "./default"
 import './fonts/Geometria/demo.css'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import defaultTheme from './default';
 
+library.add(fab, fas);
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');

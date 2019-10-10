@@ -7,7 +7,7 @@ import {
   Text,
   Organization,
   FileDownload,
-  Table } from "interra-data-catalog-components";
+  Table } from "@civicactions/data-catalog-components";
 import Tags from "../../components/Tags";
 import Layout from "../../components/Layout";
 import DataTable from "../../components/DataTable";
@@ -157,7 +157,12 @@ class Dataset extends Component {
         const pages = r.data.pages;
         if ('format' in r.data ) {
           return <div key={dataKey}>
-              <FileDownload resource={r.data} key={r.title}/>
+              <FileDownload 
+                format={r.data.format} 
+                downloadURL={r.data.downloadURL}
+                title={r.data.title} 
+                key={r.title}
+              />
               <strong>Rows:</strong> {values.length}
                 <DataTable
                   index={i}

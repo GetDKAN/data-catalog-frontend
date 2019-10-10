@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Wrapper from './Wrapper';
 import backend from '../../services/backend';
-import { SearchList } from 'interra-data-catalog-components'
+import { SearchList } from '@civicactions/data-catalog-components'
 
 class FeaturedDatasets extends Component {
 

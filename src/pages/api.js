@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import { Title } from "interra-data-catalog-components";
+import { Title } from "@civicactions/data-catalog-components";
 import ApiDocs from "../components/ApiDocs";
 
 const ApiDocsFull = ({path}) => (
