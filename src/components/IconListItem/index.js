@@ -4,7 +4,7 @@ import StyledLink from './StyledLink'
 import TopicImage from './TopicImage'
 
 class IconListItem extends React.PureComponent {
-
+  
   render() {
     let content = '';
 

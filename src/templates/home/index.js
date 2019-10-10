@@ -1,10 +1,10 @@
 import React from "react";
 import { 
   Blocks, 
-  Hero, 
-  IconList,
-  IconListItem,   
+  Hero,    
   StatBlock } from "@civicactions/data-catalog-components";
+import IconList from "../../components/IconList";
+import IconListItem from "../../components/IconListItem";
 import Layout from "../../components/Layout";
 import FeaturedDatasets from "../../containers/FeaturedDatasets";
 import copy from "../../assets/copy.json";
