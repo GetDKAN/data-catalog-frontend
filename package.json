@@ -56,7 +56,10 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "clean": "rm -rf node_modules", 
+    "reinstall": "npm run clean && npm install", 
+    "rebuild": "npm run clean && npm install && npm run build"
   },
   "repository": {
     "type": "git",
