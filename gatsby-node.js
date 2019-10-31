@@ -6,12 +6,18 @@ const axios = require('axios');
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const { data: themes } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/theme/items`);
-  // const { data: jsonData } = await axios.get('http://dkan/api/v1/dataset');
-  console.log(themes)
+  const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items`);
+
+  let featuredDatasets = datasets.sort(function(a,b) {
+    return a.title - b.title;
+  });
+
+  featuredDatasets = featuredDatasets.length > 3 ? featuredDatasets.slice(featuredDatasets.length -3, featuredDatasets.length) : featuredDatasets;
+
   createPage({
     path: `/`,
     component: path.resolve('./src/templates/home/index.js'),
-    context: { themes }
+    context: { themes, featuredDatasets }
   })
 
   createPage({

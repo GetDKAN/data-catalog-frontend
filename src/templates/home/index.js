@@ -9,7 +9,7 @@ import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../containers/FeaturedDatasets';
 import copy from '../../assets/copy.json';
 //
-const Home = ({ pageContext: { themes }, path }) => {
+const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
   const items = themes.map(x => {
     let item = {
       identifier: x.identifier,
@@ -30,7 +30,7 @@ const Home = ({ pageContext: { themes }, path }) => {
             className="opendata-icon-list"
           />
           <Blocks items={copy.stats} component={StatBlock} className="StatBlock" />
-          <FeaturedDatasets /> 
+          <FeaturedDatasets datasets={featuredDatasets}/> 
         </div>
       </Layout>
     );
