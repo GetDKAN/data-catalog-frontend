@@ -6,7 +6,7 @@ const axios = require('axios');
 
 exports.createPages = async ({ actions: { createPage } }) => {
   const { data: themes } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/theme/items`);
-  const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items`);
+  const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items?show-reference-ids`);
 
   let featuredDatasets = datasets.sort(function(a,b) {
     return a.title - b.title;
@@ -18,12 +18,20 @@ exports.createPages = async ({ actions: { createPage } }) => {
     path: `/`,
     component: path.resolve('./src/templates/home/index.js'),
     context: { themes, featuredDatasets }
-  })
+  });
 
   createPage({
     path: `/search`,
     component: path.resolve('./src/templates/search/index.js'),
     context: { themes }
+  });
+
+  datasets.map((dataset) => {
+    createPage({
+      path: `/dataset/${dataset.identifier}`,
+      component: path.resolve('./src/templates/dataset/index.js'),
+      context: { dataset }
+    })
   })
 
   // await Promise.all(jsonData.map(data => {
@@ -42,9 +50,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   // .then(results => {
   //   results.forEach((dataset) => {
   //     createPage({
-  //       path: `/dataset/${dataset.identifier}`,
-  //       component: path.resolve('./src/templates/dataset/index.js'),
-  //       context: { dataset }
+       
   //     });
   //     createPage({
   //       path: `/dataset/${dataset.identifier}/api`,
