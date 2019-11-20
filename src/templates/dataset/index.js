@@ -104,7 +104,6 @@ const Dataset = ({ pageContext: dataset, path }) => {
                     identifier={item.identifier}
                     data={dist}
                     rootUrl={process.env.DYNAMIC_API_URL}
-                    // columns={dataset.columns}
                   />
                 );
               })

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Select, FormLabel } from "@cmsgov/design-system-core";
-import { withSearch, SearchInput, PageHeader, SearchList, SearchListItem } from '@civicactions/data-catalog-components';
+import { withSearch, SearchInput, PageHeader, SearchList, SearchListItem, Pagination } from '@civicactions/data-catalog-components';
 import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
 import Layout from "../../../components/Layout";
@@ -8,6 +8,7 @@ import Wrapper from "../Wrapper";
 import StyledPagination from "../../../theme/pagination.js"
 import StyledResultsMessage from './StyledResultsMessage';
 import StyledSearchList from './StyledSearchList';
+import FacetBlocks from '../../../components/FacetList/FacetBlocks';
 
 const DatasetSearch = ({
   path,
@@ -20,7 +21,8 @@ const DatasetSearch = ({
   facetsResults,
   selectedFacets,
   total,
-  options
+  options,
+  totalFacets
 }) => {
   const [hasWindow, checkForWindow] = useState(false);
   const [show, toggleShow] = useState(true);
@@ -87,7 +89,7 @@ const DatasetSearch = ({
                           searchTerm={searchParams.q}
                           searchLink={searchLink}
                         />
-                      );
+                      )
                     })}
                   </StyledSearchList>
                     {/* {this.currentPageResults()} */}
@@ -96,20 +98,20 @@ const DatasetSearch = ({
                       defaultValue={"10"}
                       size="medium"
                       name="results_per_page"
-                      onChange={this.handlePageSizeChange.bind(this)}
+                      onChange={searchFunctions.pageSizeChange}
                     >
                       {[5,10,15,20,25,30,35,40,45,50].map(el => (
                         <option key={el} value={el}>{`${el} per page`}</option>
                       ))
                       }
-                    </Select> */}
-                    {/* <Pagination
+                    </Select>
+                    <Pagination
                       hideDisabled
-                      activePage={page}
-                      itemsCountPerPage={pageSize}
+                      activePage={parseInt(searchParams.page)}
+                      itemsCountPerPage={parseInt(searchParams.pageSize)}
                       totalItemsCount={total}
-                      pageRangeDisplayed={5}
-                      onChange={this.handlePageChange.bind(this)}
+                      pageRangeDisplayed={'5'}
+                      onChange={searchFunctions.pageChange}
                     /> */}
                   </StyledPagination>
                 }
@@ -119,20 +121,30 @@ const DatasetSearch = ({
           <div className="search-sidebar col-md-4 col-sm-12 p-5">
             <div className="search-sidebar-options ds-u-radius">
               <FormLabel className="search-sidebar-label" for="search_sort_change">Sort by</FormLabel>
-              {/* <Select
+              <Select
                 aria-label="Search Sort Change"
                 defaultValue="1"
                 name="search_sort_change"
                 className="form-control input-sm"
-                onChange={this.sortChange.bind(this)}
+                onChange={searchFunctions.sort}
               >
                 <option value="relevance">Relevance</option>
                 <option value="date">Date</option>
                 <option value="alpha">Alphabetical</option>
-              </Select> */}
+              </Select>
             </div>
             <div className="search-sidebar-options ds-u-radius">
-              {/* <FacetList {... facetListProps} /> */}
+              {items &&
+                <FacetBlocks
+                  facetTypes={facetTypes}
+                  facets={facets}
+                  searchFunctions={searchFunctions}
+                  searchParams={searchParams}
+                  total={total}
+                  selectedFacets={selectedFacets}
+                  totalFacets={totalFacets}
+                />
+              }
             </div>
           </div>
         </div>
