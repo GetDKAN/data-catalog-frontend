@@ -26,7 +26,7 @@ beforeEach(() => {
     cy.get(':nth-child(1) > a > div').invoke('text').then(topicClicked => {
       cy.get(':nth-child(1) > a > div').click()
       cy.wait(2000)
-      cy.get('.facet-block-theme-inner > .list-group > .ds-c-fieldset > div > .ds-c-label > span').invoke('text').should('contain',topicClicked )
+      cy.get('.facet-block-topics-inner > .list-group > li').invoke('text').should('contain',topicClicked )
     })
   })
 
@@ -51,7 +51,7 @@ beforeEach(() => {
 
   it('I should see the expected custom text on the home page', () => {
     cy.get('.hero-title').should('contain', 'Welcome to DKAN');
-    cy.get('.hero #submit').should('contain', 'GO');
+    cy.get('.hero #inputSubmit').should('contain', 'Submit');
   })
 
   it('The featured datasets region should contain 3 datasets', () => {

@@ -13,7 +13,7 @@ const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
   const items = themes.map(x => {
     let item = {
       identifier: x.identifier,
-      ref: `search?theme=${x.data}`,
+      ref: `search?topics=${x.data}`,
       title: x.data,
       size: "100"
       };

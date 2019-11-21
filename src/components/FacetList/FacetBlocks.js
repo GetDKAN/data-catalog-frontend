@@ -46,9 +46,9 @@ const FacetBlocks = ({
         })
 
         return(
-          <div>
+          <div className={`facet-block-${facetKey.toLowerCase()}-inner`}>
             <h2>{title}</h2>
-            <ul>
+            <ul className="list-group">
               {choices.map((choice) => <li>{choice}</li>)}
             </ul>
           </div>
