@@ -1,12 +1,12 @@
 import React from "react";
-import { 
-  Blocks, 
-  Hero,    
-  StatBlock } from "@civicactions/data-catalog-components";
+//import { 
+  // Blocks,    
+  // StatBlock } from "@civicactions/data-catalog-components";
+import Hero from '../../components/Hero';
 import IconList from "../../components/IconList";
 import IconListItem from "../../components/IconListItem";
 import Layout from '../../components/Layout';
-import FeaturedDatasets from '../../containers/FeaturedDatasets';
+//import FeaturedDatasets from '../../containers/FeaturedDatasets';
 import copy from '../../assets/copy.json';
 //
 const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
@@ -29,8 +29,6 @@ const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
             paneTitle="Dataset Topics"
             className="opendata-icon-list"
           />
-          <Blocks items={copy.stats} component={StatBlock} className="StatBlock" />
-          <FeaturedDatasets datasets={featuredDatasets}/> 
         </div>
       </Layout>
     );

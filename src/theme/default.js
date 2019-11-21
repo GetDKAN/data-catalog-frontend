@@ -1,12 +1,12 @@
 const defaultTheme = {
   backgroundColor: "#f9fafb",
   borderColor: "#dce4ef",
-  primaryDark: "#162e51", // blueDark.
-  primary: "#0978bc", // blue.
-  primaryLight: "#27AAE1", // blueLight.
+  primaryDark: "#28427c", // blueDark.
+  primary: "#28427c", // blue.
+  primaryLight: "#627caa", // blueLight.
   primaryDust: "#dce4ef", // blueDust.
-  secondaryDark: "#dfb100", // yellowDark.
-  secondary: "#FFD666", // yellow.
+  secondaryDark: "#ffbc00", // yellowDark.
+  secondary: "#ffbc00", // yellow.
   secondaryLight: "#FFF8E4", // yellowLight.
   grayDark: "#323A45",
   grayMedium: "#A7AAAC",
@@ -16,18 +16,18 @@ const defaultTheme = {
   textColor: "#3B3B3B",
   linkColor: "#0A77BD",
   linkHoverColor: "#003366",
-  navBarBackgroundColor: "#0978bc",
+  navBarBackgroundColor: "#767679",
   navBarBackgroundImage: "",
   navBarLink: "#FFFFFF",
   navBarLinkActive: "#FFFFFF",
-  navBarLinkHoverBack: "#002245",
-  navBarLinkActiveBack: "#305e92",
+  navBarLinkHoverBack: "#3f3f3f",
+  navBarLinkActiveBack: "#3f3f3f",
   navBarLinkActiveHoverBack: "#f2d13c",
   navBarLinkActiveHover: "#FFFFFF",
-  heroBackgroundColor: "#0A77BD",
+  heroBackgroundColor: "#627caa",
   heroTextColor: "#FFFFFF",
   heroHeadingColor: "#FFFFFF",
-  footerBackgroundColor: "#162e51",
+  footerBackgroundColor: "#28427c",
   footerText: "#FFFFFF",
   footerLink: "#FFFFFF",
   footerLinkHover: "#FFFFFF",

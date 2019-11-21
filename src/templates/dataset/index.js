@@ -24,6 +24,7 @@ const Dataset = ({ pageContext: dataset, path }) => {
   
 
   const item = dataset.dataset;
+  const description = 'description' in item && item.description ? item.description : "";
   const orgName = 'publisher' in item && item.publisher ? item.publisher.data.name : "";
   const orgImage = 'publisher' in item && item.publisher ? item.publisher.data.image : "";
   const orgDesc = 'publisher' in item && item.publisher ? item.publisher.data.description : "";
@@ -98,8 +99,8 @@ const Dataset = ({ pageContext: dataset, path }) => {
             <div className="theme-wrapper">
               { Topic() }
             </div>
-            <Text value={item.description} />
-            {hasWindow &&
+            <Text value={description} />
+            {hasWindow && item.distribution &&
               item.distribution.map((dist) => {
                 
                 return(

@@ -11,14 +11,14 @@ library.add(fab, fas);
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-  @import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,900');
+  @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
   html {
     /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
     font-size: 62.5%;
   }
   .App {
-    font-family: Muli, "Helvetica Neue", Arial, sans-serif;
+    font-family: Lato, Arial, sans-serif;
     font-size: 1.6rem;
 
     background-color: ${defaultTheme.backgroundColor};
@@ -33,7 +33,8 @@ const GlobalStyles = createGlobalStyle`
     }
     h1,h2,h3,h4,h5 {
       color: ${defaultTheme.headingColor};
-      font-family: 'Geometria W01 ExtraBold','WorkSansBold', Arial, sans-serif;
+      font-family: 'Lato', Arial, sans-serif;
+      font-weight: bold;
     }
     h1 { font-size: 3.2rem; }
     h2 { font-size: 2.8rem; } //28px

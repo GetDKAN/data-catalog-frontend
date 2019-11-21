@@ -9,7 +9,8 @@ import React from "react";
 import { Link } from 'gatsby';
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { NavBar, Footer } from '@civicactions/data-catalog-components';
+import { NavBar } from '@civicactions/data-catalog-components';
+import Footer from "../Footer";
 import Header from "../Header";
 import links from "../../assets/menu.json"
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Wrapper from './Wrapper'
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logo-color.svg'
 
 class Header extends Component {
 

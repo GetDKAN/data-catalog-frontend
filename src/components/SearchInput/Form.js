@@ -51,9 +51,9 @@ export default styled.form`
     }
     &:hover {
       background-color: white;
-      color: purple;
+      color: #28427c;
       svg path {
-        fill: purple;
+        fill: #28427c;
       }
     }
   }
