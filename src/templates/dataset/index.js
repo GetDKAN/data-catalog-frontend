@@ -21,6 +21,8 @@ const Dataset = ({ pageContext: dataset, path }) => {
     }
   }, []);
 
+  
+
   const item = dataset.dataset;
   const orgName = 'publisher' in item && item.publisher ? item.publisher.name : "";
   const orgImage = 'publisher' in item && item.publisher ? item.publisher.image : "";
@@ -99,8 +101,10 @@ const Dataset = ({ pageContext: dataset, path }) => {
             <Text value={item.description} />
             {hasWindow &&
               item.distribution.map((dist) => {
+                
                 return(
                   <Resource
+                    key={dist.identifier}
                     identifier={item.identifier}
                     data={dist}
                     rootUrl={process.env.DYNAMIC_API_URL}
