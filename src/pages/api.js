@@ -1,8 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
-import { Title } from "@civicactions/data-catalog-components";
-import ApiDocs from "../components/ApiDocs";
+import { Title, ApiDocs } from "@civicactions/data-catalog-components";
 
 const ApiDocsFull = ({path}) => (
   <Layout path={path} title="DKAN API Documentation">
@@ -11,7 +10,9 @@ const ApiDocsFull = ({path}) => (
         <Title title="DKAN API Documentation" headerLevel="h1" />
         <div className="section-content">
           {typeof window !== `undefined` &&
-            <ApiDocs />
+            <ApiDocs
+              endpoint={ process.env.GATSBY_API_URL }
+            />
           }
         </div>
       </div>
