@@ -32,6 +32,12 @@ exports.createPages = async ({ actions: { createPage } }) => {
       component: path.resolve('./src/templates/dataset/index.js'),
       context: { dataset }
     })
+
+    createPage({
+      path: `/dataset/${dataset.identifier}/api`,
+      component: path.resolve('./src/templates/dataset/api.js'),
+      context: { dataset }
+    })
   })
 
   // await Promise.all(jsonData.map(data => {
@@ -52,11 +58,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
   //     createPage({
        
   //     });
-  //     createPage({
-  //       path: `/dataset/${dataset.identifier}/api`,
-  //       component: path.resolve('./src/templates/dataset/api.js'),
-  //       context: { dataset }
-  //     })
+  
   //   })
   // })
 }

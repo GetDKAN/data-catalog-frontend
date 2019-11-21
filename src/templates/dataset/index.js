@@ -24,9 +24,9 @@ const Dataset = ({ pageContext: dataset, path }) => {
   
 
   const item = dataset.dataset;
-  const orgName = 'publisher' in item && item.publisher ? item.publisher.name : "";
-  const orgImage = 'publisher' in item && item.publisher ? item.publisher.image : "";
-  const orgDesc = 'publisher' in item && item.publisher ? item.publisher.description : "";
+  const orgName = 'publisher' in item && item.publisher ? item.publisher.data.name : "";
+  const orgImage = 'publisher' in item && item.publisher ? item.publisher.data.image : "";
+  const orgDesc = 'publisher' in item && item.publisher ? item.publisher.data.description : "";
   const tag = 'keyword' in item ? item.keyword : [];
   const theme = 'theme' in item ? item.theme : [];
   const columns = 'columns' in item ? item.columns : [];
@@ -90,7 +90,7 @@ const Dataset = ({ pageContext: dataset, path }) => {
           <div className="col-md-3 col-sm-12 p-5">
             <Organization name={orgName} image={orgImage} description={orgDesc} />
             <div className="block-wrapper">
-              The information on this page is also available via the <Link to={`dataset/${dataset.identifier}/api`}>API</Link>.
+              The information on this page is also available via the <Link to={`dataset/${item.identifier}/api`}>API</Link>.
             </div>
           </div>
           <div className="results-list col-md-9 col-sm-12 p-5">
