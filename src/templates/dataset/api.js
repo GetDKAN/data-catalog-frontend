@@ -25,7 +25,7 @@ class ApiDocsSpecific extends Component {
 
   async fetchData() {
     const id = this.props.pageContext.dataset.identifier;
-    const { data } = await backend.get("/dataset/" + id + "?values=both");
+    const { data } = await backend.get("/metastore/schemas/dataset/items/" + id + "?show-reference-ids");
     const item = Object.assign(data);
 
     this.setState({
@@ -61,7 +61,10 @@ class ApiDocsSpecific extends Component {
               <Title title={item.title} />
               {this.state.window &&
               <Loader backgroundStyle={{backgroundColor: "#f9fafb"}} foregroundStyle={{backgroundColor: "#f9fafb"}} show={show} message={<LoadingSpin width={"3px"} primaryColor={"#007BBC"}/>}>
-                <ApiDocs uuid={this.props.pageContext.dataset.identifier} />
+                <ApiDocs
+                  endpoint={ process.env.GATSBY_API_URL + "/metastore/schemas/dataset/items/" + this.props.pageContext.dataset.identifier + "?show-reference-ids"}
+                  uuid={this.props.pageContext.dataset.identifier}
+                />
               </Loader>
               }
             </div>

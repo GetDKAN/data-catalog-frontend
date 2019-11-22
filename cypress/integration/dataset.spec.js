@@ -40,7 +40,7 @@ context('Dataset', () => {
   
     it('I see the file is available to download', () => {
       cy.get('.resource > svg').should('have.attr', 'class', 'dkan-icon')
-      cy.get('.resource > a').should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0.csv')
+      cy.get('.resource > a').should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0_0.csv')
     })
   
     it('I see the tags.', () => {
