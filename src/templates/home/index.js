@@ -1,7 +1,7 @@
 import React from "react";
 import { 
-  Blocks, 
-  Hero,    
+  Blocks,
+  Hero,
   StatBlock } from "@civicactions/data-catalog-components";
 import IconList from "../../components/IconList";
 import IconListItem from "../../components/IconListItem";
@@ -13,7 +13,7 @@ const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
   const items = themes.map(x => {
     let item = {
       identifier: x.identifier,
-      ref: `search?topics=${x.data}`,
+      ref: `search?Topics=${x.data}`,
       title: x.data,
       size: "100"
       };

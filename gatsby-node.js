@@ -22,7 +22,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   createPage({
     path: `/search`,
-    component: path.resolve('./src/templates/search/index.js'),
+    component: path.resolve('./src/templates/search/index.jsx'),
     context: { themes }
   });
 

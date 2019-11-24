@@ -5,7 +5,6 @@ import {
   Title,
   Text,
   Organization,
-  FileDownload,
   Table,
   Resource } from "@civicactions/data-catalog-components";
 import Layout from '../../components/Layout';
