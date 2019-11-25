@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "gatsby";
+import logos from '../../assets/publishers.json';
 
 import { 
   Title,
@@ -10,7 +11,7 @@ import {
   Resource } from "@civicactions/data-catalog-components";
 import Layout from '../../components/Layout';
 import Tags from "../../components/Tags";
-
+import TopicImage from "../../components/TopicImage";
 
 const Dataset = ({ pageContext: dataset, path }) => {
 
@@ -21,22 +22,14 @@ const Dataset = ({ pageContext: dataset, path }) => {
     }
   }, []);
 
-  
-
   const item = dataset.dataset;
   const description = 'description' in item && item.description ? item.description : "";
   const orgName = 'publisher' in item && item.publisher ? item.publisher.data.name : "";
-  const orgImage = 'publisher' in item && item.publisher ? item.publisher.data.image : "";
+  const orgImage = 'publisher' in item && orgName ? logos[orgName].image : "";
   const orgDesc = 'publisher' in item && item.publisher ? item.publisher.data.description : "";
   const tag = 'keyword' in item ? item.keyword : [];
   const theme = 'theme' in item ? item.theme : [];
   const columns = 'columns' in item ? item.columns : [];
-  const Topic = () => {
-    return theme.map(t => {
-      const topicLink = `<a className="theme" href="../search?theme=${t.data}">${t.data}</a>`;
-      return <Text key={t.data} value={topicLink} />;
-    });
-  };
 
   // Process content for 'Columns in this Dataset' table.
   const labelsT2 = {}
@@ -89,16 +82,23 @@ const Dataset = ({ pageContext: dataset, path }) => {
       <div className="dataset-page container-fluid">
         <div className="row">
           <div className="col-md-3 col-sm-12 p-5">
-            <Organization name={orgName} image={orgImage} description={orgDesc} />
+            <Organization name={orgName} imageUrl={orgImage} description={orgDesc} />
             <div className="block-wrapper">
               The information on this page is also available via the <Link to={`dataset/${item.identifier}/api`}>API</Link>.
             </div>
           </div>
           <div className="results-list col-md-9 col-sm-12 p-5">
             <Title title={item.title} />
+
             <div className="theme-wrapper">
-              { Topic() }
+              {theme.map((t, index) => (
+                  <Link key={`dist-${t.identifier}-${index}`} to={`search?topics=${t.data}`}>
+                    <TopicImage title={t.data} height="16" width="16"/>
+                    {t.data}
+                  </Link>
+              ))}
             </div>
+
             <Text value={description} />
             {hasWindow && item.distribution &&
               item.distribution.map((dist) => {

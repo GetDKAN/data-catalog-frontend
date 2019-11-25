@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ChoiceList } from '@cmsgov/design-system-core';
 import ShowMore from './ShowMore';
 import FacetBlock from './FacetBlock';
+import LI from './LI';
 
 const FacetBlocks = ({
   facetTypes,
@@ -14,7 +15,7 @@ const FacetBlocks = ({
 }) => {
 
   return(
-    <div>
+    <FacetBlock>
       { facetTypes.map((facetKey) => {
         const title = facets[facetKey].label;
         const filteredFacetList = searchFunctions.filteredFacets(facetKey);
@@ -47,14 +48,14 @@ const FacetBlocks = ({
 
         return(
           <div className={`facet-block-${facetKey.toLowerCase()}-inner`}>
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <ul className="list-group">
-              {choices.map((choice) => <li>{choice}</li>)}
+              {choices.map((choice) => <LI>{choice}</LI>)}
             </ul>
           </div>
         );
       })}
-    </div>
+    </FacetBlock>
   );
 
 }

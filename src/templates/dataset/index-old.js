@@ -133,7 +133,7 @@ class Dataset extends Component {
       this.setState({window: true})
     }
   }
-
+  
   render() {
     const { item, show, resources } = this.state;
     const orgName = 'publisher' in item && item.publisher.data ? item.publisher.data.name : "";
@@ -146,6 +146,7 @@ class Dataset extends Component {
     const columns = 'columns' in item ? item.columns : [];
 
     const Resources = () => {
+      console.log("here: " . resources);
       return resources.map((r, i) => {
 
         const values = 'values' in r.data ? r.data.values : [];

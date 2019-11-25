@@ -12,6 +12,11 @@ const facets = {
     "field": "keyword.*.title",
     "showAll": false
   }
+  // "Publishers": {
+  //   "label": "Publishers",
+  //   "field": "publisher.0.name",
+  //   "showAll": false
+  // }
 };
 
 const defaultParams = {

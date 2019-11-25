@@ -3,6 +3,9 @@ import { SearchList } from '@civicactions/data-catalog-components';
 
 
 const StyledSearchList = styled(SearchList)`
+  display: block;
+  text-align: left;
+  width: 100%;
   .results-message {
     padding: 15px 0;
     border-bottom: 1px solid ${props => props.theme.grayLight};

@@ -13,6 +13,8 @@ const FacetBlock = styled.div`
   }
 
   .list-group {
+    list-style:none;
+    margin-bottom: 2rem;
     .ds-c-choice+label:before {
       border-color: ${props => props.theme.borderColor};
       border-width: 1px;

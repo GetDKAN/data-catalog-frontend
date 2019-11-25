@@ -7,6 +7,9 @@ const LI = styled.li`
   width: 100%;
   position: relative;
   display: block;
+  input[type=checkbox] {
+    margin-right: 1rem;
+  }
 `;
 
 export default LI;

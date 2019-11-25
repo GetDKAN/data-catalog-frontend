@@ -1,0 +1,28 @@
+{
+    "data.austin.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/austin.png",
+        "intro": "Some text here"
+    },
+    "data.baltimore.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/baltimore.png",
+        "intro": "Some text here"
+    },
+    "data.chicago.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/chicago.png",
+        "intro": "Some text here"
+    },
+    "data.coralgables.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/coralgables.png",
+        "intro": "Some text here"
+    },
+    "data.honolulu.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/honolulu.png",
+        "intro": "Some text here"
+    },
+    "data.newyorkcity.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/newyork.png",
+        "intro": "Some text here"
+    }
+}
+
+  
