@@ -46,21 +46,25 @@ const GlobalStyles = createGlobalStyle`
       margin-bottom: 32px;
       background: #fff;
     }
-    .theme-wrapper {
-      margin-bottom: 10px;
-      display: flex;
-    }
     .item-theme {
-      border: none;
-      padding: 0;
+      margin-bottom: 10px;
+      display: block;
+      position: relative;
+      a {
+        color: ${defaultTheme.grayMedium};
+        padding: 0 20px 0 30px;
+        display: inline;
+      }
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        path {
+          fill: ${defaultTheme.grayMedium};
+        }
+      }
     }
-    .item-theme div,
-    .theme {
-      color: ${defaultTheme.grayMedium};
-      font-size: 1.2rem;
-      padding: 0 6px 0 25px;
-      display: inline;
-    }
+    
     .search-page .form-control {
       font-size: 1.6rem;
       margin-bottom: 10px;
@@ -153,6 +157,12 @@ const GlobalStyles = createGlobalStyle`
     }
     .ReactTable .rt-thead .rt-th.-sort-desc:before {
       content: '\\f063';
+    }
+
+    .search-facet-blocks {
+      button {
+        width: 100%;
+      }
     }
   
     @media screen and (max-width: 768px) {

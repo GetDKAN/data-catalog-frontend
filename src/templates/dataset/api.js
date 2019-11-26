@@ -25,7 +25,7 @@ class ApiDocsSpecific extends Component {
 
   async fetchData() {
     const id = this.props.pageContext.dataset.identifier;
-    const { data } = await backend.get("/metastore/schemas/dataset/items/" + id + "?show-reference-ids");
+    const { data } = await backend.get("/metastore/schemas/dataset/items/" + id + "/docs");
     const item = Object.assign(data);
 
     this.setState({
@@ -54,16 +54,15 @@ class ApiDocsSpecific extends Component {
             <div className="col-md-3 col-sm-12 p-5">
               <Organization name={orgName} image={orgImage} description={orgDesc} />
               <div className="block-wrapper">
-                Back to the <Link to={`dataset/${item.identifier}`}>dataset</Link>.
+                Back to the <Link to={`dataset/${this.props.pageContext.dataset.identifier}`}>dataset</Link>.
               </div>
             </div>
             <div className="results-list col-md-9 col-sm-12 p-5">
-              <Title title={item.title} />
+              <Title title={this.props.pageContext.dataset.title} />
               {this.state.window &&
               <Loader backgroundStyle={{backgroundColor: "#f9fafb"}} foregroundStyle={{backgroundColor: "#f9fafb"}} show={show} message={<LoadingSpin width={"3px"} primaryColor={"#007BBC"}/>}>
                 <ApiDocs
-                  endpoint={ process.env.GATSBY_API_URL + "/metastore/schemas/dataset/items/" + this.props.pageContext.dataset.identifier + "?show-reference-ids"}
-                  uuid={this.props.pageContext.dataset.identifier}
+                  endpoint={ process.env.GATSBY_API_URL + "/metastore/schemas/dataset/items/" + this.props.pageContext.dataset.identifier + "/docs"}
                 />
               </Loader>
               }

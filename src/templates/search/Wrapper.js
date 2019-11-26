@@ -7,6 +7,14 @@ const Wrapper = styled.div`
     border: 1px solid ${props => props.theme.borderColor};
     padding: 30px;
     margin-bottom: 25px;
+    .search-facet-blocks ol {
+      list-style: none;
+      margin-bottom: 1rem;
+      padding: 0;
+      li input {
+        margin-right: 1rem;
+      }
+    }
   }
 
   .search-sidebar-label {
@@ -31,9 +39,11 @@ const Wrapper = styled.div`
     margin: 1.6rem 0;
   }
 
-  .results-list,
-  .search-sidebar {
-    padding-top: 20px !important;
+  .results-list {
+    ol {
+      list-style: none;
+      padding: 0;
+    }
   }
 `;
 
