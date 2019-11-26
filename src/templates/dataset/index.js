@@ -5,7 +5,6 @@ import {
   Title,
   Text,
   Organization,
-  FileDownload,
   Table,
   Resource } from "@civicactions/data-catalog-components";
 import Layout from '../../components/Layout';
@@ -106,6 +105,7 @@ const Dataset = ({ pageContext: dataset, path }) => {
                   <Resource
                     key={dist.identifier}
                     identifier={item.identifier}
+                    datasetId={item.identifier}
                     data={dist}
                     rootUrl={process.env.DYNAMIC_API_URL}
                   />
