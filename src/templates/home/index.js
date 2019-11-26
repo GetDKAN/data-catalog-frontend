@@ -2,13 +2,13 @@ import React from "react";
 import { 
   Blocks,
   Hero,
+  IconList,
+  IconListItem,
   StatBlock } from "@civicactions/data-catalog-components";
-import IconList from "../../components/IconList";
-import IconListItem from "../../components/IconListItem";
 import Layout from '../../components/Layout';
 import FeaturedDatasets from '../../containers/FeaturedDatasets';
 import copy from '../../assets/copy.json';
-//
+
 const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
   const items = themes.map(x => {
     let item = {
