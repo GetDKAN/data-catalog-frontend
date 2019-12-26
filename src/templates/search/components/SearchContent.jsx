@@ -11,34 +11,36 @@ import Pagination from "react-js-pagination";
 import SearchContext from '../context/SearchContext';
 import StyledPagination from '../../../theme/pagination';
 
+import {
+  SearchDispatch,
+  defaultSearchState,
+  searchReducer,
+  getLunrSearch,
+  fetchSearchData,
+  setSearchURLParams,
+  buildInitialFacets,
+} from '@civicactions/data-catalog-components';
+
 const SearchContentArea = () => {
-  const {
-    facets,
-    isLoading,
-    items,
-    totalResults,
-    handlePageChange,
-    handlePageSize,
-    handleQuery,
-    searchParams,
-  } = useContext(SearchContext);
-  const facetTypes = useFacetTypes(facets.defaultFacets);
+  const {searchState, dispatch, defaultFacets} = useContext(SearchDispatch)
+  const { items, query, totalItems, selectedFacets } = searchState;
+  const facetTypes = useFacetTypes(defaultFacets);
   return(
     <div className="results-list col-md-8 col-sm-12 p-5">
-      {!isLoading &&
+      {/* {!isLoading && */}
         <>
           <SearchInput
-            onChangeFunction={(event) => handleQuery(event.target.value)}
-            onResetFunction={() => handleQuery('')}
+            onChangeFunction={((e) => dispatch({type: 'UPDATE_QUERY', data: {query: e.target.value}}))}
+            onResetFunction={() => dispatch({type: 'RESET_QUERY'})}
             showSubmit={false}
-            value={searchParams.query}
+            value={query}
             resetContent={'Clear text'}
           />
           <SearchResultsMessage
             facetTypes={facetTypes}
-            searchTerm={searchParams.query}
-            selectedFacets={facets.selectedFacets}
-            total={totalResults}
+            searchTerm={query}
+            selectedFacets={selectedFacets}
+            total={totalItems}
           />
           <ol>
             {items.map((item) => (
@@ -50,25 +52,25 @@ const SearchContentArea = () => {
           </ol>
           <StyledPagination className="pagination-container">
             <SearchPaginationResults
-              total={totalResults}
-              pageSize={searchParams.pageSize}
-              currentPage={parseInt(searchParams.page)}
+              total={totalItems}
+              pageSize={searchState.pageSize}
+              currentPage={parseInt(searchState.page)}
             />
             <SearchPageSizer
-              currentValue={parseInt(searchParams.pageSize)}
-              resizeFunc={(event) => handlePageSize(event.target.value)}
+              currentValue={parseInt(searchState.pageSize)}
+              resizeFunc={(e) => dispatch({type: "UPDATE_PAGE_SIZE", data: {pageSize: e.target.value}})}
             /> 
             <Pagination
               hideDisabled
-              activePage={searchParams.page}
-              itemsCountPerPage={searchParams.pageSize}
-              totalItemsCount={totalResults}
+              activePage={searchState.page}
+              itemsCountPerPage={searchState.pageSize}
+              totalItemsCount={totalItems}
               pageRangeDisplayed={5}
-              onChange={(event) => handlePageChange(parseInt(event))}
+              onChange={(event) => (dispatch({type: 'UPDATE_CURRENT_PAGE', data: {page: event}}))}
             />
           </StyledPagination>
         </>
-      }
+      {/* } */}
     </div>
   );
 }
