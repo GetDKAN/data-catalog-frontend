@@ -1,10 +1,10 @@
 import React from "react";
 import { Title } from "@civicactions/data-catalog-components";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Layout from "../components/Layout";
 import Wrapper from "../containers/page/Wrapper";
 
-const About = ({path}) => (
+const About = ({ path }) => (
   <Layout path={path} title="About">
     <Wrapper className="page container-fluid">
       <div className="section">
@@ -12,10 +12,16 @@ const About = ({path}) => (
         <div className="section-content">
           <div className="block">
             <p>This is the default state of the DKAN data catalog.</p>
-            <p>This tool helps create open data catalogs using React and other libraries.</p>
+            <p>
+              This tool helps create open data catalogs using React and other
+              libraries.
+            </p>
           </div>
           <div className="block info">
-            <p><FontAwesomeIcon icon="info-circle" color="#27AAE1"/> Update this about page before publishing. </p>
+            <p>
+              <FontAwesomeIcon icon="info-circle" color="#27AAE1" /> Update this
+              about page before publishing.{" "}
+            </p>
           </div>
         </div>
       </div>

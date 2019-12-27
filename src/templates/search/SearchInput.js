@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { TextField } from '@cmsgov/design-system-core';
+import styled from "styled-components";
+import { TextField } from "@cmsgov/design-system-core";
 
 const StyledSearchInput = styled(TextField)`
   width: 100%;

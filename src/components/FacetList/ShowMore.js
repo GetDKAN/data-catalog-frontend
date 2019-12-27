@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const ShowMore = styled.button`
   background: transparent;
@@ -14,4 +14,3 @@ const ShowMore = styled.button`
 `;
 
 export default ShowMore;
-

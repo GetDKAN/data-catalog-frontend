@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-import { SearchList } from '@civicactions/data-catalog-components';
-
+import styled from "styled-components";
+import { SearchList } from "@civicactions/data-catalog-components";
 
 const StyledSearchList = styled(SearchList)`
   .results-message {
@@ -14,8 +13,6 @@ const StyledSearchList = styled(SearchList)`
     padding: 0;
     width: 100%;
   }
-
-  
 `;
 
 export default StyledSearchList;

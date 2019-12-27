@@ -37,7 +37,7 @@ const Wrapper = styled.div`
     margin-left: 16px;
     margin-top: 0;
     background-color: ${props => props.theme.primaryDust};
-    border: 1px solid #BBDCF4;
+    border: 1px solid #bbdcf4;
     border-left-color: ${props => props.theme.primaryLight};
     border-left-width: 4px;
     padding: 20px 24px;

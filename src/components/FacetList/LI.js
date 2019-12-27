@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const LI = styled.li`
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 0;
   list-style-type: none;
   width: 100%;

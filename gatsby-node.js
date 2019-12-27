@@ -22,14 +22,13 @@ exports.createPages = async ({ actions: { createPage } }) => {
 
   createPage({
     path: `/search`,
-    component: path.resolve('./src/templates/search/index.jsx'),
-    context: { themes }
+    component: path.resolve('./src/templates/search/index.jsx')
   });
 
   datasets.map((dataset) => {
     createPage({
       path: `/dataset/${dataset.identifier}`,
-      component: path.resolve('./src/templates/dataset/index.js'),
+      component: path.resolve('./src/templates/dataset/index.jsx'),
       context: { dataset }
     })
 
@@ -39,28 +38,6 @@ exports.createPages = async ({ actions: { createPage } }) => {
       context: { dataset }
     })
   })
-
-  // await Promise.all(jsonData.map(data => {
-  //   return new Promise((resolve, reject) => {
-  //     axios.get(`http://dkan/api/v1/datastore/${data.identifier}?values=both`)
-  //     .then(function (response) {
-  //       // handle success
-  //       resolve(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       // handle error
-  //       resolve(data);
-  //     })
-  //   });
-  // }))
-  // .then(results => {
-  //   results.forEach((dataset) => {
-  //     createPage({
-       
-  //     });
-  
-  //   })
-  // })
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {

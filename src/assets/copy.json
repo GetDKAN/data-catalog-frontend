@@ -8,22 +8,22 @@
   ],
   "stats": [
     {
-        "content": "Dataset Downloads",
-        "title": "582k",
-        "icon": "fa fa-download",
-        "ref": "1"
+      "content": "Dataset Downloads",
+      "title": "582k",
+      "icon": "fa fa-download",
+      "ref": "1"
     },
     {
-        "content": "API Queries Run",
-        "title": "317k",
-        "icon": "fa fa-refresh",
-        "ref": "2"
+      "content": "API Queries Run",
+      "title": "317k",
+      "icon": "fa fa-refresh",
+      "ref": "2"
     },
     {
-        "content": "Total Datasets",
-        "title": "2.63k",
-        "icon": "fa fa-database",
-        "ref": "3"
+      "content": "Total Datasets",
+      "title": "2.63k",
+      "icon": "fa fa-database",
+      "ref": "3"
     }
   ],
   "api": [

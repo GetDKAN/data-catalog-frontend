@@ -61,7 +61,6 @@ export class file extends Datastore {
   ) {
     return new Promise((resolve, reject) => {
       this._fetch().then(data => {
-        console.log(data);
         data = this._query(data, query);
 
         if (count) {
