@@ -168,6 +168,7 @@ const Search = ({ path, location }) => {
               {items && (
                 <div className="row">
                   <SearchContent />
+                  <SearchSidebar />
                 </div>
               )}
             </Loader>

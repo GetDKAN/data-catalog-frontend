@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import SearchContext from "../context/SearchContext";
 import {
   SearchSort,
   SearchFacetBlocks
@@ -22,13 +21,7 @@ const SearchSidebar = () => {
   const { searchState, dispatch, totalFacetsList, defaultFacets } = useContext(
     SearchDispatch
   );
-  // const {
-  //   facets,
-  //   handleFacetChange,
-  //   handleSort,
-  //   isLoading,
-  //   searchParams
-  // } = useContext(SearchContext)
+
   return (
     <div className="search-sidebar col-md-4 col-sm-12 p-5">
       <div className="search-sidebar-options ds-u-radius">
@@ -41,12 +34,7 @@ const SearchSidebar = () => {
       </div>
       <div className="search-sidebar-options ds-u-radius">
         {/* {!isLoading && */}
-        <SearchFacetBlocks
-          facets={defaultFacets}
-          facetChangeFunc={e =>
-            dispatch(setSelectedFacets(e.target, searchState.selectedFacets))
-          }
-        />
+
         {/* } */}
       </div>
     </div>
@@ -54,3 +42,12 @@ const SearchSidebar = () => {
 };
 
 export default SearchSidebar;
+
+/*
+<SearchFacetBlocks
+          facets={defaultFacets}
+          facetChangeFunc={e =>
+            dispatch(setSelectedFacets(e.target, searchState.selectedFacets))
+          }
+        />
+*/
