@@ -15,7 +15,8 @@ const StyledPagination = styled.div`
     border-radius: 4px;
     li {
       display: inline;
-      a,span {
+      a,
+      span {
         position: relative;
         float: left;
         padding: 6px 12px;
@@ -35,31 +36,31 @@ const StyledPagination = styled.div`
       color: ${props => props.theme.primaryDark};
       background-color: #eee;
     }
-    li:first-child > a, 
+    li:first-child > a,
     li:first-child > span {
       margin-left: 0;
       border-bottom-left-radius: 4px;
       border-top-left-radius: 4px;
     }
-    li:last-child > a, 
+    li:last-child > a,
     li:last-child > span {
       margin-right: 0;
       border-bottom-right-radius: 4px;
       border-top-right-radius: 4px;
     }
-    li.disabled > a, 
+    li.disabled > a,
     li.disabled > a:focus,
-    li.disabled > a:hover, 
-    li.disabled > span, 
+    li.disabled > a:hover,
+    li.disabled > span,
     li.disabled > span:focus,
     li.disabled > span:hover {
       color: #777;
       background-color: #fff;
-      border-color:${props => props.theme.borderColor};
+      border-color: ${props => props.theme.borderColor};
       cursor: not-allowed;
     }
     li.active > a,
-    li.active > a:focus, 
+    li.active > a:focus,
     li.active > a:hover,
     li.active > span,
     li.active > span:focus,

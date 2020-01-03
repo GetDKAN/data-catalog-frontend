@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const FacetBlock = styled.div`
   padding: 20px 0;
@@ -13,7 +13,7 @@ const FacetBlock = styled.div`
   }
 
   .list-group {
-    .ds-c-choice+label:before {
+    .ds-c-choice + label:before {
       border-color: ${props => props.theme.borderColor};
       border-width: 1px;
     }

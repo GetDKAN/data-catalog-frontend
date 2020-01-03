@@ -1,9 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.div`
-
   .search-sidebar-options {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border: 1px solid ${props => props.theme.borderColor};
     padding: 30px;
     margin-bottom: 25px;

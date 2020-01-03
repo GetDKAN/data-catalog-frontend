@@ -30,15 +30,15 @@ function Tags(props) {
     }
   `;
 
-  const label = props.label ? <strong>{props.label}:</strong> : '';
-  const tags = props.tags.map((tag) => {
+  const label = props.label ? <strong>{props.label}:</strong> : "";
+  const tags = props.tags.map(tag => {
     const ref = `${props.path}${tag.data}`;
     return (
       <div className="tag" key={tag.identifier}>
         <Link to={ref}> {tag.data} </Link>
       </div>
     );
-  }, '<div></div>');
+  }, "<div></div>");
 
   return (
     <Wrapper className="tag-wrapper">

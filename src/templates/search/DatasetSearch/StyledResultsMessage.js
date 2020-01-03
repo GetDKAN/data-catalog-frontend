@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { SearchResultsMessage } from '@civicactions/data-catalog-components';
+import React from "react";
+import styled from "styled-components";
+import { SearchResultsMessage } from "@civicactions/data-catalog-components";
 
 const StyledResultsMessage = styled(SearchResultsMessage)`
   .search-results-facet-list {

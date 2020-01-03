@@ -40,7 +40,7 @@ export default styled.form`
     height: 48px;
     margin: 0;
     padding: 10px 0;
-    color: #FFFFFF;
+    color: #ffffff;
     width: 100px;
     svg {
       padding-top: 3px;
