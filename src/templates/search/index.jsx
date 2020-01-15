@@ -61,7 +61,28 @@ const Search = ({ path, location }) => {
 
   // Initialize the useReducer hook using the imported searchState and reducer.
   const [searchState, dispatch] = useReducer(searchReducer, defaultSearchState);
-  const { loading, items, searchURL } = searchState;
+  const { loading, items, searchURL, query, page, pageSize } = searchState;
+
+  // Fetch data on mount and when query changes.
+  useEffect(() => {
+    const promise = getData(query, page, pageSize);
+    promise.then((items) => {
+      dispatch({
+        type: 'GET_SEARCH_DATA',
+        data: {
+          totalItems: 10,
+          items: items,
+          facetsResults: {}
+        }});
+    });
+
+  }, [query, page, pageSize]);
+
+  async function getData(query, page, pageSize) {
+    const axios = require('axios').default;
+    const response = await axios.get(`${process.env.GATSBY_API_URL}/search?fulltext=` + query +"&page=" + page + "&pageSize=" + pageSize);
+    return response.data;
+  }
 
   // This useEffect hook contains only the functions we want to run
   // when the component is mounted. It won't run on subsequent rerenders.
@@ -83,61 +104,6 @@ const Search = ({ path, location }) => {
     }
     getSearchEngine();
   }, [location]);
-
-  // This useEffect hook will run when the component mounts, but will also run
-  // when any of the searchState values change, causing the component to rerender.
-  useEffect(() => {
-    // Sets loading to true
-    dispatch({ type: "FETCH_DATA" });
-    // This is needed to get a complete list of facets for the radio buttons.
-    // If there are any parameters in the url bar, it would be the complete list,
-    // so there is a default set of the searchParams to send to the Lunr endpoint.
-    if (totalFacetsList === null && searchState.searchEngine !== null) {
-      async function getAllFacets() {
-        const fullSearchParams = {
-          page: 1,
-          pageSize: 20,
-          query: "",
-          sort: "alpha",
-          selectedFacets: [],
-          searchEngine: searchState.searchEngine
-        };
-        const results = await fetchSearchData(fullSearchParams);
-        await setTotalFacetsList(results.data.facetsResults);
-      }
-      getAllFacets();
-    }
-    // This will fire on the initial mounting of the component,
-    // but it won't do anything until after the searchEngine is set.
-    if (searchState.searchEngine !== null) {
-      async function getSearchItems() {
-        // Build a small object of just the search parameters.
-        // Using searchState as a dependency of this useEffect,
-        // will cause an inifite loop.
-        const searchParams = {
-          sort: searchState.sort,
-          page: searchState.page,
-          pageSize: searchState.pageSize,
-          query: searchState.query,
-          selectedFacets: searchState.selectedFacets,
-          searchEngine: searchState.searchEngine
-        };
-        dispatch(await fetchSearchData(searchParams, normalizeItems));
-        // After searching, update url with new parameters.
-        dispatch(setSearchURLParams(path, defaultFacets, searchParams));
-      }
-      getSearchItems();
-    }
-  }, [
-    path,
-    totalFacetsList,
-    searchState.searchEngine,
-    searchState.query,
-    searchState.sort,
-    searchState.pageSize,
-    searchState.page,
-    searchState.selectedFacets
-  ]);
 
   // This one can probably be grouped in another useEffect hook,
   // but it also made since to just leave it here since it is doing
