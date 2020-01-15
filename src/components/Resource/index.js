@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import {FileDownload} from "@civicactions/data-catalog-components";
 import DatatableHeader from "./DatatableHeader";
 import {
   DataTable,
@@ -13,6 +14,7 @@ import {
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
+  const format = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('format') ? resource.data.format : 'unknown';
   const rootURL = `${process.env.DYNAMIC_API_URL}/`;
   const [resourceState, dispatch] = React.useReducer(
     resourceReducer,
@@ -59,7 +61,10 @@ const Resource = ({ resource, identifier }) => {
   );
   return (
     <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
-      {resourceState.values && (
+
+      <FileDownload label={resource.data.downloadURL} format={format} downloadUrl={resource.data.downloadURL} />
+
+      {resourceState.values && format === 'csv' && (
         <div>
           <DatatableHeader />
           <DataTable
@@ -88,6 +93,7 @@ const Resource = ({ resource, identifier }) => {
           />
         </div>
       )}
+
     </ResourceDispatch.Provider>
   );
 };
