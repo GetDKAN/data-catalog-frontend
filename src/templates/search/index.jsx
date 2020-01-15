@@ -13,8 +13,6 @@ import {
   defaultSearchState,
   searchReducer,
   getLunrSearch,
-  fetchSearchData,
-  setSearchURLParams,
   buildInitialFacets
 } from "@civicactions/data-catalog-components";
 
@@ -67,11 +65,12 @@ const Search = ({ path, location }) => {
   useEffect(() => {
     const promise = getData(query, page, pageSize);
     promise.then((items) => {
+      const normalItems = normalizeItems(items);
       dispatch({
         type: 'GET_SEARCH_DATA',
         data: {
           totalItems: 10,
-          items: items,
+          items: normalItems,
           facetsResults: {}
         }});
     });
