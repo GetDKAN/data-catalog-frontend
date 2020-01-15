@@ -64,12 +64,12 @@ const Search = ({ path, location }) => {
   // Fetch data on mount and when query changes.
   useEffect(() => {
     const promise = getData(query, page, pageSize);
-    promise.then((items) => {
-      const normalItems = normalizeItems(items);
+    promise.then((info) => {
+      const normalItems = normalizeItems(info.results);
       dispatch({
         type: 'GET_SEARCH_DATA',
         data: {
-          totalItems: 10,
+          totalItems: info.total,
           items: normalItems,
           facetsResults: {}
         }});
