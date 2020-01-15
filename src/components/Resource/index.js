@@ -14,7 +14,6 @@ import {
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
-  console.log(resource);
   const format = resource.hasOwnProperty('data') && resource.data.hasOwnProperty('format') ? resource.data.format : 'unknown';
   const rootURL = `${process.env.DYNAMIC_API_URL}/`;
   const [resourceState, dispatch] = React.useReducer(
