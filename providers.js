@@ -6,6 +6,8 @@ import "@cmsgov/design-system-core/dist/index.css";
 import Theme from './src/theme/default'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './src/theme/globalStyles';
+import "./src/theme/dataset.scss";
+import "./src/theme/blocks.scss";
 
 export default ({ element }) => {
   setDefaultBreakpoints([

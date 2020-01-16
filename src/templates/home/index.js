@@ -1,41 +1,31 @@
 import React from "react";
-import {
-  Blocks,
-  Hero,
-  IconList,
-  IconListItem,
-  StatBlock
-} from "@civicactions/data-catalog-components";
+import Blocks from "../../components/Blocks";
+import Hero from '../../components/Hero';
+import image from '../../assets/images/hero.png';
 import Layout from "../../components/Layout";
-import FeaturedDatasets from "../../containers/FeaturedDatasets";
 import copy from "../../assets/copy.json";
 
-const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
-  const items = themes.map(x => {
-    let item = {
-      identifier: x.identifier,
-      ref: `search?Topics=${x.data}`,
-      title: x.data,
-      size: "100"
-    };
-    return item;
-  });
+const Home = ({ path }) => {
   return (
     <Layout path={path} title="Home">
       <div className="home-page">
-        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} />
-        <IconList
-          items={items}
-          component={IconListItem}
-          paneTitle="Dataset Topics"
-          className="opendata-icon-list"
+        <Hero 
+          title={copy.hero[0].title} 
+          intro={copy.hero[0].intro} 
+          image={image}
         />
-        <Blocks
-          items={copy.stats}
-          component={StatBlock}
-          className="StatBlock"
+        <Blocks 
+          items={copy.how} 
+          paneTitle="How it works" 
+          className="container block-container how 4-col" 
         />
-        <FeaturedDatasets datasets={featuredDatasets} />
+        <div className="block-container-fluid">
+          <Blocks 
+            items={copy.what} 
+            paneTitle="What's trending" 
+            className="container block-container what 4-col" 
+          />
+        </div>
       </div>
     </Layout>
   );

@@ -1,0 +1,68 @@
+{
+    "data.austintexas.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/austin.jpeg",
+        "intro": "We encourage the use of public data that the City of Austin has published to spark innovation, promote public collaboration, increase government transparency, and inform decision making."
+    },
+    "City of Tempe": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/tempe.png",
+        "intro": "Access and download datasets about the City of Tempe whenever you want without the need for a public records request. No private information is used in these datasets. Tempe will continue to protect resident privacy, confidentiality, and security."
+    },
+    "data.cityofchicago.org": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/chicago.png",
+        "intro": "Some text here"
+    },
+    "Gables GIS": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/coralgables.png",
+        "intro": "Delivering Value, Transparency, Mobility, Business Intelligence, and Tools for Citizen Engagement"
+    },
+    "data.honolulu.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/honolulu.png"
+    },
+    "data.cityofnewyork.us": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/newyork.png"
+    },
+    "data.seattle.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/seattle.png"
+    },
+    "City of Aurora, Colorado Maps": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/aurora.png"
+    },
+    "data.brla.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/batonrouge.jpg"
+    },
+    "Bexar County": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/bexar.png"
+    },
+    "Boulder County": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/bouldercounty.png"
+    },
+    "Campbell County, Virginia": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/campbell.gif"
+    },
+    "Clay County, MN": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/claycounty.png"
+    },
+    "City of Detroit": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/detroit.png"
+    },
+    "County of Santa Clara": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/santaclara.png"
+    },
+    "City of Sacramento": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/sacramento.png"
+    },
+    "data.richmondgov.com": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/richmond.png"
+    },
+    "data.redmond.gov": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/redmond.png"
+    },
+    "City of Perrysburg": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/perrysburg.png"
+    },
+    "City of Tampa": {
+        "image": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/tampa.png"
+    }
+}
+
+  

@@ -3,14 +3,15 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   align-content: stretch;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: baseline;
   justify-content: space-between;
   margin-bottom: 16px;
   font-size: 1.4rem;
   .page-size-options {
+
     label.ds-c-label {
       display: inline-block;
       margin: 0 5px 0 0;
@@ -18,13 +19,15 @@ const Wrapper = styled.div`
     }
     select.ds-c-field {
       display: inline-block;
-      width: 150px;
+      max-width: 80px;
+      width: 80px;
     }
   }
   .density-buttons {
     display: inline-block;
-    button {
+    button[type="button"] {
       padding: 6px;
+      margin: 2px;
       border: 1px solid ${props => props.theme.grayLight};
       background: white;
       &:first-of-type {
@@ -34,6 +37,7 @@ const Wrapper = styled.div`
   }
 
   .data-table-results {
+    min-width: 170px;
     p {
       margin-bottom: 0;
     }
@@ -59,11 +63,14 @@ const Wrapper = styled.div`
   .table-controls {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     width: 85%;
   }
   .fullscreen-button {
     border: none;
+    background-color: transparent;
+    height: 40px;
+    vertical-align: middle;
   }
 `;
 

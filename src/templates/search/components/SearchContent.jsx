@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 
 import Pagination from "react-js-pagination";
 import StyledPagination from "../../../theme/pagination";
-
+import SearchListItem from "../../../components/SearchListItem";
 import {
   SearchResultsMessage,
-  SearchListItem,
+  //SearchListItem,
   SearchInput,
   SearchPaginationResults,
   SearchPageSizer,
@@ -19,7 +19,7 @@ const SearchContentArea = () => {
   const facetTypes = useFacetTypes(defaultFacets);
 
   return (
-    <div className="results-list col-md-8 col-sm-12 p-5">
+    <div className="results-list col-md-8 col-sm-12">
       <SearchInput
         onChangeFunction={e =>
           dispatch({ type: "UPDATE_QUERY", data: { query: e.target.value } })

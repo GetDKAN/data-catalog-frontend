@@ -1,23 +1,23 @@
 {
   "main": [
     {
-      "label": "Home",
-      "url": "/",
-      "target": "_top"
-    },
-    {
-      "label": "Datasets",
+      "label": "Data",
       "url": "/search",
       "target": "_top"
     },
     {
-      "label": "Publishers",
-      "url": "/groups",
+      "label": "Network",
+      "url": "/",
       "target": "_top"
     },
     {
-      "label": "About",
-      "url": "/about",
+      "label": "Analytics",
+      "url": "/",
+      "target": "_top"
+    },
+    {
+      "label": "Maps",
+      "url": "/",
       "target": "_top"
     },
     {
@@ -28,44 +28,32 @@
   ],
   "footer1": [
     {
-      "label": "DKAN2 Docs",
-      "url": "https://dkan2.readthedocs.io/en/latest/",
+      "label": "About us",
+      "url": "/about"
+    },
+    {
+      "label": "Development partner",
+      "url": "https://civicactions.com"
+    },
+    {
+      "label": "Terms of use",
+      "url": "https://icma.org/terms-use",
       "target": "_blank"
     },
     {
-      "label": "DKAN 7 Demo",
-      "url": "https://demo.getdkan.com",
+      "label": "Privacy notice",
+      "url": "https://icma.org/privacy-policy",
       "target": "_blank"
-    },
-    {
-      "label": "CivicActions",
-      "url": "https://civicactions.com",
-      "target": "_blank"
-    },
-    {
-      "label": "Data.gov",
-      "url": "https://data.gov"
     }
   ],
   "footer2": [
     {
-      "label": "Project Open Data",
-      "url": "https://project-open-data.cio.gov"
+      "label": "Contact us",
+      "url": "/"
     },
     {
-      "label": "DCAT",
-      "url": "https://www.w3.org/TR/vocab-dcat/",
-      "target": "_blank"
-    },
-    {
-      "label": "Drupal",
-      "url": "Drupal.org",
-      "target": "_blank"
-    },
-    {
-      "label": "Open Source Open Data",
-      "url": "http://opensourceopendata.org",
-      "target": "_blank"
+      "label": "Request a live demo",
+      "url": "/"
     }
   ]
 }

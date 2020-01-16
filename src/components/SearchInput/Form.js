@@ -40,7 +40,7 @@ export default styled.form`
     height: 48px;
     margin: 0;
     padding: 10px 0;
-    color: #ffffff;
+    color: #FFFFFF;
     width: 100px;
     svg {
       padding-top: 3px;
@@ -50,11 +50,8 @@ export default styled.form`
       }
     }
     &:hover {
-      background-color: white;
-      color: purple;
-      svg path {
-        fill: purple;
-      }
+      background-color: ${(props) => props.theme.linkHoverColor};
+      border-color: ${(props) => props.theme.linkHoverColor}
     }
   }
 

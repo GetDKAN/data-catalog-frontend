@@ -9,6 +9,7 @@ import {
 } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
 import backend from "../../services/backend";
+import logos from '../../assets/publishers.json';
 
 class ApiDocsSpecific extends Component {
   state = {
@@ -45,18 +46,11 @@ class ApiDocsSpecific extends Component {
 
   render() {
     const { item, show } = this.state;
-    const orgName =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.name
-        : "";
-    const orgImage =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.image
-        : "";
-    const orgDesc =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.description
-        : "";
+    
+    const orgName = 'publisher' in item && item.publisher ? item.publisher.name : "";
+    const orgImage = orgName && logos[orgName] ? logos[orgName].image : "https://s3.amazonaws.com/dkan-default-content-files/files/group.png";
+    const orgDesc = orgName && logos[orgName] ? logos[orgName].intro : "";
+
 
     return (
       <Layout path={this.props.path} title={item.title}>

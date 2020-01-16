@@ -6,6 +6,7 @@ module.exports = {
     author: `https://github.com/GetDKAN`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {

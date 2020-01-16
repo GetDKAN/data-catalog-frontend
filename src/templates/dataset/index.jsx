@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import Tags from "../../components/Tags";
 import TopicImage from "../../components/TopicImage";
 import Resource from "../../components/Resource";
+import logos from '../../assets/publishers.json';
 
 import {
   Title,
@@ -15,7 +16,6 @@ import {
 const Dataset = props => {
   const item = props.pageContext.dataset;
   const path = props.path;
-
   const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
@@ -24,14 +24,10 @@ const Dataset = props => {
     }
   }, []);
 
-  const orgName =
-    "publisher" in item && item.publisher ? item.publisher.data.name : "";
-  const orgImage =
-    "publisher" in item && item.publisher ? item.publisher.data.image : "";
-  const orgDesc =
-    "publisher" in item && item.publisher
-      ? item.publisher.data.description
-      : "";
+  const orgName = 'publisher' in item && item.publisher && item.publisher.name ? item.publisher.name : "";
+  const orgImage = orgName && logos[orgName] ? logos[orgName].image : "https://s3.amazonaws.com/dkan-default-content-files/files/group.png";
+  const orgDesc = orgName && logos[orgName] ? logos[orgName].intro : "";
+
   const tag = "keyword" in item ? item.keyword : [];
   const theme = "theme" in item ? item.theme : [];
   const columns = "columns" in item ? item.columns : [];
@@ -43,11 +39,11 @@ const Dataset = props => {
       return theme.map(topic => {
         return (
           <Link
-            key={`dist-${topic.identifier}-${Math.random() * 10}`}
-            to={"search?topics=" + topic.data}
+            key={`dist-${topic}-${Math.random() * 10}`}
+            to={"search?Topics=" + topic}
           >
-            <TopicImage title={topic.data} height="16" width="16" />
-            {topic.data}
+            <TopicImage title={topic} height="16" width="16" />
+            {topic}
           </Link>
         );
       });
@@ -106,9 +102,9 @@ const Dataset = props => {
 
   return (
     <Layout path={path} title={item.title}>
-      <div className="dataset-page container-fluid">
+      <div className="dataset-page container">
         <div className="row">
-          <div className="col-md-3 col-sm-12 p-5">
+          <div className="col-md-3 col-sm-12">
             <Organization
               name={orgName}
               imageUrl={orgImage}
@@ -119,7 +115,7 @@ const Dataset = props => {
               <Link to={`dataset/${item.identifier}/api`}>API</Link>.
             </div>
           </div>
-          <div className="results-list col-md-9 col-sm-12 p-5">
+          <div className="results-list col-md-9 col-sm-12">
             <Title title={item.title} />
             {theme && <div className="item-theme">{themes(theme)}</div>}
             <Text value={item.description} />

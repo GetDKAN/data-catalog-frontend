@@ -12,7 +12,6 @@ import {
   SearchDispatch,
   defaultSearchState,
   searchReducer,
-  getLunrSearch,
   buildInitialFacets
 } from "@civicactions/data-catalog-components";
 
@@ -79,7 +78,7 @@ const Search = ({ path, location }) => {
 
   async function getData(query, page, pageSize) {
     const axios = require('axios').default;
-    const response = await axios.get(`${process.env.GATSBY_API_URL}/search?fulltext=` + query +"&page=" + page + "&pageSize=" + pageSize);
+    const response = await axios.get(`${process.env.DYNAMIC_API_URL}/search?fulltext=` + query +"&page=" + page + "&pageSize=" + pageSize);
     return response.data;
   }
 
@@ -93,15 +92,15 @@ const Search = ({ path, location }) => {
     }
     dispatch({ type: "FETCH_DATA" });
     dispatch(buildInitialFacets(initialParams, defaultFacets));
-    async function getSearchEngine() {
-      dispatch(
-        await getLunrSearch(
-          `${process.env.DYNAMIC_API_URL}/lunr/search-index.json`,
-          defaultFacets
-        )
-      );
-    }
-    getSearchEngine();
+    // async function getSearchEngine() {
+    //   dispatch(
+    //     await getLunrSearch(
+    //       `${process.env.DYNAMIC_API_URL}/lunr/search-index.json`,
+    //       defaultFacets
+    //     )
+    //   );
+    // }
+    // getSearchEngine();
   }, [location]);
 
   // This one can probably be grouped in another useEffect hook,
@@ -115,10 +114,8 @@ const Search = ({ path, location }) => {
 
   return (
     <Layout path={path} title="Search">
-      <Wrapper className="search-page containter-fluid m-5">
-        <div className="row">
-          <PageHeader title="Datasets" />
-        </div>
+      <Wrapper className="search-page container">
+        <h1>Datasets</h1>
         <SearchDispatch.Provider
           value={{ searchState, dispatch, totalFacetsList, defaultFacets }}
         >

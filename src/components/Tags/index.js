@@ -32,10 +32,10 @@ function Tags(props) {
 
   const label = props.label ? <strong>{props.label}:</strong> : "";
   const tags = props.tags.map(tag => {
-    const ref = `${props.path}${tag.data}`;
+    const ref = `${props.path}${tag}`;
     return (
-      <div className="tag" key={tag.identifier}>
-        <Link to={ref}> {tag.data} </Link>
+      <div className="tag" key={tag}>
+        <Link to={ref}> {tag} </Link>
       </div>
     );
   }, "<div></div>");

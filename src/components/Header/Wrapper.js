@@ -14,7 +14,7 @@ const Wrapper = styled.div`
       padding-bottom: 4px;
       &:focus,
       &:hover {
-        border-bottom: 1px dotted #323a45;
+        border-bottom: 1px dotted #323A45;
       }
     }
   }
@@ -34,9 +34,9 @@ const Wrapper = styled.div`
   .dkan-text-container {
     display: inline-block;
     font-size: 18px;
-    font-family: "Muli", Arial, sans-serif;
+    font-family: 'Muli',Arial,sans-serif;
     padding: 28px 0 0 20px;
-    color: #6f757c;
+    color: #6F757C;
   }
   .header-menu {
     text-align: right;
@@ -71,7 +71,7 @@ const Wrapper = styled.div`
     }
     .dkan-link-container a {
       display: inline-block;
-      margin: 20px 0 0 0;
+      margin:20px 0 0 0;
       border-bottom: 1px solid white;
     }
     ul.header-menu {
@@ -81,8 +81,7 @@ const Wrapper = styled.div`
       padding: 0;
       text-align: center;
     }
-    a,
-    img {
+    a, img {
       max-width: 100%;
     }
   }

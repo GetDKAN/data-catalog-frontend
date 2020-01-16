@@ -23,7 +23,7 @@ const SearchSidebar = () => {
   );
 
   return (
-    <div className="search-sidebar col-md-4 col-sm-12 p-5">
+    <div className="search-sidebar col-md-4 col-sm-12">
       <div className="search-sidebar-options ds-u-radius">
         <SearchSort
           sortFunc={e =>

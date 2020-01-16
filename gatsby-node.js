@@ -5,19 +5,12 @@ const path = require('path');
 const axios = require('axios');
 
 exports.createPages = async ({ actions: { createPage } }) => {
-  const { data: themes } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/theme/items`);
-  const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items?show-reference-ids`);
 
-  let featuredDatasets = datasets.sort(function(a,b) {
-    return a.title - b.title;
-  });
-
-  featuredDatasets = featuredDatasets.length > 3 ? featuredDatasets.slice(featuredDatasets.length -3, featuredDatasets.length) : featuredDatasets;
+  const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items`);
 
   createPage({
     path: `/`,
     component: path.resolve('./src/templates/home/index.js'),
-    context: { themes, featuredDatasets }
   });
 
   createPage({

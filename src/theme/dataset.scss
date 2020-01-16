@@ -1,0 +1,47 @@
+.resource-table-header  {
+    position: relative;
+    margin-top: 40px;
+    &:before {
+        content: "Data Preview:";
+        font-weight: bold;
+        font-size: 2.0rem;
+        position: absolute;
+        top: -30px;
+    }
+}
+
+.ReactTable .rt-thead .rt-th.-sort-asc,
+.ReactTable .rt-thead .rt-th.-sort-desc {
+    position: relative;
+    padding-right: 20px;
+    box-shadow: none;
+}
+.ReactTable .rt-thead .rt-th.-sort-asc:before,
+.ReactTable .rt-thead .rt-th.-sort-desc:before {
+    font-family: FontAwesome;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+}
+.ReactTable .rt-thead .rt-th.-sort-asc:before {
+    content: '\f062';
+}
+.ReactTable .rt-thead .rt-th.-sort-desc:before {
+    content: '\f063';
+}
+.dataset-page .tag-wrapper .tag {
+    &:first-of-type {
+        margin-left: 0;
+    }
+    a {
+        border-radius: 0;
+        border-color: transparent;
+        background-color: #2BBFFF;
+        color: white;
+        &:hover,
+        &:focus {
+            background-color: #0B3242;
+            color: white;
+        }
+    }
+}
