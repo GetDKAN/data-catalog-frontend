@@ -1,41 +1,49 @@
 import React, { useContext } from "react";
-import {
-  SearchSort,
-  SearchFacetBlocks
-} from "@civicactions/data-catalog-components";
+import { Label, Input } from 'reactstrap';
 
-import {
-  SearchDispatch,
-  defaultSearchState,
-  searchReducer,
-  getLunrSearch,
-  fetchSearchData,
-  setSearchURLParams,
-  buildInitialFacets,
-  setSelectedFacets,
-  resetSelectedFacets,
-  filterFacets
-} from "@civicactions/data-catalog-components";
+import { SearchFacets, SearchDispatch } from "@civicactions/data-catalog-components";
+import { sortOptions } from '../../../config/search';
 
 const SearchSidebar = () => {
-  const { searchState, dispatch, totalFacetsList, defaultFacets } = useContext(
-    SearchDispatch
-  );
-
+  const {
+    searchState, dispatch, defaultFacets
+  } = useContext(SearchDispatch);
+  const {
+    facetsResults, selectedFacets, totalItems, fulltext
+  } = searchState;
   return (
     <div className="search-sidebar col-md-4 col-sm-12 p-5">
       <div className="search-sidebar-options ds-u-radius">
-        <SearchSort
-          sortFunc={e =>
-            dispatch({ type: "UPDATE_SORT", data: { sort: e.target.value } })
-          }
-          currentValue={searchState.sort}
-        />
+        <Label for="search-list-sort">Sort by:</Label>
+        <Input
+          type="select"
+          name="search-list-sort"
+          id="search-list-sort"
+          onChange={(e) => {dispatch({type: 'UPDATE_SORT', data: {sort: e.target.value}});}}
+        >
+          {sortOptions.map((sortOpt) => (
+            <option
+              key={sortOpt.field}
+              value={sortOpt.field}
+            >
+              {sortOpt.label}
+            </option>
+          ))}
+        </Input>
       </div>
       <div className="search-sidebar-options ds-u-radius">
-        {/* {!isLoading && */}
-
-        {/* } */}
+        {facetsResults && facetsResults.length
+          && (
+            <SearchFacets
+              defaultFacets={defaultFacets}
+              toggleClasses="ds-c-label"
+              facetsResults={facetsResults}
+              selectedFacets={selectedFacets}
+              dispatch={dispatch}
+              totalItems={totalItems}
+              fulltext={fulltext}
+            />
+          )}
       </div>
     </div>
   );
