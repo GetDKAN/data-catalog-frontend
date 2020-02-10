@@ -1,18 +1,13 @@
 import React from 'react';
 import Layout from '../../components/Layout';
-import Wrapper from './Wrapper';
-import SearchContent from './components/SearchContent';
-import SearchSidebar from './components/SearchSidebar';
-
 import { defaultFacets, normalizeItems, sortOptions } from '../../config/search';
-
-import { Search, PageHeader } from "@civicactions/data-catalog-components";
+import { Search, PageHeader, SearchSidebar, SearchContent } from "@civicactions/data-catalog-components";
+import './search.scss';
 
 const SearchTemplate = ({path, location}) => {
-
   return (
     <Layout path={path} title="Search">
-      <Wrapper className="search-page containter-fluid m-5">
+      <div className="dc-search-page containter-fluid m-5">
         <div className="row">
           <PageHeader title="Datasets" />
         </div>
@@ -30,7 +25,7 @@ const SearchTemplate = ({path, location}) => {
             <SearchSidebar />
           </div>
         </Search>
-      </Wrapper>
+      </div>
     </Layout>
   );
 }

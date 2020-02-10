@@ -1,0 +1,59 @@
+.dc-search-page {
+  .search-sidebar-options {
+    background-color: #ffffff;
+    // border: 1px solid ${props => props.theme.borderColor};
+    padding: 30px;
+    margin-bottom: 25px;
+    .search-facet-blocks ol {
+      list-style: none;
+      margin-bottom: 1rem;
+      padding: 0;
+      li input {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .search-sidebar-label {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .results-message {
+    margin: 1.6rem 0;
+  }
+
+  .results-list {
+    ol {
+      list-style: none;
+      padding: 0;
+    }
+  }
+
+  .search-results-facet-list {
+    font-weight: 700;
+  }
+
+  .search-results-query {
+    font-weight: 700;
+  }
+
+  .combined-facets {
+    background: #000000;
+    color: #ffffff;
+    padding: 0 4px;
+    border-radius: 3px;
+  }
+
+  .results-message {
+    padding: 15px 0;
+    // border-bottom: 1px solid ${props => props.theme.grayLight};
+  }
+
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
