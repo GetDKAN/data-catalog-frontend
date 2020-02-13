@@ -2,7 +2,7 @@ import React from "react";
 import { BreakpointProvider, setDefaultBreakpoints } from 'react-socks';
 
 import "@cmsgov/design-system-core/dist/index.css";
-
+import '@civicactions/data-catalog-components/dist/index.css';
 import Theme from './src/theme/default'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './src/theme/globalStyles';

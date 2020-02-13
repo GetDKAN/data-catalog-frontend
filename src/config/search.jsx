@@ -25,7 +25,11 @@ export const defaultFacets = {
 }
 
 export function normalizeItems(resultItems) {
-  return resultItems.map(x => {
+  let nItems = resultItems;
+  if (!Array.isArray(nItems)) {
+    nItems = Object.values(nItems);
+  }
+  return nItems.map((x) => {
     let item = {};
     item = {
       identifier: x.identifier,
