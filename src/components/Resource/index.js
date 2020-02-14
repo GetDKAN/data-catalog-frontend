@@ -13,6 +13,14 @@ import {
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
+    // File Format.
+    const type = resource.hasOwnProperty('mediaType') ? resource.mediaType.split('/') : '';
+    const backup = type ? type[1] : 'unknown';
+    const format = resource.hasOwnProperty('format') ? resource.format : backup;
+    // File Url.
+    const accessURL = resource.hasOwnProperty('accessURL') ? resource.accessURL : '';
+    const fileURL = resource.hasOwnProperty('downloadURL') ? resource.downloadURL : accessURL;
+    const title = resource.hasOwnProperty('title') ? resource.title : format;
   const rootURL = `${process.env.DYNAMIC_API_URL}/`;
   const [resourceState, dispatch] = React.useReducer(
     resourceReducer,
@@ -22,7 +30,7 @@ const Resource = ({ resource, identifier }) => {
   useEffect(() => {
     async function getStore() {
       if (resourceState.storeType === null) {
-        dispatch(await getFileDatastore(resource.data.downloadURL));
+        dispatch(await getFileDatastore(fileURL));
       } else {
         dispatch(await getDKANDatastore(rootURL, resource));
       }
@@ -57,9 +65,14 @@ const Resource = ({ resource, identifier }) => {
   const pages = Math.ceil(
     parseInt(resourceState.rowsTotal, 10) / resourceState.pageSize
   );
+  const preview = ["csv", "CSV", "text/csv"];
+
   return (
     <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
-      {resourceState.values && (
+
+      <FileDownload label={title} format={format} downloadURL={fileURL} />
+
+      {resourceState.values && preview.includes(format) && (
         <div>
           <DatatableHeader />
           <DataTable
