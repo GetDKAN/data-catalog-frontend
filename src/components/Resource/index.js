@@ -9,7 +9,8 @@ import {
   queryAllResourceData,
   getDKANDatastore,
   advancedColumns,
-  getFileDatastore
+  getFileDatastore,
+  FileDownload
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
