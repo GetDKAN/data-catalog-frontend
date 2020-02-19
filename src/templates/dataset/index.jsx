@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
-import Layout from "../../components/Layout";
-import Tags from "../../components/Tags";
-import TopicImage from "../../components/TopicImage";
-import Resource from "../../components/Resource";
-
+import React, { useEffect, useState, useContext } from 'react';
+import { Link } from 'gatsby';
 import {
+  DynamicContext,
   Title,
   Text,
   Organization,
   Table
 } from "@civicactions/data-catalog-components";
+import Tags from '../../components/Tags';
+import TopicImage from '../../components/TopicImage';
+import Resource from '../../components/Resource';
 
-const Dataset = props => {
-  const item = props.pageContext.dataset;
-  const path = props.path;
+const Dataset = () => {
+  const { item } = useContext(DynamicContext)
 
   const [hasWindow, checkForWindow] = useState(false);
 
@@ -105,46 +103,44 @@ const Dataset = props => {
   }
 
   return (
-    <Layout path={path} title={item.title}>
-      <div className="dataset-page container-fluid">
-        <div className="row">
-          <div className="col-md-3 col-sm-12 p-5">
-            <Organization
-              name={orgName}
-              imageUrl={orgImage}
-              description={orgDesc}
-            />
-            <div className="block-wrapper">
-              The information on this page is also available via the{" "}
-              <Link to={`dataset/${item.identifier}/api`}>API</Link>.
-            </div>
-          </div>
-          <div className="results-list col-md-9 col-sm-12 p-5">
-            <Title title={item.title} />
-            {theme && <div className="item-theme">{themes(theme)}</div>}
-            <Text value={item.description} />
-            {hasWindow &&
-              item.distribution.map(dist => {
-                return <Resource resource={dist} identifier={1} />;
-              })}
-            <Tags tags={tag} path="/search?keyword=" />
-            <Table
-              configuration={labelsT2}
-              data={valuesT2}
-              title="Columns in this Dataset"
-              th1="Column Name"
-              th2="Type"
-              tableclass="table-two"
-            />
-            <Table
-              configuration={labelsT3}
-              data={valuesT3}
-              tableclass="table-three"
-            />
+    <div className="dataset-page container-fluid">
+      <div className="row">
+        <div className="col-md-3 col-sm-12 p-5">
+          <Organization
+            name={orgName}
+            imageUrl={orgImage}
+            description={orgDesc}
+          />
+          <div className="block-wrapper">
+            The information on this page is also available via the{" "}
+            <Link to={`dataset/${item.identifier}/api`}>API</Link>.
           </div>
         </div>
+        <div className="results-list col-md-9 col-sm-12 p-5">
+          <Title title={item.title} />
+          {theme && <div className="item-theme">{themes(theme)}</div>}
+          <Text value={item.description} />
+          {(hasWindow && item.distribution) &&
+            item.distribution.map(dist => {
+              return <Resource resource={dist} identifier={1} />;
+            })}
+          <Tags tags={tag} path="/search?keyword=" />
+          <Table
+            configuration={labelsT2}
+            data={valuesT2}
+            title="Columns in this Dataset"
+            th1="Column Name"
+            th2="Type"
+            tableclass="table-two"
+          />
+          <Table
+            configuration={labelsT3}
+            data={valuesT3}
+            tableclass="table-three"
+          />
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

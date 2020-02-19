@@ -12,6 +12,7 @@ import Helmet from "react-helmet";
 import { NavBar, Footer } from "@civicactions/data-catalog-components";
 import Header from "../Header";
 import links from "../../assets/menu.json";
+import '@civicactions/data-catalog-components/dist/index.css';
 
 const Layout = ({ children, path, title }) => {
   return (

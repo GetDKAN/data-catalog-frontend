@@ -28,16 +28,30 @@ exports.createPages = async ({ actions: { createPage } }) => {
   datasets.map((dataset) => {
     createPage({
       path: `/dataset/${dataset.identifier}`,
-      component: path.resolve('./src/templates/dataset/index.jsx'),
+      // component: path.resolve('./src/templates/dataset/index.jsx'),
+      component: path.resolve('./src/pages/dataset.js'),
       context: { dataset }
     })
 
     createPage({
       path: `/dataset/${dataset.identifier}/api`,
       component: path.resolve('./src/templates/dataset/api.js'),
+      // component: path.resolve('./src/pages/dataset.js'),
       context: { dataset }
     })
   })
+}
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  // Only update the `/app` page.
+  if (page.path.match(/^\/dataset/)) {
+    // page.matchPath is a special key that's used for matching pages
+    // with corresponding routes only on the client.
+    page.matchPath = "/dataset/*"
+    // Update the page.
+    createPage(page)
+  }
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
