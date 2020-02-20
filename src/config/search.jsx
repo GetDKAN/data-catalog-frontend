@@ -4,12 +4,11 @@ export const defaultFacets = {
   "Theme": {
     "label": "Topics",
     "field": "theme.0.title",
-    "showAll": true,
-    "facetType": "radio",
-    "limit": 50,
+    "showAll": false,
+    "limit": 10,
     "reset": {
       "active": false,
-      "icon": <p>blah</p>
+      "icon": <span></span>
     },
   },
   "Keyword": {
@@ -19,7 +18,7 @@ export const defaultFacets = {
     "limit": 10,
     "reset": {
       "active": false,
-      "icon": <p>blah</p>
+      "icon": <span></span>
     },
   }
 }
