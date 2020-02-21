@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import {FileDownload} from "@civicactions/data-catalog-components";
 import DatatableHeader from "./DatatableHeader";
 import {
   DataTable,
@@ -10,7 +9,8 @@ import {
   queryAllResourceData,
   getDKANDatastore,
   advancedColumns,
-  getFileDatastore
+  getFileDatastore,
+  FileDownload
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
@@ -62,7 +62,7 @@ const Resource = ({ resource, identifier }) => {
   return (
     <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
 
-      <FileDownload label={resource.data.downloadURL} format={format} downloadUrl={resource.data.downloadURL} />
+      <FileDownload label={resource.data.downloadURL} format={format} downloadURL={resource.data.downloadURL} />
 
       {resourceState.values && format === 'csv' && (
         <div>
