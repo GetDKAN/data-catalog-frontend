@@ -34,17 +34,16 @@ context('Search', () => {
 
 
   // SORTING
-
-  it.skip('Sort results alphabetically', () => {
-    cy.get('.search-list li:nth-child(1) a > h2')
-     .should('contain', 'Florida Bike Lanes')
-    cy.get('select').select('Alphabetical')
-    cy.get('.search-list li:nth-child(1) a > h2')
-     .should('contain', 'Afghanistan Election Districts')
-    cy.get('.search-list li:nth-child(2) a > h2')
-     .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
-    cy.get('.search-list li:nth-child(3) a > h2')
-     .should('contain', 'Florida Bike Lanes')
+  it('Sort results alphabetically', () => {
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+        .should('contain', 'U.S. Tobacco Usage Statistics')
+    cy.get('select#search-list-sort').select('title')
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
+      .should('contain', 'Afghanistan Election Districts')
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(2) h2')
+      .should('contain', 'Crime Data for the Ten Most Populous Cities in the U.S.')
+    cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(3) h2')
+      .should('contain', 'Florida Bike Lanes')
   })
 
 
