@@ -21,6 +21,7 @@ jobs:
           name: Initialize Project
           command: |
             export PATH=$PATH:~/dkan-tools/bin
+            docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
             mkdir ~/sandbox
             cd ~/sandbox
             dktl init
@@ -45,7 +46,7 @@ jobs:
             fi'
             cat src/make/composer.json
             dktl make --frontend
-            dktl updatedrush -y 
+            dktl updatedrush -y
       - run:
           name: Install site
           command: |
