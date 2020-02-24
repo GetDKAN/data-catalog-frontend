@@ -6,8 +6,7 @@ context('Search', () => {
   })
 
   //Search Page Text Input Filter
-
-  it.only('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
+  it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
     cy.get('#inputSearch').type('election')
     cy.get('.search-results-message > p').should('contain', 'datasets found for "election"')
     // Pluck the number from the results summary message.
@@ -24,17 +23,9 @@ context('Search', () => {
         let index = i + 1;
         if (index < 3) {
           // Each result has a heading.
-          cy.get('.dc-results-list ol:nth-child(' + index + ') .dc-search-list-item').find('h2')
-          // Each result has a theme.
-          // cy.get('li:nth-child(' + index + ') .search-list-item .item-theme').then((element) => {
-          //   assert.isNotNull(element.text())
-          // })
-          // Each result has a description.
-          // cy.get(':nth-child(' + index + ') .search-list-item .item-description').then((element) => {
-          //   assert.isNotNull(element.text())
-          // })
+          cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ')').find('h2')
           // Each result has file formats.
-          cy.get('.dc-results-list ol:nth-child(' + index + ') .dc-search-list-item .format-types').then((element) => {
+          cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(' + index + ') .format-types').then((element) => {
             assert.isNotNull(element.text())
           })
         }
