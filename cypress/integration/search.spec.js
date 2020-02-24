@@ -108,21 +108,28 @@ context('Search', () => {
   })
 
   // KEYWORD FILTER
-
   it('Check that the tags facet block has options', () => {
-    cy.get('.facet-block-tags-inner > .list-group').children()
+    cy.get('.inner-tags-facets .show-more-container').children()
       .its('length')
       .should('be.gt', 0)
-      cy.get('.facet-block-tags-inner > h2').should('have.text','Tags')
+    cy.get('h2.facet-block-tags-inner').should('have.text', 'Tags')
   })
 
   it('When filtering by keyword I should get a smaller results list', () => {
-    cy.get('.search-list').children()
-      .its('length').as('results')
-    cy.get('.facet-block-tags-inner > .list-group > :nth-child(1) > input').click()
-    cy.get('.search-list').children()
-      .its('length').as('filtered')
-    expect('@filtered').to.be.lessThan('@results')
+    let results = 0;
+    cy.get('.dc-results-list ol').children().each((item) => {
+      results += 1;
+    }).then(() => {
+      cy.get('.inner-tags-facets .show-more-container > :nth-child(1) > input').click()
+      cy.wait(1000)
+
+      let filtered = 0;
+      cy.get('.dc-results-list ol').children().each((element) => {
+        filtered += 1;
+      }).then(() => {
+        expect(filtered).to.be.lessThan(results)
+      })
+    })
   })
 
 
