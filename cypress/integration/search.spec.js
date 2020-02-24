@@ -5,28 +5,6 @@ context('Search', () => {
     cy.wait(5000)
   })
 
-
-  //Header Text Input Filter
-
-  it.skip('When I enter text into the search input field in the header, I should see the number of datasets that match.', () => {
-    // Enter 'Hospital' into the text field in the header and confirm we get results.
-    cy.get('.results-list input#search').type('health')
-    cy.get('.input-group-btn #submit').click()
-    // Wait for search page to load.
-    cy.contains('Go!')
-    cy.get('.results-message p').contains('datasets found for health')
-    // Pluck the number from the results summary message.
-    cy.get('.results-message').as('count')
-    cy.get('@count').invoke('text')
-        .then((count) => {
-          count = parseInt(count.substr(0,5));
-          cy.log('message', count)
-          // The summary number should equal the datasets returned.
-          cy.get('.search-list').children().its('length').should('eq', count)
-        })
-  })
-
-
   //Search Page Text Input Filter
 
   it.only('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
