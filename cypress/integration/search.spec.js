@@ -68,7 +68,7 @@ context('Search', () => {
   })
 
   it('The topic terms should match the expected POD themes', () => {
-    cy.get(':nth-child(1) > .list-group').then(($li) => {
+    cy.get('.inner-topics-facets .show-more-container').children().then(($li) => {
       cy.fixture('topics.json').then((topics) => {
         Cypress._.each(topics, (category) => {
           expect($li).to.contain(category)
