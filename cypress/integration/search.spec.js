@@ -78,29 +78,34 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.facet-block-topics-inner > .list-group > :nth-child(1) > input').click()
-    cy.get('.results-message').should('not.contain', '0')
-    cy.get('.results-message').should('contain', 'datasets')
+    cy.get('.inner-topics-facets .show-more-container > :nth-child(1) > input').click()
+    cy.get('.search-results-message').should('not.contain', '0')
+    cy.get('.search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.facet-block-topics-inner > .list-group > :nth-child(2) > input').click()
-    cy.get('.results-message').should('not.contain', '0')
-    cy.get('.results-message').should('contain', 'datasets')
+    cy.get('.inner-topics-facets .show-more-container > :nth-child(2) > input').click()
+    cy.get('.search-results-message').should('not.contain', '0')
+    cy.get('.search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.facet-block-topics-inner > .list-group > :nth-child(3) > input').click()
-    cy.get('.results-message').should('not.contain', '0')
-    cy.get('.results-message').should('contain', 'datasets')
+    cy.get('.inner-topics-facets .show-more-container > :nth-child(3) > input').click()
+    cy.get('.search-results-message').should('not.contain', '0')
+    cy.get('.search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.facet-block-topics-inner > .list-group > :nth-child(4) > input').click()
-    cy.get('.results-message').should('not.contain', '0')
-    cy.get('.results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets .show-more-container > :nth-child(4) > input').click()
+    cy.get('.search-results-message').should('not.contain', '0')
+    cy.get('.search-results-message').should('contain', 'dataset')
   })
 
+  it('Check results are returned when filtering for topic 5', () => {
+    cy.get('.inner-topics-facets .show-more-container > :nth-child(5) > input').click()
+    cy.get('.search-results-message').should('not.contain', '0')
+    cy.get('.search-results-message').should('contain', 'dataset')
+  })
 
   // KEYWORD FILTER
 
