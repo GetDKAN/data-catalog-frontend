@@ -48,10 +48,9 @@ context('Search', () => {
 
 
   // TOPIC FILTER
-
   it('The topics facet block should contain 5 topics and one legend', () => {
-    // cy.get('.facet-block-topics-inner > .list-group > li').children().should('have.length', 6)
-    cy.get('.facet-block-topics-inner > h2').should('have.text','Topics')
+    cy.get('h2.facet-block-topics-inner').should('have.text','Topics')
+    cy.get('.inner-topics-facets .show-more-container').children().should('have.length', 5)
   })
 
   it.skip('wip - Get expected values from the data.json', () => {
