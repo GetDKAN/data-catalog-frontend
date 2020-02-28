@@ -60,6 +60,7 @@ jobs:
             cd ~/sandbox
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
             dktl drush dkan-dummy-content:create
+            dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
             dktl dc exec cli npm install --prefix /var/www/docroot/data-catalog-frontend
             dktl dc exec cli npm run build --prefix /var/www/docroot/data-catalog-frontend
             dktl dc exec web chmod -R 777 /var/www/docroot/sites/default/files/dkan-tmp
