@@ -3,7 +3,7 @@ jobs:
   build:
     parallelism: 1
     machine:
-      image: circleci/classic:latest
+      image: circleci/node:10
     environment:
       TEST_RESULTS: /tmp/test-results
       DRUPAL_VERSION: V8
