@@ -24,7 +24,7 @@ class ApiDocsSpecific extends Component {
   };
 
   async fetchData() {
-    const id = this.props.pageContext.dataset.identifier;
+    const id = this.props.pageContext.item.identifier;
     const { data } = await backend.get(
       "/metastore/schemas/dataset/items/" + id + "/docs"
     );

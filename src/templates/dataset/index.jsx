@@ -11,7 +11,7 @@ import Tags from '../../components/Tags';
 import TopicImage from '../../components/TopicImage';
 import Resource from '../../components/Resource';
 
-const Dataset = () => {
+const DatasetTemplate = () => {
   const { item } = useContext(DynamicContext)
 
   const [hasWindow, checkForWindow] = useState(false);
@@ -144,4 +144,4 @@ const Dataset = () => {
   );
 };
 
-export default Dataset;
+export default DatasetTemplate;
