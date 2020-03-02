@@ -52,8 +52,7 @@ jobs:
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
             dktl drush dkan-dummy-content:create
             dktl drush en dkan_frontend
-            dktl drush search-api-list
-            dktl drush search-api-clear
+            dktl drush dkan-search:rebuild-tracker
             dktl drush search-api-index
             dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
             dktl dc exec cli npm install --prefix /var/www/docroot/data-catalog-frontend --unsafe-perm
