@@ -108,14 +108,15 @@ context('Search', () => {
   })
 
   // KEYWORD FILTER
-  it('Check that the tags facet block has options', () => {
+  // Not implemented by default in demo build
+  it.skip('Check that the tags facet block has options', () => {
     cy.get('.inner-tags-facets .show-more-container').children()
       .its('length')
       .should('be.gt', 0)
     cy.get('h2.facet-block-tags-inner').should('have.text', 'Tags')
   })
 
-  it('When filtering by keyword I should get a smaller results list', () => {
+  it.skip('When filtering by keyword I should get a smaller results list', () => {
     let results = 0;
     cy.get('.dc-results-list ol').children().each((item) => {
       results += 1;
