@@ -1,17 +1,18 @@
-import styled from "styled-components";
+@import './variables';
 
-const StyledPagination = styled.div`
+.dc-pagination-container {
   text-align: center;
   display: flex;
   align-content: center;
   align-items: center;
-  select[id^="select_results_per_page"] {
-    border: 1px solid ${props => props.theme.grayLight};
+  select[id^="search-page-sizer"] {
+    border: 1px solid $grayLight;
+    height: 34px;
   }
   .pagination {
     display: inline-block;
     padding-left: 0;
-    margin: 20px 0 20px 20px;
+    margin: 0 0 0 20px;
     border-radius: 4px;
     li {
       display: inline;
@@ -22,9 +23,9 @@ const StyledPagination = styled.div`
         padding: 6px 12px;
         line-height: 1.42857143;
         text-decoration: none;
-        color: ${props => props.theme.linkColor};
+        color: $linkColor;
         background-color: #fff;
-        border: 1px solid ${props => props.theme.borderColor};
+        border: 1px solid $borderColor;
         margin-left: -1px;
       }
     }
@@ -33,7 +34,7 @@ const StyledPagination = styled.div`
     li > span:focus,
     li > span:hover {
       z-index: 2;
-      color: ${props => props.theme.primaryDark};
+      color: $primaryDark;
       background-color: #eee;
     }
     li:first-child > a,
@@ -56,7 +57,7 @@ const StyledPagination = styled.div`
     li.disabled > span:hover {
       color: #777;
       background-color: #fff;
-      border-color: ${props => props.theme.borderColor};
+      border-color: $borderColor;
       cursor: not-allowed;
     }
     li.active > a,
@@ -67,8 +68,8 @@ const StyledPagination = styled.div`
     li.active > span:hover {
       z-index: 3;
       color: #fff;
-      background-color: ${props => props.theme.linkColor};
-      border-color: ${props => props.theme.borderColor};
+      background-color: $linkColor;
+      border-color: $borderColor;
       cursor: default;
     }
   }
@@ -76,6 +77,4 @@ const StyledPagination = styled.div`
     flex-grow: 2;
     text-align: left;
   }
-`;
-
-export default StyledPagination;
+}

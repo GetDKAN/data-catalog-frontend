@@ -1,7 +1,9 @@
+@import '../../theme/styles/variables';
+
 .dc-search-page {
   .search-sidebar-options {
     background-color: #ffffff;
-    // border: 1px solid ${props => props.theme.borderColor};
+    border: 1px solid $borderColor;
     padding: 30px;
     margin-bottom: 25px;
     .search-facet-blocks ol {
@@ -47,7 +49,7 @@
 
   .results-message {
     padding: 15px 0;
-    // border-bottom: 1px solid ${props => props.theme.grayLight};
+    border-bottom: 1px solid $grayLight;
   }
 
   ol {

@@ -1,8 +1,5 @@
 /**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * {container} value set in providers.js
  */
 
 import React from "react";
@@ -24,7 +21,7 @@ const Layout = ({ children, path, title }) => {
             {item.label}
           </Link>
         ))}
-        customClasses="container-fluid main-navigation"
+        customClasses="container-fluid"
       />
       <main>{children}</main>
       <Footer links={links} />

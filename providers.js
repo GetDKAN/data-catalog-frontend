@@ -1,11 +1,8 @@
 import React from "react";
-import { BreakpointProvider, setDefaultBreakpoints } from 'react-socks';
-
-import "@cmsgov/design-system-core/dist/index.css";
-import '@civicactions/data-catalog-components/dist/index.css';
-import Theme from './src/theme/default'
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from './src/theme/globalStyles';
+import { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@civicactions/data-catalog-components/dist/index.css";
+import "./src/theme/styles/index.scss";
 
 export default ({ element }) => {
   setDefaultBreakpoints([
@@ -18,10 +15,9 @@ export default ({ element }) => {
 
   return (
     <BreakpointProvider>
-      <GlobalStyles />
-      <ThemeProvider theme={Theme}>
+      <div className="dc-catalog">
         {element}
-      </ThemeProvider>
+      </div>
     </BreakpointProvider>
   )
 }

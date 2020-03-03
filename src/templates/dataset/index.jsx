@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import Layout from "../../components/Layout";
-import Tags from "../../components/Tags";
+//import Tags from "../../components/Tags";
 import TopicImage from "../../components/TopicImage";
 import Resource from "../../components/Resource";
 
@@ -9,7 +9,8 @@ import {
   Title,
   Text,
   Organization,
-  Table
+  Table,
+  Tags
 } from "@civicactions/data-catalog-components";
 
 const Dataset = props => {
@@ -106,9 +107,9 @@ const Dataset = props => {
 
   return (
     <Layout path={path} title={item.title}>
-      <div className="dataset-page container-fluid">
+      <div className="dataset-page container-fluid p-5">
         <div className="row">
-          <div className="col-md-3 col-sm-12 p-5">
+          <div className="col-md-3 col-sm-12">
             <Organization
               name={orgName}
               imageUrl={orgImage}
@@ -119,7 +120,7 @@ const Dataset = props => {
               <Link to={`dataset/${item.identifier}/api`}>API</Link>.
             </div>
           </div>
-          <div className="results-list col-md-9 col-sm-12 p-5">
+          <div className="results-list col-md-9 col-sm-12">
             <Title title={item.title} />
             {theme && <div className="item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
@@ -127,7 +128,7 @@ const Dataset = props => {
               item.distribution.map(dist => {
                 return <Resource resource={dist} identifier={1} />;
               })}
-            <Tags tags={tag} path="/search?keyword=" />
+            <Tags tags={tag} path="/search?keyword=" label="Tags" />
             <Table
               configuration={labelsT2}
               data={valuesT2}

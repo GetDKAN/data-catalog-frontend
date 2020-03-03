@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,500,700&amp;subset=latin');
+
+// Component styles.
+
+// Template styles.
+@import "./pagination";
+@import "../../templates/search/search.scss";
+
+
+
+html {
+    /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
+    font-size: 62.5%;
+}
