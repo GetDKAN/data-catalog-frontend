@@ -7,9 +7,7 @@ const axios = require('axios');
 exports.createPages = async ({ actions: { createPage } }) => {
   const { data: themes } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/theme/items`);
   const { data: datasets } = await axios.get(`${process.env.GATSBY_API_URL}/metastore/schemas/dataset/items?show-reference-ids`);
-  const { data: dataStories } = await axios.get(`${process.env.DRUPAL_API_URL}/node/data_story`);
   const buildDate = new Date().toISOString()
-  console.log(dataStories)
   let featuredDatasets = datasets.sort(function(a,b) {
     return a.title - b.title;
   });
@@ -30,33 +28,15 @@ exports.createPages = async ({ actions: { createPage } }) => {
   datasets.map((item) => {
     createPage({
       path: `/dataset/${item.identifier}`,
-      // component: path.resolve('./src/templates/dataset/index.jsx'),
       component: path.resolve('./src/pages/dataset.js'),
       context: { item, buildDate }
     })
 
-    // createPage({
-    //   path: `/dataset/${item.identifier}/api`,
-    //   component: path.resolve('./src/templates/dataset/api.js'),
-    //   // component: path.resolve('./src/pages/dataset.js'),
-    //   context: { item }
-    // })
-  })
-  dataStories.data.map((item) => {
-    console.log(buildDate, item)
     createPage({
-      path: `/story${item.attributes.path.alias}`,
-      // component: path.resolve('./src/templates/dataset/index.jsx'),
-      component: path.resolve('./src/pages/story.js'),
-      context: { item, buildDate }
+      path: `/dataset/${item.identifier}/api`,
+      component: path.resolve('./src/templates/dataset/api.js'),
+      context: { item }
     })
-
-    // createPage({
-    //   path: `/dataset/${item.identifier}/api`,
-    //   component: path.resolve('./src/templates/dataset/api.js'),
-    //   // component: path.resolve('./src/pages/dataset.js'),
-    //   context: { item }
-    // })
   })
 }
 
@@ -70,13 +50,6 @@ exports.onCreatePage = async ({ page, actions }) => {
     // Update the page.
     createPage(page)
   }
-  // if (page.path.match(/^\/story/)) {
-  //   // page.matchPath is a special key that's used for matching pages
-  //   // with corresponding routes only on the client.
-  //   page.matchPath = "/story/*"
-  //   // Update the page.
-  //   createPage(page)
-  // }
 }
 
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
