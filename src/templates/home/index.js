@@ -7,7 +7,7 @@ import {
   StatBlock
 } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
-import FeaturedDatasets from "../../containers/FeaturedDatasets";
+import FeaturedDatasets from "../../templates/FeaturedDatasets";
 import copy from "../../assets/copy.json";
 
 const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {

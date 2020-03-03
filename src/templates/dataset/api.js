@@ -8,6 +8,8 @@ import {
   Organization
 } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
+import orgs from "../../assets/publishers";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import backend from "../../services/backend";
 
 class ApiDocsSpecific extends Component {
@@ -15,9 +17,6 @@ class ApiDocsSpecific extends Component {
     item: {
       title: "",
       description: "",
-      publisher: {
-        name: "Example Publisher"
-      }
     },
     show: true,
     pageSize: 10
@@ -45,18 +44,13 @@ class ApiDocsSpecific extends Component {
 
   render() {
     const { item, show } = this.state;
-    const orgName =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.name
-        : "";
-    const orgImage =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.image
-        : "";
-    const orgDesc =
-      "publisher" in item && item.publisher.data
-        ? item.publisher.data.description
-        : "";
+    const orgName = "publisher" in this.props.pageContext.dataset
+      && this.props.pageContext.dataset.publisher.data
+      ? this.props.pageContext.dataset.publisher.data.name : "";
+
+    const orgDetails = orgs.filter(org => orgName === org.name);
+    const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
+    const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
 
     return (
       <Layout path={this.props.path} title={item.title}>
@@ -68,7 +62,13 @@ class ApiDocsSpecific extends Component {
                 image={orgImage}
                 description={orgDesc}
               />
-              <div className="block-wrapper">
+              <div className="dc-block-wrapper">
+                <FontAwesomeIcon
+                  icon={['fas', 'arrow-left']}
+                  size="1x"
+                  aria-hidden="true"
+                  role="presentation"
+                />
                 Back to the{" "}
                 <Link
                   to={`dataset/${this.props.pageContext.dataset.identifier}`}

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import StyledDialog from "../ManageColumns/StyledDialog";
-import FontAwesomePro from "../../FontAwesomePro";
 import {
   ResourceDispatch,
   advancedColumns,
@@ -27,7 +26,7 @@ const FullScreenResource = () => {
         className="fullscreen-button"
         onClick={true ? () => toggleModal(!modalOpen) : null}
       >
-        <FontAwesomePro icon="expand" height="28" width="28" />
+        <i className="fa fa-2x fa-expand" aria-hidden="true" title="Full Screen" />
       </button>
       {modalOpen && (
         <StyledDialog

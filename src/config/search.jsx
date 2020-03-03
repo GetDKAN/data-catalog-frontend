@@ -51,7 +51,7 @@ export function normalizeItems(resultItems) {
     };
     if (
       Object.prototype.hasOwnProperty.call(x, "publisher") &&
-      Object.prototype.hasOwnProperty.call(x, "name")
+      Object.prototype.hasOwnProperty.call(x.publisher, "name")
     ) {
       item.publisher = x.publisher.name;
     } else {
