@@ -71,7 +71,7 @@ class ApiDocsSpecific extends Component {
               <div className="block-wrapper">
                 Back to the{" "}
                 <Link
-                  to={`dataset/${this.props.pageContext.dataset.identifier}`}
+                  to={`dataset/${this.props.pageContext.item.identifier}`}
                 >
                   dataset
                 </Link>
@@ -79,7 +79,7 @@ class ApiDocsSpecific extends Component {
               </div>
             </div>
             <div className="results-list col-md-9 col-sm-12 p-5">
-              <Title title={this.props.pageContext.dataset.title} />
+              <Title title={this.props.pageContext.item.title} />
               {this.state.window && (
                 <Loader
                   backgroundStyle={{ backgroundColor: "#f9fafb" }}
@@ -93,7 +93,7 @@ class ApiDocsSpecific extends Component {
                     endpoint={
                       process.env.GATSBY_API_URL +
                       "/metastore/schemas/dataset/items/" +
-                      this.props.pageContext.dataset.identifier +
+                      this.props.pageContext.item.identifier +
                       "/docs"
                     }
                   />
