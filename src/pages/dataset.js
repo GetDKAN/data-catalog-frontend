@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import { DynamicContent } from '@civicactions/data-catalog-components';
+import { DynamicContent } from '@civicactions/data-catalog-components';
 import DatasetTemplate from '../templates/dataset';
 import Layout from '../components/Layout';
-import DynamicContent from '../upstream/DynamicContent';
+// import DynamicContent from '../upstream/DynamicContent';
 
 const Dataset = (props) => {
   const { pageContext } = props;
