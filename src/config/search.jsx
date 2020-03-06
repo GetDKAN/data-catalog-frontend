@@ -20,6 +20,16 @@ export const defaultFacets = {
       "active": false,
       "icon": <span></span>
     },
+  },
+  "publisher__name": {
+    "label": "Publishers",
+    "field": "publisher__name",
+    "showAll": false,
+    "limit": 10,
+    "reset": {
+      "active": false,
+      "icon": <span></span>
+    },
   }
 }
 
