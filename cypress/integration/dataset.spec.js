@@ -16,14 +16,15 @@ context('Dataset', () => {
   })
 
   it('I can filter the data by year', () => {
-    cy.get('.ReactTable .rt-tr > :nth-child(1) > input').type('1952')
+    cy.get('.ReactTable .rt-tr > :nth-child(2) > input').type('1952-01')
+    cy.get('.ReactTable .rt-tbody > :nth-child(1) > .rt-tr > :nth-child(2)').should('contain', '1952-01')
     // Uncomment when pager is fixed.
     // cy.get('.-pagination .-pageInfo .-totalPages').should('contain','2')
   })
 
   it('I can sort the data by price', () => {
-    cy.get('.ReactTable :nth-child(2) > .rt-resizable-header-content').click()
-    cy.get('.ReactTable .rt-tbody > :nth-child(1) > .rt-tr > :nth-child(2)').should('contain', '34.49')
+    cy.get('.ReactTable :nth-child(3) > .rt-resizable-header-content').click()
+    cy.get('.ReactTable .rt-tbody > :nth-child(1) > .rt-tr > :nth-child(3)').should('contain', '101.623')
   })
 
   it('I see the tags.', () => {

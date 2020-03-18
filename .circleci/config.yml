@@ -51,6 +51,7 @@ jobs:
             cd ~/sandbox
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
             dktl drush dkan-dummy-content:create
+            dktl drush queue:run dkan_datastore_import
             dktl drush en dkan_frontend
             dktl drush dkan-search:rebuild-tracker
             dktl drush search-api-index
