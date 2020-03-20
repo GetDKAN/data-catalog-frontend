@@ -59,7 +59,6 @@ jobs:
             dktl dc exec cli git clone --single-branch -b more-permissive-string-values https://github.com/thierrydallacroce/data-catalog-components.git
             dktl dc exec cli npm install --prefix /var/www/data-catalog-components
             dktl dc exec cli npm run lib --prefix /var/www/data-catalog-components
-            dktl dc exec cli rm -rf /var/www/data-catalog-components/node_modules
             dktl dc exec cli npm pack ./data-catalog-components
             dktl dc exec cli npm install civicactions-data-catalog-components-0.1.4.tgz --prefix /var/www/src/frontend
             dktl frontend:install
