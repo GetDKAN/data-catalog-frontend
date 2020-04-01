@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
+import Tags from "../../components/Tags";
+import TopicImage from "../../components/TopicImage";
+import ResourceTemplate from "../../components/Resource";
+
 import {
   Text,
   Organization,
@@ -16,7 +20,6 @@ import Resource from '../../components/Resource';
 const Dataset = props => {
   const item = props.pageContext.dataset;
   const path = props.path;
-
   const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
@@ -118,7 +121,7 @@ const Dataset = props => {
             <Text value={item.description} />
             {hasWindow &&
               item.distribution.map(dist => {
-                return <Resource resource={dist} key={dist.identifier} identifier={1} />;
+                return <ResourceTemplate resource={dist} identifier={1} />;
               })}
             <Tags tags={tag} path="/search?keyword=" label="Tags" />
             {/* <Table
