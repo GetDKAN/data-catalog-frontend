@@ -36,7 +36,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl make --frontend --branch=new-sql-parser
+            dktl make --frontend
       - run:
           name: Install site
           command: |
