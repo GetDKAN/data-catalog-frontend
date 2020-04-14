@@ -45,7 +45,7 @@ context('Dataset', () => {
     ]
 
     var values = [
-      'demo.getdkan.com',
+      'State Economic Council',
       '5dc1cfcf-8028-476c-a020-f58ec6dd621c',
       '2013-02-10',
       '2019-06-06',
