@@ -14,7 +14,6 @@ import {
 } from "@civicactions/data-catalog-components";
 
 const Resource = ({ resource, identifier }) => {
-  console.log(resource);
   // Description.
   const description = resource.hasOwnProperty('description') ? resource.description : '';
   // File Format.
@@ -74,8 +73,8 @@ const Resource = ({ resource, identifier }) => {
     return (
       <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
         <FileDownload title={title} format={format} downloadURL={fileURL} description={description} />
-        {resourceState.values 
-        && preview.includes(format) 
+        {resourceState.values
+        && preview.includes(format)
         && (resourceState.store !== null  )
           && (
           <div>
@@ -107,8 +106,8 @@ const Resource = ({ resource, identifier }) => {
           </div>
         )}
       </ResourceDispatch.Provider>
-    );  
-  
+    );
+
 };
 
 export default Resource;

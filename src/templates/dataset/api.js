@@ -8,6 +8,7 @@ import {
   Organization
 } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
+import config from "../../assets/config";
 import orgs from "../../assets/publishers";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import backend from "../../services/backend";
@@ -54,12 +55,12 @@ class ApiDocsSpecific extends Component {
 
     return (
       <Layout path={this.props.path} title={item.title}>
-        <div className="dataset-page container-fluid">
+        <div className={`dc-dataset-page ${config.container}`}>
           <div className="row">
-            <div className="col-md-3 col-sm-12 p-5">
+            <div className="col-md-3 col-sm-12">
               <Organization
                 name={orgName}
-                image={orgImage}
+                imageUrl={orgImage}
                 description={orgDesc}
               />
               <div className="dc-block-wrapper">
@@ -78,7 +79,7 @@ class ApiDocsSpecific extends Component {
                 .
               </div>
             </div>
-            <div className="results-list col-md-9 col-sm-12 p-5">
+            <div className="results-list col-md-9 col-sm-12">
               <Title title={this.props.pageContext.dataset.title} />
               {this.state.window && (
                 <Loader

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
+import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
 import {
   Text,
   Organization,
   Table,
-  Tags,
-  // TopicWrapper,
-  // TopicIcon
+  Tags
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
@@ -27,7 +25,6 @@ const Dataset = props => {
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
   const orgDetails = orgs.filter(org => orgName === org.name);
-  console.log('orgDetails: ', orgDetails);
   const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
   const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
 
@@ -41,13 +38,12 @@ const Dataset = props => {
     } else {
       return theme.map(topic => {
         return (
-          // <TopicWrapper component={TopicIcon} topic={topic.data}/>
           <Link
-              className="dc-topic-wrapper"
-              key={`dist-${topic}-${Math.random() * 10}`}
-              to={"search?theme=" + topic.data}
+            key={`dist-${topic.identifier}-${Math.random() * 10}`}
+            to={"search?theme=" + topic.data}
           >
-              {topic.data}
+            {/* <TopicIcon title={topic.data} height="16" width="16" /> */}
+            {topic.data}
           </Link>
         );
       });
