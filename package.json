@@ -1,10 +1,14 @@
 {
   "name": "data-catalog-frontend",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "@civicactions/data-catalog-components": "0.1.5",
     "@cmsgov/design-system-core": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.19.0",
     "babel-plugin-styled-components": "^1.10.6",
     "bootstrap": "^4.2.1",
