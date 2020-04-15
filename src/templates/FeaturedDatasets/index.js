@@ -6,36 +6,7 @@ import { SearchList, SearchListItem, Text } from "@civicactions/data-catalog-com
 import config from "../../assets/config";
 
 const FeaturedDatasets = ({ datasets }) => {
-  // export function normalizeItems(resultItems) {
-  //   let nItems = resultItems;
-  //   if (!Array.isArray(nItems)) {
-  //     nItems = Object.values(nItems);
-  //   }
-  //   return nItems.map((x) => {
-  //     let item = {};
-  //     item = {
-  //       identifier: x.identifier,
-  //       modified: x.modified,
-  //       description: x.description,
-  //       theme: x.theme,
-  //       format: x.distribution,
-  //       title: x.title,
-  //       ref: `/dataset/${x.identifier}`
-  //     };
-  //     if (
-  //       Object.prototype.hasOwnProperty.call(x, "publisher") &&
-  //       Object.prototype.hasOwnProperty.call(x.publisher, "name")
-  //     ) {
-  //       item.publisher = x.publisher.name;
-  //     } else {
-  //       item.publisher = "";
-  //     }
-  //     return item;
-  //   });
-  // }
-
   const items = datasets.map(x => {
-
 
     let id = "identifier" in x ? x.identifier : "";
     let item = {
