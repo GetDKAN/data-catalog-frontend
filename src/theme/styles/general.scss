@@ -1,0 +1,17 @@
+@import './variables';
+
+html {
+  /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
+  font-size: 62.5%;
+}
+body {
+  font-family: $fontText;
+  h1,h2,h3,h4 {
+    font-family: $fontHeading;
+  }
+}
+.dc-block-wrapper {
+  svg.fa-arrow-left {
+    margin-right: 1rem;
+  }
+}

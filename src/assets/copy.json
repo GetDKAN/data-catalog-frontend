@@ -10,19 +10,19 @@
     {
       "content": "Dataset Downloads",
       "title": "582k",
-      "icon": "fa fa-download",
+      "icon": "download",
       "ref": "1"
     },
     {
       "content": "API Queries Run",
       "title": "317k",
-      "icon": "fa fa-refresh",
+      "icon": "sync",
       "ref": "2"
     },
     {
       "content": "Total Datasets",
       "title": "2.63k",
-      "icon": "fa fa-database",
+      "icon": "database",
       "ref": "3"
     }
   ],

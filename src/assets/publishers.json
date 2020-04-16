@@ -1,0 +1,17 @@
+[
+  {
+    "name": "State Economic Council",
+    "imageUrl": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/money-saving.png",
+    "description": "The State Economic Council is responsible for increasing economic development of the state by collecting statistics and performing analysis on the labor force, workforce and employer demographics, generational trends, etc."
+  },
+  {
+    "name": "Advisory Council for Infectious Disease",
+    "imageUrl": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/clipboard.png",
+    "description": "Advisory Council for Infectious Disease is a working group that performs research and prepares reports to inform treatment and prevention programs nationally."
+  },
+  {
+    "name": "Committee on International Affairs",
+    "imageUrl": "https://dkan-default-content-files.s3.amazonaws.com/files/publishers/map.png",
+    "description": "The Committee on International Affairs is a working group to identify opportunities to learn from and collaborate with government and organizations across the globe."
+  }
+]

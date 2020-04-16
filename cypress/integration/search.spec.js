@@ -8,9 +8,9 @@ context('Search', () => {
   //Search Page Text Input Filter
   it('When I enter text into the search input field on the search page, I should see the number of datasets that match.', () => {
     cy.get('#inputSearch').type('election')
-    cy.get('.search-results-message > p').should('contain', 'datasets found for "election"')
+    cy.get('.dc-search-results-message > p').should('contain', 'datasets found for "election"')
     // Pluck the number from the results summary message.
-    cy.get('.search-results-message').as('count')
+    cy.get('.dc-search-results-message').as('count')
     cy.get('@count').invoke('text')
         .then((count) => {
           count = parseInt(count.substr(0,5));
@@ -37,7 +37,7 @@ context('Search', () => {
   it('Sort results alphabetically', () => {
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
         .should('contain', 'U.S. Tobacco Usage Statistics')
-    cy.get('select#search-list-sort').select('title')
+    cy.get('select#dc-search-list-sort').select('title')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(1) h2')
       .should('contain', 'Afghanistan Election Districts')
     cy.get('.dc-results-list ol div.dc-search-list-item:nth-child(2) h2')
@@ -78,50 +78,49 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.inner-topics-facets .show-more-container > :nth-child(1) > input').click()
-    cy.get('.search-results-message').should('not.contain', '0')
-    cy.get('.search-results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get('.dc-search-results-message').should('not.contain', '0')
+    cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.inner-topics-facets .show-more-container > :nth-child(2) > input').click()
-    cy.get('.search-results-message').should('not.contain', '0')
-    cy.get('.search-results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.dc-search-results-message').should('not.contain', '0')
+    cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.inner-topics-facets .show-more-container > :nth-child(3) > input').click()
-    cy.get('.search-results-message').should('not.contain', '0')
-    cy.get('.search-results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get('.dc-search-results-message').should('not.contain', '0')
+    cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.inner-topics-facets .show-more-container > :nth-child(4) > input').click()
-    cy.get('.search-results-message').should('not.contain', '0')
-    cy.get('.search-results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
+    cy.get('.dc-search-results-message').should('not.contain', '0')
+    cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 5', () => {
-    cy.get('.inner-topics-facets .show-more-container > :nth-child(5) > input').click()
-    cy.get('.search-results-message').should('not.contain', '0')
-    cy.get('.search-results-message').should('contain', 'dataset')
+    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get('.dc-search-results-message').should('not.contain', '0')
+    cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   // KEYWORD FILTER
-  // Not implemented by default in demo build
-  it.skip('Check that the tags facet block has options', () => {
-    cy.get('.inner-tags-facets .show-more-container').children()
+  it('Check that the tags facet block has options', () => {
+    cy.get('.inner-tags-facets > .show-more-wrapper > .show-more-container').children()
       .its('length')
       .should('be.gt', 0)
-    cy.get('h2.facet-block-tags-inner').should('have.text', 'Tags')
+      cy.get('.facet-block-tags-inner > button > span').should('have.text', 'Tags')
   })
 
-  it.skip('When filtering by keyword I should get a smaller results list', () => {
+  it('When filtering by keyword I should get a smaller results list', () => {
     let results = 0;
     cy.get('.dc-results-list ol').children().each((item) => {
       results += 1;
     }).then(() => {
-      cy.get('.inner-tags-facets .show-more-container > :nth-child(1) > input').click()
+      cy.get('.inner-tags-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
       cy.wait(1000)
 
       let filtered = 0;
@@ -135,7 +134,7 @@ context('Search', () => {
 
 
   // FORMAT FILTER
-
+  // Not implemented by default in demo build
   it.skip('Check that the Format facet block has options', () => {
     cy.get(':nth-child(3) > .list-group').children()
       .its('length')

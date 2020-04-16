@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
+import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
-import Tags from "../../components/Tags";
-import TopicImage from "../../components/TopicImage";
-import Resource from "../../components/Resource";
-
+import config from "../../assets/config";
 import {
-  Title,
   Text,
   Organization,
-  Table
+  Table,
+  Tags
 } from "@civicactions/data-catalog-components";
+import orgs from "../../assets/publishers";
 
 const Dataset = props => {
   const item = props.pageContext.dataset;
@@ -26,15 +24,13 @@ const Dataset = props => {
 
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
-  const orgImage =
-    "publisher" in item && item.publisher ? item.publisher.data.image : "";
-  const orgDesc =
-    "publisher" in item && item.publisher
-      ? item.publisher.data.description
-      : "";
+  const orgDetails = orgs.filter(org => orgName === org.name);
+  const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
+  const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
+
   const tag = "keyword" in item ? item.keyword : [];
   const theme = "theme" in item ? item.theme : [];
-  const columns = "columns" in item ? item.columns : [];
+  //const columns = "columns" in item ? item.columns : [];
 
   function themes(theme) {
     if (!theme) {
@@ -44,9 +40,9 @@ const Dataset = props => {
         return (
           <Link
             key={`dist-${topic.identifier}-${Math.random() * 10}`}
-            to={"search?topics=" + topic.data}
+            to={"search?theme=" + topic.data}
           >
-            <TopicImage title={topic.data} height="16" width="16" />
+            {/* <TopicIcon title={topic.data} height="16" width="16" /> */}
             {topic.data}
           </Link>
         );
@@ -55,13 +51,13 @@ const Dataset = props => {
   }
 
   // Process content for 'Columns in this Dataset' table.
-  const labelsT2 = {};
-  const valuesT2 = {};
+  // const labelsT2 = {};
+  // const valuesT2 = {};
 
-  columns.forEach((value, index) => {
-    labelsT2[index] = { label: value };
-    valuesT2[index] = "String";
-  });
+  // columns.forEach((value, index) => {
+  //   labelsT2[index] = { label: value };
+  //   valuesT2[index] = "String";
+  // });
 
   // Process content for 'Additional Information' table.
   const labelsT3 = {};
@@ -106,36 +102,36 @@ const Dataset = props => {
 
   return (
     <Layout path={path} title={item.title}>
-      <div className="dataset-page container-fluid">
+      <div className={`dc-dataset-page ${config.container}`}>
         <div className="row">
-          <div className="col-md-3 col-sm-12 p-5">
+          <div className="col-md-3 col-sm-12">
             <Organization
               name={orgName}
               imageUrl={orgImage}
               description={orgDesc}
             />
-            <div className="block-wrapper">
+            <div className="dc-block-wrapper">
               The information on this page is also available via the{" "}
               <Link to={`dataset/${item.identifier}/api`}>API</Link>.
             </div>
           </div>
-          <div className="results-list col-md-9 col-sm-12 p-5">
-            <Title title={item.title} />
-            {theme && <div className="item-theme">{themes(theme)}</div>}
+          <div className="col-md-9 col-sm-12">
+            <h1>{item.title}</h1>
+            {theme.length && <div className="item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
-            {hasWindow &&
+            {/* {hasWindow &&
               item.distribution.map(dist => {
-                return <Resource resource={dist} identifier={1} />;
-              })}
-            <Tags tags={tag} path="/search?keyword=" />
-            <Table
+                return <Resource resource={dist.data} identifier={1} />;
+              })} */}
+            <Tags tags={tag} path="/search?keyword=" label="Tags" />
+            {/* <Table
               configuration={labelsT2}
               data={valuesT2}
               title="Columns in this Dataset"
               th1="Column Name"
               th2="Type"
               tableclass="table-two"
-            />
+            /> */}
             <Table
               configuration={labelsT3}
               data={valuesT3}

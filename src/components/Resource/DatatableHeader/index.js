@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import Wrapper from "./Wrapper";
 import { ChoiceList } from "@cmsgov/design-system-core";
 import {
   DataTableDensity,
   DataTablePageResults,
-  ResourceDispatch
+  ResourceDispatch,
+  DataIcon
 } from "@civicactions/data-catalog-components";
-import FAPIcon from "../../FontAwesomePro";
+//import DataIcon from '../../DataIcon';
 import FullScreenResource from "../FullScreenResource";
 import ManageColumns from "../ManageColumns";
 
@@ -19,7 +19,7 @@ const DatatableHeader = ({ fullscreen }) => {
     { label: "100", value: "100" }
   ];
   return (
-    <Wrapper className="resource-table-header">
+    <div className="dc-resource-table-header">
       <DataTablePageResults
         total={count}
         pageSize={pageSize}
@@ -52,7 +52,7 @@ const DatatableHeader = ({ fullscreen }) => {
             items={[
               {
                 icon: (
-                  <FAPIcon
+                  <DataIcon
                     icon="density-1"
                     name="density-1"
                     fill="#666666"
@@ -65,7 +65,7 @@ const DatatableHeader = ({ fullscreen }) => {
               },
               {
                 icon: (
-                  <FAPIcon
+                  <DataIcon
                     icon="density-2"
                     name="density-2"
                     fill="#666666"
@@ -78,7 +78,7 @@ const DatatableHeader = ({ fullscreen }) => {
               },
               {
                 icon: (
-                  <FAPIcon
+                  <DataIcon
                     icon="density-3"
                     name="density-3"
                     fill="#666666"
@@ -95,7 +95,7 @@ const DatatableHeader = ({ fullscreen }) => {
         <ManageColumns />
         {!fullscreen && <FullScreenResource />}
       </div>
-    </Wrapper>
+    </div>
   );
 };
 

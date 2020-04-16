@@ -12,7 +12,7 @@
     },
     {
       "label": "Publishers",
-      "url": "/groups",
+      "url": "/publishers",
       "target": "_top"
     },
     {
@@ -28,23 +28,23 @@
   ],
   "footer1": [
     {
-      "label": "DKAN2 Docs",
-      "url": "https://dkan2.readthedocs.io/en/latest/",
+      "label": "Documentation",
+      "url": "https://getdkan.github.io/dkan2/index.html",
       "target": "_blank"
     },
     {
-      "label": "DKAN 7 Demo",
+      "label": "Visit Demo",
       "url": "https://demo.getdkan.com",
       "target": "_blank"
+    },
+    {
+      "label": "Download",
+      "url": "https://github.com/getdkan/dkan"
     },
     {
       "label": "CivicActions",
       "url": "https://civicactions.com",
       "target": "_blank"
-    },
-    {
-      "label": "Data.gov",
-      "url": "https://data.gov"
     }
   ],
   "footer2": [
@@ -59,7 +59,7 @@
     },
     {
       "label": "Drupal",
-      "url": "Drupal.org",
+      "url": "https://drupal.org",
       "target": "_blank"
     },
     {

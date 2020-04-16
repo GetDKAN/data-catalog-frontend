@@ -107,7 +107,6 @@ export async function queryResourceData(resourceData, includeCount = false) {
   const items = await store
     .query(filters, null, null, pageSize, currentPage, sort, includeCount)
     .then(data => data);
-  console.log(items);
   return {
     type: "QUERY_STORE",
     data: {
@@ -119,11 +118,9 @@ export async function queryResourceData(resourceData, includeCount = false) {
 
 // Return all rows from the datastore.
 export async function queryAllResourceData(store) {
-  console.log(store);
   const items = await store
     .query(null, null, null, 0, null, null)
     .then(data => data);
-  console.log(items);
   return {
     type: "QUERY_STORE",
     data: {

@@ -1,0 +1,37 @@
+.dc-featured-datasets {
+  padding-top: 80px;
+  padding-bottom: 60px;
+  ol {
+    display: flex;
+    align-items: flex-start;
+    align-content: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    width: 30%;
+  }
+  h2.dc-featured-title {
+    text-align: center;
+    display: block;
+    margin-bottom: 30px;
+  }
+  // Override default styles.
+  .search-list-item {
+    background: none;
+    border: none;
+    border-radius: none;
+    padding: 0;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    li {
+      width: 100%;
+    }
+  }
+}
