@@ -1,7 +1,7 @@
 {
   "name": "data-catalog-frontend",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "@civicactions/data-catalog-components": "0.1.8",
     "@cmsgov/design-system-core": "^3.0.0",
@@ -15,6 +15,7 @@
     "clean": "^4.0.2",
     "cypress": "^3.8.3",
     "dotenv": "^8.2.0",
+    "excerpts": "0.0.3",
     "gatsby": "^2.13.32",
     "gatsby-cli": "^2.7.17",
     "gatsby-image": "^2.2.6",
