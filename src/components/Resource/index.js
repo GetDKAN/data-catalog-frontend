@@ -69,7 +69,6 @@ const Resource = ({ resource, identifier }) => {
   const totalResults = resourceState.filters.length ? resourceState.count : resourceState.rowsTotal;
   const pages = Math.ceil(parseInt(totalResults, 10) / resourceState.pageSize);
   const preview = ["csv", "CSV", "text/csv"];
-  console.log(resourceState.values, preview.includes(format), resourceState.store)
   if (resourceState.values && preview.includes(format) ) {}
     return (
       <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
