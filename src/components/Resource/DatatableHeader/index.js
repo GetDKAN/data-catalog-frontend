@@ -6,7 +6,6 @@ import {
   ResourceDispatch,
   DataIcon
 } from "@civicactions/data-catalog-components";
-//import DataIcon from '../../DataIcon';
 import FullScreenResource from "../FullScreenResource";
 import ManageColumns from "../ManageColumns";
 
@@ -56,8 +55,8 @@ const DatatableHeader = ({ fullscreen }) => {
                     icon="density-1"
                     name="density-1"
                     fill="#666666"
-                    height="20"
-                    width="20"
+                    height={20}
+                    width={20}
                   />
                 ),
                 text: "expanded",
@@ -69,8 +68,8 @@ const DatatableHeader = ({ fullscreen }) => {
                     icon="density-2"
                     name="density-2"
                     fill="#666666"
-                    height="20"
-                    width="20"
+                    height={20}
+                    width={20}
                   />
                 ),
                 text: "normal",
@@ -82,8 +81,8 @@ const DatatableHeader = ({ fullscreen }) => {
                     icon="density-3"
                     name="density-3"
                     fill="#666666"
-                    height="20"
-                    width="20"
+                    height={20}
+                    width={20}
                   />
                 ),
                 text: "tight",
@@ -93,7 +92,7 @@ const DatatableHeader = ({ fullscreen }) => {
           />
         </div>
         <ManageColumns />
-        {!fullscreen && <FullScreenResource />}
+        {/* {!fullscreen && <FullScreenResource />} */}
       </div>
     </div>
   );

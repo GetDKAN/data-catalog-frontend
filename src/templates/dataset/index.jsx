@@ -9,6 +9,7 @@ import {
   Tags
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
+import Resource from '../../components/Resource';
 
 const Dataset = props => {
   const item = props.pageContext.dataset;
@@ -119,10 +120,10 @@ const Dataset = props => {
             <h1>{item.title}</h1>
             {theme.length && <div className="item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
-            {/* {hasWindow &&
+            {hasWindow &&
               item.distribution.map(dist => {
-                return <Resource resource={dist.data} identifier={1} />;
-              })} */}
+                return <Resource resource={dist} key={dist.identifier} identifier={1} />;
+              })}
             <Tags tags={tag} path="/search?keyword=" label="Tags" />
             {/* <Table
               configuration={labelsT2}

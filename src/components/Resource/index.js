@@ -19,11 +19,11 @@ const Resource = ({ resource, identifier }) => {
   // File Format.
   const type = resource.hasOwnProperty('mediaType') ? resource.mediaType.split('/') : '';
   const backup = type ? type[1] : 'unknown';
-  const format = resource.hasOwnProperty('format') ? resource.format : backup;
+  const format = resource.data.hasOwnProperty('format') ? resource.data.format : backup;
   // File Url.
-  const accessURL = resource.hasOwnProperty('accessURL') ? resource.accessURL : '';
-  const fileURL = resource.hasOwnProperty('downloadURL') ? resource.downloadURL : accessURL;
-  const title = resource.hasOwnProperty('title') ? resource.title : format;
+  const accessURL = resource.data.hasOwnProperty('accessURL') ? resource.accessURL : '';
+  const fileURL = resource.data.hasOwnProperty('downloadURL') ? resource.data.downloadURL : accessURL;
+  const title = resource.data.hasOwnProperty('title') ? resource.data.title : format;
   const rootURL = `${process.env.DYNAMIC_API_URL}/`;
   const [resourceState, dispatch] = React.useReducer(
     resourceReducer,
@@ -60,7 +60,7 @@ const Resource = ({ resource, identifier }) => {
     resourceState.pageSize,
     resourceState.sort
   ]);
-  const dataKey = identifier;
+  const dataKey = resource.identifier ? resource.identifier : identifier;
   const advTableColumns = advancedColumns(
     resourceState.columns,
     resourceState.columnOrder,
@@ -69,6 +69,7 @@ const Resource = ({ resource, identifier }) => {
   const totalResults = resourceState.filters.length ? resourceState.count : resourceState.rowsTotal;
   const pages = Math.ceil(parseInt(totalResults, 10) / resourceState.pageSize);
   const preview = ["csv", "CSV", "text/csv"];
+  console.log(resourceState.values, preview.includes(format), resourceState.store)
   if (resourceState.values && preview.includes(format) ) {}
     return (
       <ResourceDispatch.Provider value={{ resourceState, dispatch }}>
