@@ -6,7 +6,9 @@ import {
   Text,
   Organization,
   Table,
-  Tags
+  Tags,
+  TopicIcon,
+  TopicWrapper
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 import Resource from '../../components/Resource';
@@ -39,13 +41,7 @@ const Dataset = props => {
     } else {
       return theme.map(topic => {
         return (
-          <Link
-            key={`dist-${topic.identifier}-${Math.random() * 10}`}
-            to={"search?theme=" + topic.data}
-          >
-            {/* <TopicIcon title={topic.data} height="16" width="16" /> */}
-            {topic.data}
-          </Link>
+          <TopicWrapper component={TopicIcon} topic={topic.data}/>
         );
       });
     }
@@ -118,7 +114,7 @@ const Dataset = props => {
           </div>
           <div className="col-md-9 col-sm-12">
             <h1>{item.title}</h1>
-            {theme.length && <div className="item-theme">{themes(theme)}</div>}
+            {theme.length && <div className="dc-item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
             {hasWindow &&
               item.distribution.map(dist => {
