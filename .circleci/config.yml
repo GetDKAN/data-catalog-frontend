@@ -42,13 +42,14 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl install --demo
+            dktl install
       - run:
           name: Run cypress tests
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
+            dktl drush en dkan_dummy_content dkan_frontend -y
             dktl drush dkan-dummy-content:create
             dktl drush queue:run dkan_datastore_import
             dktl drush en dkan_frontend
