@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
-import Tags from "../../components/Tags";
-import TopicImage from "../../components/TopicImage";
+// import TopicImage from "../../components/TopicImage";
 import ResourceTemplate from "../../components/Resource";
 
 import {
@@ -11,11 +10,9 @@ import {
   Organization,
   Table,
   Tags,
-  TopicIcon,
-  TopicWrapper
+  DataIcon
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
-import Resource from '../../components/Resource';
 
 const Dataset = props => {
   const item = props.pageContext.dataset;
@@ -119,6 +116,7 @@ const Dataset = props => {
             <h1>{item.title}</h1>
             {theme.length && <div className="dc-item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
+            <p>fooobar</p>
             {hasWindow &&
               item.distribution.map(dist => {
                 return <ResourceTemplate resource={dist} identifier={1} />;
