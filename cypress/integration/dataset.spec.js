@@ -15,6 +15,7 @@ context('Dataset', () => {
     cy.get('.dc-resource > a').should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0.csv')
   })
 
+  // add check to make sure message updates to correct amount of rows
   it('I can filter the data by year', () => {
     cy.get('.dc-table > :nth-child(2) .tr > :nth-child(2) input').type('1952-01')
     cy.wait(3000)
@@ -25,6 +26,7 @@ context('Dataset', () => {
 
   it('I can sort the data by price', () => {
     cy.get('.dc-table > :nth-child(1) .tr > :nth-child(3)').click()
+    cy.wait(3000)
     cy.get('.dc-table .dc-tbody > :nth-child(1) > :nth-child(3)').should('contain', '101.623')
   })
 
@@ -62,6 +64,7 @@ context('Dataset', () => {
     })
   })
 
+  // Add check to make sure message updates correctly
   it('I can select the number of rows per page in the data preview.', () => {
     cy.get('.-pageInfo').should('contain', 'Page 1 of 38')
     cy.get('.page-size-select').select('50')
@@ -79,19 +82,19 @@ context('Dataset', () => {
     cy.get('.dc-tbody > .dc-tr > :nth-child(1)').should('have.css', 'padding', '14px 5px')
   })
 
-  it.skip('I can resize the data preview columns.', () => {
-    cy.get(':nth-child(1) > .rt-resizable-header').should('have.css', 'width', '100px')
-    cy.get(':nth-child(1) > .rt-resizer')
+  it.only('I can resize the data preview columns.', () => {
+    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('have.css', 'flex', '150 0 auto')
+    cy.get(':nth-child(1) > .resizer')
       .trigger('mousedown', { which: 1 })
-    cy.get(':nth-child(2) > .rt-resizer')
+    cy.get(':nth-child(2) > .resizer')
       .trigger("mousemove")
       .trigger("mouseup")
-    cy.get(':nth-child(1) > .rt-resizable-header').should('have.css', 'width', '200px')
+    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('have.css', 'flex', '389 0 auto')
     // Column width is consistent.
-    cy.get('.rt-tbody > :nth-child(1) > .rt-tr > :nth-child(1)').should('have.css', 'width', '200px')
+    cy.get('.dc-tbody > :nth-child(1) > :nth-child(1)').should('have.css', 'flex', '389 0 auto')
   })
 
-  it.only('I can open and close Advanced Table Config', () => {
+  it('I can open and close Advanced Table Config', () => {
     cy.get('#dc-modal-manage_columns-open').click()
     // cy.get('#react-aria-modal-dialog #dialog-title').should('contain', 'Display column')
     // Test close button in top right
@@ -107,20 +110,22 @@ context('Dataset', () => {
     cy.get('#dc-modal-manage_columns').should('not.exist');
   })
 
-  it.skip('I can remove and add back data table columns', () => {
-    cy.get('.ReactTable .rt-tr').children('.rt-resizable-header').should('have.length', 9)
-    cy.get('.ReactTable .rt-tr > .rt-resizable-header > .rt-resizable-header-content').should('contain', 'record_number')
-    cy.get('#advanced_table_settings').click()
-    cy.get('#react-aria-modal-dialog .target > :nth-child(1) .ds-c-label > span').should('contain', 'record_number')
-    cy.get('#react-aria-modal-dialog .target > :nth-child(1) .ds-c-label').click()
-    cy.get('#react-aria-modal-dialog .ds-c-button--primary').click()
-    cy.get('.ReactTable .rt-tr > .rt-resizable-header > .rt-resizable-header-content').should('contain', 'org_nm')
-    cy.get('.ReactTable .rt-tr').children('.rt-resizable-header').should('have.length', 8)
-    cy.get('#advanced_table_settings').click()
-    cy.get('#react-aria-modal-dialog .target > :nth-child(1) .ds-c-label').click()
-    cy.get('#react-aria-modal-dialog .ds-c-button--primary').click()
-    cy.get('.ReactTable .rt-tr > .rt-resizable-header > .rt-resizable-header-content').should('contain', 'record_number')
-    cy.get('.ReactTable .rt-tr').children('.rt-resizable-header').should('have.length', 9)
+  it('I can remove and add back data table columns', () => {
+    cy.wait(3000)
+    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 3)
+    cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'record_number')
+    cy.get('#dc-modal-manage_columns-open').click()
+    cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').should('contain', 'record_number')
+    cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').click()
+    cy.get('#dc-modal-manage_columns-header-close').click()
+    cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'date')
+    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 2)
+    cy.get('#dc-modal-manage_columns-open').click()
+    cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').should('contain', 'record_number')
+    cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').click()
+    cy.get('#dc-modal-manage_columns-header-close').click()
+    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 3)
+    cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'record_number')
   })
 
   it('I can reorder table columns', () => {
@@ -131,7 +136,6 @@ context('Dataset', () => {
     cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(1)`)
       .trigger('dragover')
       .trigger('drop')
-      
     cy.get('#dc-modal-manage_columns-close').click()
     cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('contain', 'date')
   })

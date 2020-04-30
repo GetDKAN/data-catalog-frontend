@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
-// import TopicImage from "../../components/TopicImage";
 import ResourceTemplate from "../../components/Resource";
 
 import {
@@ -10,7 +9,8 @@ import {
   Organization,
   Table,
   Tags,
-  DataIcon
+  TopicIcon,
+  TopicWrapper
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
 
@@ -41,7 +41,7 @@ const Dataset = props => {
     } else {
       return theme.map(topic => {
         return (
-          <TopicWrapper component={TopicIcon} topic={topic.data}/>
+          <TopicWrapper component={TopicIcon} topic={topic.data} key={topic.identifier}/>
         );
       });
     }
@@ -119,7 +119,7 @@ const Dataset = props => {
             <p>fooobar</p>
             {hasWindow &&
               item.distribution.map(dist => {
-                return <ResourceTemplate resource={dist} identifier={1} />;
+                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
               })}
             <Tags tags={tag} path="/search?keyword=" label="Tags" />
             {/* <Table
