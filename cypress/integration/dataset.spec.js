@@ -82,19 +82,20 @@ context('Dataset', () => {
     cy.get('.dc-tbody > .dc-tr > :nth-child(1)').should('have.css', 'padding', '14px 5px')
   })
 
-  it.only('I can resize the data preview columns.', () => {
+  it('I can resize the data preview columns.', () => {
+    cy.wait(3000)
     cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('have.css', 'flex', '150 0 auto')
     cy.get(':nth-child(1) > .resizer')
       .trigger('mousedown', { which: 1 })
     cy.get(':nth-child(2) > .resizer')
       .trigger("mousemove")
       .trigger("mouseup")
-    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('have.css', 'flex', '389 0 auto')
+    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('not.have.css', 'flex', '150 0 auto')
     // Column width is consistent.
-    cy.get('.dc-tbody > :nth-child(1) > :nth-child(1)').should('have.css', 'flex', '389 0 auto')
+    cy.get('.dc-tbody > .tr > :nth-child(1)').should('not.have.css', 'flex', '150 0 auto')
   })
 
-  it('I can open and close Advanced Table Config', () => {
+  it('I can open and close Manage Columns', () => {
     cy.get('#dc-modal-manage_columns-open').click()
     // cy.get('#react-aria-modal-dialog #dialog-title').should('contain', 'Display column')
     // Test close button in top right
