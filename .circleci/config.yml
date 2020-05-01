@@ -55,7 +55,18 @@ jobs:
             dktl drush en dkan_frontend
             dktl drush dkan-search:rebuild-tracker
             dktl drush search-api-index
-            dktl frontend:install
+
+            dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
+            dktl dc run cli git clone --single-branch -b resource-update https://github.com/GetDKAN/data-catalog-components.git
+            dktl dc run cli npm install --prefix /var/www/data-catalog-components --unsafe-perm
+            dktl dc run -w /var/www/data-catalog-components cli npm pack --unsafe-perm
+            dktl dc run -w /var/www/docroot/data-catalog-frontend cli npm install ../../data-catalog-components/civicactions-data-catalog-components-1.0.0.tgz
+            dktl dc run cli cat /var/www/docroot/data-catalog-frontend/package.json
+            dktl dc run -w /var/www/docroot/data-catalog-frontend cli rm -rf node_modules
+            dktl dc run -w /var/www/docroot/data-catalog-frontend cli rm package-lock.json 
+            dktl dc exec cli npm install --prefix /var/www/docroot/data-catalog-frontend --unsafe-perm
+            dktl dc run cli cat /var/www/docroot/data-catalog-frontend/node_modules/@civicactions/data-catalog-components/package.json
+
             dktl frontend:build
             dktl dc exec web chmod -R 777 /var/www/docroot/sites/default/files/dkan-tmp
             dktl drush cr
