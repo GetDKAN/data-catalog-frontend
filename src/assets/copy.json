@@ -25,25 +25,5 @@
       "icon": "database",
       "ref": "3"
     }
-  ],
-  "api": [
-    {
-      "title": "Before you start",
-      "body": "The full documentation is a great way to explore all the features to the API. You might also want to check out example apps, or familiarize yourself with the development console.",
-      "step": "1",
-      "ref": "11"
-    },
-    {
-      "title": "Obtain your API URL & Key",
-      "body": "In order to enable an integration between our Provider Quality Data Catalog and a 3rd party application, you will need to first obtain your API URL and Key.",
-      "step": "2",
-      "ref": "12"
-    },
-    {
-      "title": "Call the API",
-      "body": "When you provide the API URL and key to a 3rd party application, they will be able to access the Provider Quality Data Catalog to sync information or perform other tasks.",
-      "step": "3",
-      "ref": "13"
-    }
   ]
 }
