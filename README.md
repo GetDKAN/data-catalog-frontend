@@ -20,6 +20,7 @@ If you have a backend already running and just need the frontend:
    1) ``npm install``
 1) Run the server: ``npm start`` or ``gatsby develop``
    1) Your site is now running at ``http://localhost:8000``
+1) Edit the `.env.production` file to change the GATSBY_API_URL to reflect your site url
 1) Build the public files ``npm run build`` or ``gatsby build``
 
 
@@ -41,8 +42,8 @@ This is meant to be a blueprint for your frontend, from which you can make minor
     |   ├── components    # Configure your page structure wth the layout component
     │   ├── pages         # Components in this directory become pages automatically with paths based on their file name
     │   ├── services      # Provides the connections to the backend api
-    |   └── templates     # Ideas for how you can assemble components to customize your pages
-    │   └── theme         # Add your custom fonts, colors, and css here
+    |   └── templates     # Ideas for how to assemble components to display the data
+    │   └── theme         # Add custom fonts, colors, and css here
     ├── .env.development  # Local environment variables
     ├── .env.production   # Production environment variables
     ├── gatsby-browser.js # Customizations affecting the browser
@@ -50,7 +51,7 @@ This is meant to be a blueprint for your frontend, from which you can make minor
     ├── gatsby-node.js    # Customizations affecting the site build process
     ├── gatsby-ssr.js     # Customizations affecting server-side rendering
     ├── package.json      # App dependencies
-    └── providers.js      # Component that wraps your root element
+    └── providers.js      # Component that wraps the root element
 
 ## Basic Customizations
 
