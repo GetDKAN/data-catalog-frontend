@@ -1,10 +1,8 @@
 # Data Catalog Frontend
 
-This is a REACT frontend for [DKAN 2.x](https://github.com/GetDKAN/dkan).
+This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend.
 
-This app serves as a starter App, or example of how to use the [data-catalog-components](https://github.com/GetDKAN/data-catalog-components) library to easily create open data catalogs.
-
-This app is designed utilize the latest stable version of Drupal 8's version of [DKAN](https://github.com/GetDKAN/dkan) as a backend but can be modified to run off of other data catalog backends.
+This application serves as a starter app, or example of how to use the [data-catalog-components](https://github.com/GetDKAN/data-catalog-components) library to easily create open data catalogs.
 
 
 ## Auto Set Up
@@ -22,7 +20,6 @@ If you have a backend already running and just need the frontend:
    1) Your site is now running at ``http://localhost:8000``
 1) Edit the `.env.production` file to change the GATSBY_API_URL to reflect your site url
 1) Build the public files ``npm run build`` or ``gatsby build``
-
 
 
 ## Learn More
