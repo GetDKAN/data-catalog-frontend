@@ -51,3 +51,9 @@ This is meant to be a blueprint for your frontend, from which you can make minor
     ├── gatsby-ssr.js     # Customizations affecting server-side rendering
     ├── package.json      # App dependencies
     └── providers.js      # Component that wraps your root element
+
+## Basic Customizations
+
+- Edit the `src/theme/styles/_variables.scss` file to change the colors and fonts of your site.
+- Edit the `src/assets/config.json` file to change the site title, slogan, logo, and container class.
+- Import css overrides to `src/theme/styles/index.scss`
