@@ -16,9 +16,9 @@ If you have a backend already running and just need the frontend:
 1) Install the dependencies with [npm](https://www.npmjs.com/):
    1) ``cd data-catalog-frontend``
    1) ``npm install``
+1) Edit the `.env.production` file to change the GATSBY_API_URL to reflect your site url
 1) Run the server: ``npm start`` or ``gatsby develop``
    1) Your site is now running at ``http://localhost:8000``
-1) Edit the `.env.production` file to change the GATSBY_API_URL to reflect your site url
 1) Build the public files ``npm run build`` or ``gatsby build``
 
 
@@ -36,7 +36,7 @@ This is meant to be a blueprint for your frontend, from which you can make minor
     ├── public            # The output of the build process
     ├── src               # This directory will contain all of the source code
     |   ├── assets        # Place to store images and content/config files
-    |   ├── components    # Configure your page structure wth the layout component
+    |   ├── components    # Configure your page structure with the layout component
     │   ├── pages         # Components in this directory become pages automatically with paths based on their file name
     │   ├── services      # Provides the connections to the backend api
     |   └── templates     # Ideas for how to assemble components to display the data
