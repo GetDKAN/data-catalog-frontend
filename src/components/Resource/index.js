@@ -15,7 +15,12 @@ const ResourceTemplate = ({ resource }) => {
       identifier={resource.identifier}
       resource={resource}
     >
-      <FileDownload label={resource.data.downloadURL} format={format} downloadURL={resource.data.downloadURL} />
+      <FileDownload
+        title={resource.data.title}
+        label={resource.data.downloadURL}
+        format={format}
+        downloadURL={resource.data.downloadURL}
+      />
       <DataTableHeader />
       <DataTable />
     </Resource>
