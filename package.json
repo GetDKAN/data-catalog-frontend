@@ -29,7 +29,6 @@
     "gatsby-transformer-sharp": "^2.2.3",
     "lodash": "^4.17.15",
     "node-sass": "^4.13.1",
-    "papaparse": "^4.6.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dnd": "^7.4.5",
