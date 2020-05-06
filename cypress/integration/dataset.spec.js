@@ -1,18 +1,17 @@
 context('Dataset', () => {
 
   beforeEach(() => {
-    cy.visit("http://dkan/dataset/5dc1cfcf-8028-476c-a020-f58ec6dd621c")
+    cy.visit("http://dkan/dataset/d460252e-d42c-474a-9ea9-5287b1d595f6")
   })
 
-  it('I see the title and description', () => {
-    cy.wait(6000)
-    cy.get('h1').should('have.text', 'Gold Prices in London 1950-2008 (Monthly)')
-    cy.get('.col-md-9').contains('Monthly gold prices (USD) in London from Bundesbank.')
+  it.only('I see the title and description', () => {
+    cy.get('h1').should('have.text', 'Crime Data for the Ten Most Populous Cities in the U.S.')
+    cy.get('.col-md-9').contains('Source: FBI Uniform Crime Report')
   })
 
   it('I see the file is available to download', () => {
-    cy.get('.dc-resource > svg').should('have.attr', 'class', 'dkan-icon')
-    cy.get('.dc-resource > a').should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/5dc1cfcf-8028-476c-a020-f58ec6dd621c/data_0.csv')
+    cy.get('.dc-resource:first-of-type > svg').should('have.attr', 'class', 'dkan-icon')
+    cy.get('.dc-resource:first-of-type > a').should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/d460252e-d42c-474a-9ea9-5287b1d595f6/ViolentCrimeRates.csv')
   })
 
   // add check to make sure message updates to correct amount of rows
@@ -113,24 +112,24 @@ context('Dataset', () => {
 
   it('I can remove and add back data table columns', () => {
     cy.wait(3000)
-    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 3)
+    cy.get('.dc-table:first-of-type > :nth-child(1) .tr').children('.th').should('have.length', 16)
     cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'record_number')
     cy.get('#dc-modal-manage_columns-open').click()
     cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').should('contain', 'record_number')
     cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').click()
     cy.get('#dc-modal-manage_columns-header-close').click()
     cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'date')
-    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 2)
+    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 15)
     cy.get('#dc-modal-manage_columns-open').click()
     cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').should('contain', 'record_number')
     cy.get('#dc-modal-manage_columns .dc-modal-body > :nth-child(1) label').click()
     cy.get('#dc-modal-manage_columns-header-close').click()
-    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 3)
+    cy.get('.dc-table > :nth-child(1) .tr').children('.th').should('have.length', 16)
     cy.get('.dc-table > :nth-child(1) .tr .th').should('contain', 'record_number')
   })
 
   it('I can reorder table columns', () => {
-    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('contain', 'record_number')
+    cy.get('.dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)').should('contain', 'record_number')
     cy.get('#dc-modal-manage_columns-open').click()
     cy.get(`#dc-modal-manage_columns .dc-modal-body > :nth-child(2)`)
       .trigger('dragstart')
@@ -138,6 +137,6 @@ context('Dataset', () => {
       .trigger('dragover')
       .trigger('drop')
     cy.get('#dc-modal-manage_columns-close').click()
-    cy.get('.dc-table > :nth-child(1) .tr > :nth-child(1)').should('contain', 'date')
+    cy.get('.dc-table:first-of-type > :nth-child(1) .tr > :nth-child(1)').should('contain', 'city')
   })
 })
