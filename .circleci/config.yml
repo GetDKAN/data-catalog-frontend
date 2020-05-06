@@ -28,7 +28,6 @@ jobs:
             mkdir ~/sandbox
             cd ~/sandbox
             dktl init
-            mv ~/project ./src/frontend
       - run:
           name: Get Drupal
           command: |
