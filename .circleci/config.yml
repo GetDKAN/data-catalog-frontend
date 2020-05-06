@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Setup variables"
+          command: |
+            echo $CIRCLE_BRANCH
+      - run:
           name: Install DKTL
           command: |
             cd ~
@@ -36,7 +40,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl make --frontend
+            dktl make --frontend=$CIRCLE_BRANCH
       - run:
           name: Install site
           command: |
