@@ -17,9 +17,9 @@ context('Dataset', () => {
   // add check to make sure message updates to correct amount of rows
   it.only('I can filter the data by year', () => {
     cy.wait(6000)
-    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input').type('Dallas')
+    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(1) input').type('Dallas')
     cy.wait(6000)
-    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)').should('contain', 'Dallas')
+    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-table .dc-tbody > :nth-child(1) > :nth-child(1)').should('contain', 'Dallas')
     // Uncomment when pager is fixed.
     // cy.get('.-pagination .-pageInfo .-totalPages').should('contain','2')
   })

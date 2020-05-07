@@ -37,6 +37,7 @@
     "react-dnd-touch-backend": "^0.8.1",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-js-pagination": "^3.0.3",
     "react-loader-advanced": "^1.7.1",
     "react-loading-spin": "^1.0.9",
     "react-router-dom": "^4.3.1",
