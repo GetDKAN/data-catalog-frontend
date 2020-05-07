@@ -4,7 +4,7 @@ context('Dataset', () => {
     cy.visit("http://dkan/dataset/d460252e-d42c-474a-9ea9-5287b1d595f6")
   })
 
-  it.only('I see the title and description', () => {
+  it('I see the title and description', () => {
     cy.get('h1').should('have.text', 'Crime Data for the Ten Most Populous Cities in the U.S.')
     cy.get('.col-md-9').contains('Source: FBI Uniform Crime Report')
   })
@@ -15,10 +15,11 @@ context('Dataset', () => {
   })
 
   // add check to make sure message updates to correct amount of rows
-  it('I can filter the data by year', () => {
-    cy.get('.dc-table > :nth-child(2) .tr > :nth-child(2) input').type('1952-01')
-    cy.wait(3000)
-    cy.get('.dc-table .dc-tbody > :nth-child(1) > :nth-child(2)').should('contain', '1952-01')
+  it.only('I can filter the data by year', () => {
+    cy.wait(6000)
+    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(2) input').type('Dallas')
+    cy.wait(6000)
+    cy.get('#resource_186e26a4-f05b-5783-9ea8-4d1750c887b6 .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)').should('contain', 'Dallas')
     // Uncomment when pager is fixed.
     // cy.get('.-pagination .-pageInfo .-totalPages').should('contain','2')
   })
