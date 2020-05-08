@@ -15,6 +15,7 @@ const ResourceTemplate = ({ resource }) => {
         apiURL={rootURL}
         identifier={resource.identifier}
         resource={resource}
+        showDBColumnNames={true}
       >
         <FileDownload
           title={resource.data.title}
