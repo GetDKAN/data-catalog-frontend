@@ -4,7 +4,7 @@ context('Dataset', () => {
   const table2 = '#resource_eed01862-e6c0-5aa6-8c2b-91cca5108ed3';
 
   beforeEach(() => {
-    cy.visit("http://localhost:8001/dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6")
+    cy.visit("http://dkan/dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6")
   })
 
   it('I see the title and description', () => {
