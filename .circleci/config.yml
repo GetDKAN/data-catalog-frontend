@@ -45,7 +45,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl install -—demo-backend
+            dktl install --demo-backend
       - run:
           name: Run cypress tests
           command: |
