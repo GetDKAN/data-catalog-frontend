@@ -1,7 +1,7 @@
 {
   "name": "data-catalog-frontend",
   "private": true,
-  "version": "0.1.2",
+  "version": "1.0.0",
   "dependencies": {
     "@civicactions/data-catalog-components": "1.0.0",
     "@cmsgov/design-system-core": "^3.0.0",
