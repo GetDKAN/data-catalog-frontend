@@ -10,6 +10,10 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Setup variables"
+          command: |
+            echo $CIRCLE_BRANCH
+      - run:
           name: Install DKTL
           command: |
             cd ~
@@ -24,7 +28,6 @@ jobs:
             mkdir ~/sandbox
             cd ~/sandbox
             dktl init
-            mv ~/project ./src/frontend
       - run:
           name: Get Drupal
           command: |
@@ -36,7 +39,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
-            dktl make --frontend
+            dktl make --frontend=$CIRCLE_BRANCH
       - run:
           name: Install site
           command: |
@@ -48,12 +51,12 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
+            dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
-            dktl drush en dkan_dummy_content dkan_frontend -y
-            dktl drush dkan-dummy-content:create
-            dktl drush queue:run dkan_datastore_import
-            dktl drush en dkan_frontend
-            dktl drush dkan-search:rebuild-tracker
+            dktl drush en sample_content frontend -y
+            dktl drush dkan:sample-content:create
+            dktl drush queue:run datastore_import
+            dktl drush dkan:metastore-search:rebuild-tracker
             dktl drush search-api-index
             dktl frontend:install
             dktl frontend:build

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from '@reach/router';
 import Layout from "../../components/Layout";
 import config from "../../assets/config";
+import ResourceTemplate from "../../components/Resource";
+
 import {
   Text,
   Organization,
@@ -11,12 +13,10 @@ import {
   TopicWrapper
 } from "@civicactions/data-catalog-components";
 import orgs from "../../assets/publishers";
-import Resource from '../../components/Resource';
 
 const Dataset = props => {
   const item = props.pageContext.dataset;
   const path = props.path;
-
   const [hasWindow, checkForWindow] = useState(false);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Dataset = props => {
     } else {
       return theme.map(topic => {
         return (
-          <TopicWrapper component={TopicIcon} topic={topic.data}/>
+          <TopicWrapper component={TopicIcon} topic={topic.data} key={topic.identifier}/>
         );
       });
     }
@@ -118,7 +118,7 @@ const Dataset = props => {
             <Text value={item.description} />
             {hasWindow &&
               item.distribution.map(dist => {
-                return <Resource resource={dist} key={dist.identifier} identifier={1} />;
+                return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
               })}
             <Tags tags={tag} path="/search?keyword=" label="Tags" />
             {/* <Table
