@@ -11,21 +11,33 @@ const ResourceTemplate = ({ resource }) => {
   const rootURL = `${process.env.DYNAMIC_API_URL}/`;
   return (
     <div id={`resource_${resource.identifier}`}>
-      <Resource
-        apiURL={rootURL}
-        identifier={resource.identifier}
-        resource={resource}
-        showDBColumnNames={true}
-      >
-        <FileDownload
-          title={resource.data.title}
-          label={resource.data.downloadURL}
-          format={format}
-          downloadURL={resource.data.downloadURL}
-        />
-        <DataTableHeader />
-        <DataTable />
-      </Resource>
+      {format.toLowerCase() === 'csv'
+        ? (
+          <Resource
+            apiURL={rootURL}
+            identifier={resource.identifier}
+            resource={resource}
+            showDBColumnNames={true}
+          >
+            <FileDownload
+              title={resource.data.title}
+              label={resource.data.downloadURL}
+              format={format}
+              downloadURL={resource.data.downloadURL}
+            />
+            <DataTableHeader />
+            <DataTable />
+          </Resource>
+        )
+        : (
+          <FileDownload
+            title={resource.data.title}
+            label={resource.data.downloadURL}
+            format={format}
+            downloadURL={resource.data.downloadURL}
+          />
+        )
+      }
     </div>
   );
 };
