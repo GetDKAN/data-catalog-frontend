@@ -10,28 +10,34 @@
   justify-content: space-between;
   margin-bottom: 16px;
   font-size: 1.4rem;
-  .page-size-options {
-
-    label.ds-c-label {
+  .dc-page-size-options {
+    label {
       display: inline-block;
       margin: 0 5px 0 0;
       font-size: 1.4rem;
     }
-    select.ds-c-field {
+    select {
       display: inline-block;
       max-width: 80px;
-      width: 80px;
+      width: auto;
+      height: 32px;
+      border: 1px solid $grayLight;
+      background: white;
     }
   }
   .density-buttons {
     display: inline-block;
     button[type="button"] {
       padding: 6px;
-      margin: 2px;
+      margin: -1px;
       border: 1px solid $grayLight;
       background: white;
       &:first-of-type {
         margin-left: 8px;
+        border-radius: 5px 0 0 5px;
+      }
+      &:last-of-type {
+        border-radius: 0 5px 5px 0;
       }
     }
   }
@@ -46,8 +52,8 @@
   .dc-modal-open-button {
     position: relative;
     display: inline-block;
-    background: none;
-    border-radius: 25px;
+    background: white;
+    border-radius: 5px;
     border: 1px solid $grayLight;
     padding: 8px 16px;
   }
@@ -71,5 +77,18 @@
     background-color: transparent;
     height: 40px;
     vertical-align: middle;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dc-datatable-header,
+  .data-table-density {
+    display: block;
+    & > div {
+      margin: 5px 0;
+    }
+    .dc-modal-open-button {
+      width: 100%;
+    }
   }
 }
