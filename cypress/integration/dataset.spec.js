@@ -174,7 +174,7 @@ context('Dataset', () => {
     cy.get(`${table2} .dc-table:first-of-type > :nth-child(1) .tr > :nth-child(1)`).should('contain', 'state_abbreviation')
   })
 
-  it.only('I don\'t see a datatable if a distribution doesn\'t contain a csv file.', () => {
+  it('I don\'t see a datatable if a distribution doesn\'t contain a csv file.', () => {
     cy.visit(`${rootURL}/dataset/fb3525f2-d32a-451e-8869-906ed41f7695`)
     cy.wait(6000)
     cy.get(`.dc-datatable`).should('not.exist');
