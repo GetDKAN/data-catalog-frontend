@@ -50,8 +50,8 @@ class ApiDocsSpecific extends Component {
       ? this.props.pageContext.dataset.publisher.data.name : "";
 
     const orgDetails = orgs.filter(org => orgName === org.name);
-    const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-    const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
+    const orgImage = orgDetails && orgDetails[0] && "imageUrl" in orgDetails[0] ? orgDetails[0].imageUrl : "";
+    const orgDesc = orgDetails && orgDetails[0] && "description" in orgDetails[0] ? orgDetails[0].description : "";
 
     return (
       <Layout path={this.props.path} title={item.title}>

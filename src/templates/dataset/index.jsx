@@ -28,8 +28,8 @@ const Dataset = props => {
   const orgName =
     "publisher" in item && item.publisher ? item.publisher.data.name : "";
   const orgDetails = orgs.filter(org => orgName === org.name);
-  const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-  const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
+  const orgImage = orgDetails && orgDetails[0] && "imageUrl" in orgDetails[0] ? orgDetails[0].imageUrl : "";
+  const orgDesc = orgDetails && orgDetails[0] && "description" in orgDetails[0] ? orgDetails[0].description : "";
 
   const tag = "keyword" in item ? item.keyword : [];
   const theme = "theme" in item ? item.theme : [];
