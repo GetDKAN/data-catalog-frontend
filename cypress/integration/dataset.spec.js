@@ -89,6 +89,7 @@ context('Dataset', () => {
     cy.get(`${table2} .page-size-select`).select('50')
     cy.get(`${table2} .-pageInfo`).should('contain', 'Page 1 of 2')
     cy.get(`${table2} .page-size-select`).select('100')
+    cy.wait(6000)
     cy.get(`${table2} .-pageInfo`).should('contain', 'Page 1 of 1')
   })
 
