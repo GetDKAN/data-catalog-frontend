@@ -52,6 +52,8 @@ This is meant to be a blueprint for your frontend, from which you can make minor
 
 ## Basic Customizations
 
-- Edit the `src/theme/styles/_variables.scss` file to change the colors and fonts of your site.
 - Edit the `src/assets/config.json` file to change the site title, slogan, logo, and container class.
-- Import css overrides to `src/theme/styles/index.scss`
+- Edit the `src/theme/styles/_variables.scss` file to change the colors and fonts of your site.
+- Add custom .scss files to `src/theme/styles/` to override the default css classes with your new color variables and other changes.
+- Import your .scss files to `src/theme/styles/index.scss`
+- Run `gatsby develop` to preview, then `npm run build` to generate the public files.
