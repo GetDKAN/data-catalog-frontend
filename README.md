@@ -12,7 +12,7 @@ This application serves as a starter app, or example of how to use the [data-cat
 If you have a backend already running and just need the frontend:
 
 1) Install the Gatsby CLI ``npm install -g gatsby-cli``
-1) Clone this repository in your docroot
+1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-frontend.git``
 1) Install the dependencies with [npm](https://www.npmjs.com/):
    1) ``cd data-catalog-frontend``
    1) ``npm install``
