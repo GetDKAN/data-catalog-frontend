@@ -32,12 +32,6 @@ beforeEach(() => {
     cy.viewport('macbook-13')
   })
 
-  it.skip('When I click the main menu Publishers link I should end up on the Publishers page', () => {
-    cy.get('.navbar .nav').contains('Publishers').click({ force: true })
-    cy.wait(5000)
-    cy.get('h1').contains('Dataset Publishers')
-  })
-
   it('I should see the expected custom text on the home page', () => {
     cy.get('.dc-hero-title').should('contain', 'Welcome to DKAN');
     cy.get('.dc-hero-search button').should('contain', 'Go');
