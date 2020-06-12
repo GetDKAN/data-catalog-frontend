@@ -64,11 +64,7 @@ class ApiDocsSpecific extends Component {
         <div className={`dc-dataset-page ${config.container}`}>
           <div className="row">
             <div className="col-md-3 col-sm-12">
-              <Organization
-                name={orgName}
-                imageUrl={orgImage}
-                description={orgDesc}
-              />
+              {renderOrg}
               <div className="dc-block-wrapper">
                 <FontAwesomeIcon
                   icon={['fas', 'arrow-left']}
