@@ -12,7 +12,7 @@ This application serves as a starter app, or example of how to use the [data-cat
 If you have a backend already running and just need the frontend:
 
 1) Install the Gatsby CLI ``npm install -g gatsby-cli``
-1) Clone this repository in your docroot
+1) Clone this repository in your **docroot** ``git clone https://github.com/GetDKAN/data-catalog-frontend.git``
 1) Install the dependencies with [npm](https://www.npmjs.com/):
    1) ``cd data-catalog-frontend``
    1) ``npm install``
@@ -52,6 +52,8 @@ This is meant to be a blueprint for your frontend, from which you can make minor
 
 ## Basic Customizations
 
-- Edit the `src/theme/styles/_variables.scss` file to change the colors and fonts of your site.
 - Edit the `src/assets/config.json` file to change the site title, slogan, logo, and container class.
-- Import css overrides to `src/theme/styles/index.scss`
+- Edit the `src/theme/styles/_variables.scss` file to change the colors and fonts of your site.
+- Add custom .scss files to `src/theme/styles/` to override the default css classes with your new color variables and other changes.
+- Import your .scss files to `src/theme/styles/index.scss`
+- Run `gatsby develop` to preview, then `npm run build` to generate the public files.
