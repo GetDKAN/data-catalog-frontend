@@ -175,7 +175,7 @@ context('Dataset', () => {
   })
 
   it('I don\'t see a datatable if a distribution doesn\'t contain a csv file.', () => {
-    cy.visit(`${rootURL}/dataset/fb3525f2-d32a-451e-8869-906ed41f7695`)
+    cy.visit(`dataset/fb3525f2-d32a-451e-8869-906ed41f7695`)
     cy.wait(6000)
     cy.get(`.dc-datatable`).should('not.exist');
   })
