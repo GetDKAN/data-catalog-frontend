@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const defaultFacets = {
-  "Theme": {
+  "theme": {
     "label": "Topics",
     "field": "theme.0.title",
     "showAll": false,
@@ -11,7 +11,7 @@ export const defaultFacets = {
       "icon": <span></span>
     },
   },
-  "Keyword": {
+  "keyword": {
     "label": "Tags",
     "field": "keyword.*.title",
     "showAll": false,

@@ -50,19 +50,21 @@ class ApiDocsSpecific extends Component {
       ? this.props.pageContext.dataset.publisher.data.name : "";
 
     const orgDetails = orgs.filter(org => orgName === org.name);
-    const orgImage = orgDetails && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : "";
-    const orgDesc = orgDetails && orgDetails[0].description ? orgDetails[0].description : "";
+    const orgImage = orgDetails.length > 0 && orgDetails[0].imageUrl ? orgDetails[0].imageUrl : null;
+    const orgDesc = orgDetails.length > 0 && orgDetails[0].description ? orgDetails[0].description : "";
+    let renderOrg;
+    if(orgDetails.length > 0 && orgDetails[0].imageUrl) {
+      renderOrg = <Organization name={orgName} imageUrl={orgImage} description={orgDesc}/>;
+    } else {
+      renderOrg = <Organization name={orgName} description={orgDesc}/>;
+    }
 
     return (
       <Layout path={this.props.path} title={item.title}>
         <div className={`dc-dataset-page ${config.container}`}>
           <div className="row">
             <div className="col-md-3 col-sm-12">
-              <Organization
-                name={orgName}
-                imageUrl={orgImage}
-                description={orgDesc}
-              />
+              {renderOrg}
               <div className="dc-block-wrapper">
                 <FontAwesomeIcon
                   icon={['fas', 'arrow-left']}

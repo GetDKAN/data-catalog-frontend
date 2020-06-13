@@ -1,7 +1,7 @@
 context('Search', () => {
 
  beforeEach(() => {
-    cy.visit("http://dkan/search")
+    cy.visit("search")
     cy.wait(5000)
   })
 
@@ -49,8 +49,8 @@ context('Search', () => {
 
   // TOPIC FILTER
   it('The topics facet block should contain 5 topics and one legend', () => {
-    cy.get('h2.facet-block-topics-inner').should('have.text','Topics')
-    cy.get('.inner-topics-facets .show-more-container').children().should('have.length', 5)
+    cy.get('h2.facet-block-theme-inner').should('have.text','Topics')
+    cy.get('.inner-theme-facets .show-more-container').children().should('have.length', 5)
   })
 
   it.skip('wip - Get expected values from the data.json', () => {
@@ -68,7 +68,7 @@ context('Search', () => {
   })
 
   it('The topic terms should match the expected POD themes', () => {
-    cy.get('.inner-topics-facets .show-more-container').children().then(($li) => {
+    cy.get('.inner-theme-facets .show-more-container').children().then(($li) => {
       cy.fixture('topics.json').then((topics) => {
         Cypress._.each(topics, (category) => {
           expect($li).to.contain(category)
@@ -78,41 +78,41 @@ context('Search', () => {
   })
 
   it('Check results are returned when filtering for topic 1', () => {
-    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 2', () => {
-    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(2) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 3', () => {
-    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(3) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 4', () => {
-    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(4) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   it('Check results are returned when filtering for topic 5', () => {
-    cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
+    cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(5) > label').click()
     cy.get('.dc-search-results-message').should('not.contain', '0')
     cy.get('.dc-search-results-message').should('contain', 'dataset')
   })
 
   // KEYWORD FILTER
   it('Check that the tags facet block has options', () => {
-    cy.get('.inner-tags-facets > .show-more-wrapper > .show-more-container').children()
+    cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container').children()
       .its('length')
       .should('be.gt', 0)
-      cy.get('.facet-block-tags-inner > button > span').should('have.text', 'Tags')
+      cy.get('.facet-block-keyword-inner > button > span').should('have.text', 'Tags')
   })
 
   it('When filtering by keyword I should get a smaller results list', () => {
@@ -120,7 +120,7 @@ context('Search', () => {
     cy.get('.dc-results-list ol').children().each((item) => {
       results += 1;
     }).then(() => {
-      cy.get('.inner-tags-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
+      cy.get('.inner-keyword-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > label').click()
       cy.wait(1000)
 
       let filtered = 0;

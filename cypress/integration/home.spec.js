@@ -1,7 +1,7 @@
 context('Home', () => {
 
 beforeEach(() => {
-    cy.visit("http://dkan/home")
+    cy.visit("/")
   })
 
   it('I should see a logo in the header region', () => {
@@ -67,7 +67,7 @@ beforeEach(() => {
     cy.get(':nth-child(1) > a > div').invoke('text').then(topicClicked => {
       cy.get(':nth-child(1) > a > div').click()
       cy.wait(2000)
-      cy.get('.inner-topics-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > input').should('be.checked')
+      cy.get('.inner-theme-facets > .show-more-wrapper > .show-more-container > :nth-child(1) > input').should('be.checked')
       cy.get('.dc-facet-option > label').invoke('text').should('contain', topicClicked)
     })
   })

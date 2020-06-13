@@ -1,10 +1,9 @@
 context('Dataset', () => {
-  const rootURL = 'http://dkan'
   const table1 = '#resource_e4854391-e248-5eca-88ce-7b41d3bc02da';
   const table2 = '#resource_eed01862-e6c0-5aa6-8c2b-91cca5108ed3';
 
   beforeEach(() => {
-    cy.visit(`${rootURL}/dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6`)
+    cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6')
   })
 
   it('I see the title and description', () => {
@@ -176,7 +175,7 @@ context('Dataset', () => {
   })
 
   it('I don\'t see a datatable if a distribution doesn\'t contain a csv file.', () => {
-    cy.visit(`${rootURL}/dataset/fb3525f2-d32a-451e-8869-906ed41f7695`)
+    cy.visit(`dataset/fb3525f2-d32a-451e-8869-906ed41f7695`)
     cy.wait(6000)
     cy.get(`.dc-datatable`).should('not.exist');
   })
