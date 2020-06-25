@@ -118,7 +118,7 @@ const Dataset = props => {
             <h1>{item.title}</h1>
             {theme.length && <div className="dc-item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
-            {hasWindow &&
+            {hasWindow && item.distribution &&
               item.distribution.map(dist => {
                 return <ResourceTemplate key={dist.identifier} resource={dist} identifier={dist.identifier} />;
               })}
