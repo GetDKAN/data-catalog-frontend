@@ -82,6 +82,10 @@ const Dataset = props => {
     labelsT3.modified = { label: "Last Update" };
     valuesT3.modified = item.modified;
   }
+  if ("license" in item && item.license) {
+    labelsT3.license = { label: "License" };
+    valuesT3.license = `<a href="${item.license.data}">${item.license.data}</a>`;
+  }
   if ("contactPoint" in item && item.contactPoint && item.contactPoint.fn) {
     labelsT3.contact = { label: "Contact" };
     valuesT3.contact = item.contactPoint.fn;
