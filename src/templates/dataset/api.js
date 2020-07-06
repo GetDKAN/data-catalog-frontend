@@ -43,7 +43,13 @@ class ApiDocsSpecific extends Component {
     }
   }
 
+  
+
   render() {
+    console.log(process.env.GATSBY_API_URL +
+      "/metastore/schemas/dataset/items/" +
+      this.props.pageContext.dataset.identifier +
+      "/docs")
     const { item, show } = this.state;
     const orgName = "publisher" in this.props.pageContext.dataset
       && this.props.pageContext.dataset.publisher.data
@@ -82,7 +88,7 @@ class ApiDocsSpecific extends Component {
               </div>
             </div>
             <div className="results-list col-md-9 col-sm-12">
-              <Title title={this.props.pageContext.dataset.title} />
+              <h1>{this.props.pageContext.dataset.title}</h1>
               {this.state.window && (
                 <Loader
                   backgroundStyle={{ backgroundColor: "#f9fafb" }}
