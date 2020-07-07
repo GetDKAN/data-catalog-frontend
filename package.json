@@ -45,7 +45,7 @@
     "react-socks": "^1.0.1",
     "react-spinjs": "^3.0.0",
     "styled-components": "^4.3.2",
-    "swagger-ui-react": "3.25.0"
+    "swagger-ui-react": "3.28.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
