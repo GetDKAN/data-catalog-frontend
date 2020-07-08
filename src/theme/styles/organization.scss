@@ -1,0 +1,31 @@
+@import "../variables";
+
+.dc-org-block {
+    padding: 1em;
+    position: relative;
+    text-align: center;
+    border: 1px solid $borderColor;
+    border-radius: $borderRadius;
+    margin-bottom: 32px;
+    background: #fff;
+    img {
+        max-width: 120px;
+    }
+    h3.dc-org-name {
+        margin: 15px 0;
+        word-break: break-word;
+    }
+    .dc-org-description {
+        word-break: break-word;
+    }
+    a {
+        text-decoration: none;
+        color: $linkColor;
+        &:hover {
+            color: $linkHoverColor;
+        }
+    }
+    img {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,29 @@
+@import "../variables";
+
+.dc-header {
+  .dc-logo {
+    margin: 10px 10px 10px 0;
+    display: inline-block;
+  }
+  .dc-site-name {
+    display: inline-block;
+    vertical-align: bottom;
+    line-height: 1em;
+    margin-bottom: 10px;
+    a {
+      color: $headingColor;
+      font-size: 1.8rem;
+    }
+  }
+  .dc-slogan {
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    .dc-logo,
+    .site-name {
+      display: block;
+    }
+  }
+}

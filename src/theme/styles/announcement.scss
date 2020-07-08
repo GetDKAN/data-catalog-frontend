@@ -1,0 +1,39 @@
+@import "../variables";
+
+.dc-alert {
+  background-color: white;
+  border-left-width: 5px;
+  border-left-color: $primaryLight;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  border: 1px solid $borderColor;
+  padding: 45px 15px 15px;
+  position: relative;
+  svg {
+    margin-right: 8px;
+    margin-top: -5px;
+    line-height: 1.2;
+  }
+  h3 {
+    background: $primary;
+    color: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    padding: 4px 15px;
+  }
+  &.dc-alert--info h3 {
+    background: $info;
+  }
+  &.dc-alert--error h3 {
+    background: $danger;
+  }
+  &.dc-alert--warn h3 {
+    background: $warning;
+  }
+  &.dc-alert--success h3 {
+    background: $success;
+  }
+}

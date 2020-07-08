@@ -1,0 +1,68 @@
+@import "../variables";
+
+.dc-hero {
+  position: relative;
+  background-size: cover;
+  background-position: 50% 50%;
+  padding: 40px 0;
+  display: flex;
+  align-items: flex-start;
+  align-content: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+
+  .dc-hero-title {
+    color: white;
+  }
+  .dc-hero-block {
+    position: relative;
+    margin: auto;
+    color: white;
+    padding: 20px;
+    min-width: 30%;
+    max-width: 50%;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+    &.center {
+      text-align: center;
+    }
+  }
+  h1,
+  h2 {
+    margin-top: 0;
+  }
+
+  .dc-hero-search {
+    display: flex;
+    flex-wrap: nowrap;
+    input {
+      margin-right: 1em;
+    }
+    button {
+      border: none;
+      background-color: $secondary;
+      color: $primaryDark;
+      height: 34px;
+      padding: 0 30px;
+      font-weight: bold;
+      font-size: 1.6rem;
+      &[type="reset"] {
+        margin-left: 1em;
+      }
+      &:hover,
+      &:focus {
+        background-color: $secondaryDark;
+        color: $primaryDark;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    .dc-hero-block {
+      max-width: 90%;
+    }
+  }
+}

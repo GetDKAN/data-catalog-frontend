@@ -1,0 +1,65 @@
+@import "../variables";
+
+.dc-search-list-item {
+  background: #fff;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  padding: 16px 48px;
+  list-style: none;
+  margin-bottom: 2rem;
+  word-break: break-word;
+  a {
+    color: $headingColor;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  h2 {
+    margin: 8px 0;
+  }
+  .item-description {
+    padding-top: 1rem;
+  }
+  .dc-item-publisher {
+    color: $primary;
+    font-style: italic;
+    margin: .5em 0;
+    svg {
+      margin-right: 1rem;
+      path {
+        fill: $primary;
+      }
+    }
+  }
+  .format-types {
+    display: flex;
+    align-items: flex-start;
+    align-content: stretch;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 0.9em;
+  }
+  .label {
+    border-radius: 3px;
+    color: white;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    white-space: nowrap;
+    display: inline-block;
+    padding: 5px 8px;
+    margin: .75em 16px .75em 0;
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  .label[data-format="csv"]     { background: $csvIcon; }
+  .label[data-format="json"]    { background: $jsonIcon; }
+  .label[data-format="pdf"]     { background: $pdfIcon; }
+  .label[data-format="rdf"],
+  .label[data-format="rdf+xml"] { background: $rdfIcon; }
+  .label[data-format="xml"]     { background: $xmlIcon; }
+  .label[data-format="zip"]     { background: $zipIcon; }
+  .label[data-format="data"]    { background: $dataIcon; }
+}

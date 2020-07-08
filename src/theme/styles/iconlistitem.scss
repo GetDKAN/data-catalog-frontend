@@ -1,0 +1,37 @@
+@import "../variables";
+
+.dc-icon-link {
+  border: 1px solid $borderColor;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 4px 2px #f3f3f3;
+  background-color: white;
+  position: relative;
+  display: block;
+  color: $linkColor;
+  font-size: 1.15em;
+  padding: 1em 2em;
+  min-width: 260px;
+  text-decoration: none;
+  text-align: center;
+  svg path {
+    fill: $linkColor;
+  }
+  &.active,
+  &:hover {
+    background-color: $secondaryLight;
+    text-decoration: none;
+    color: $primaryDark;
+    svg path {
+      fill: $primaryDark;
+    }
+  }
+  img {
+    max-width: 150px;
+    max-height: 100px;
+    margin-bottom: 10px;
+  }
+  svg {
+    margin: 10px;
+  }
+}

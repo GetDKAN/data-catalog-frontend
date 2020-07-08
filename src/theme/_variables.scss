@@ -1,8 +1,9 @@
 // Colors.
 $backgroundColor:   #f9fafb;
-$borderColor:       #dce4ef;
+$borderColor:       #e8ebf0;
+$borderRadius:      4px;
 $primaryDark:       #162e51; // blueDark.
-$primary:           #06639D; // blue.
+$primary:           #0978bc; // blue.
 $primaryLight:      #27AAE1; // blueLight.
 $primaryDust:       #dce4ef; // blueDust.
 $secondaryDark:     #EAC200; // yellowDark.
@@ -12,38 +13,47 @@ $grayDark:          #323A45;
 $grayMedium:        #A7AAAC;
 $grayLight:         #dddddd;
 $grayDust:          #eeeeee;
-$headingColor:      #003366;
+$headingColor:      #162e51;
 $textColor:         #3B3B3B;
-$linkColor:         #0A77BD;
-$linkHoverColor:    #003366;
+$linkColor:         #0978bc;
+$linkHoverColor:    #162e51;
 $navBarBackgroundColor: #0978bc;
 $navBarLink:        #FFFFFF;
 $navBarLinkActive:  #FFFFFF;
-$navBarLinkHoverBack:   #002245;
+$navBarLinkHoverBack:   #023756;
 $navBarLinkActiveBack:  #305e92;
 $navBarLinkActiveHoverBack: #f2d13c;
 $navBarLinkActiveHover: #FFFFFF;
-$heroBackgroundColor: #0A77BD;
+$heroBackgroundColor: #0978bc;;
 $heroTextColor:     #FFFFFF;
 $heroHeadingColor:  #FFFFFF;
 $footerBackgroundColor: #162e51;
 $footerText:        #FFFFFF;
 $footerLink:        #FFFFFF;
 $footerLinkHover:   #FFFFFF;
+
 // Fonts.
 $fontText: 'Rubik','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 $fontHeading:'Rubik Bold','Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+
 // Alerts/Messaging.
-$info:          #16A2B7;
-$warning:       #FEC108;
-$danger:        #DB3545;
-$success:       #28A645;
+$info:          #039fce;
+$warning:       #fc9905;
+$danger:        #d9534f;
+$success:       #46a546;
+
 // File Formats.
+$apiIcon:       #317daa;
+$binIcon:       #7a7a00;
 $csvIcon:       #0b4498;
+$docIcon:       #6f5191;
 $rdfIcon:       #e36504;
 $jsonIcon:      #005051;
+$kmlIcon:       #3F6EA5;
 $pdfIcon:       #e0051e;
-$xmlIcon:       #5e962c;
+$pptIcon:       #CF452C;
+$xmlIcon:       #d14900;
+$xlsIcon:       #015924;
 $zipIcon:       #3B0053;
-$htmlIcon:      #1c82b8;
+$htmlIcon:      #317daa;
 $dataIcon:      #666666;

@@ -1,12 +1,61 @@
-@import './variables';
+@import '../variables';
 
 html {
   /*Convert font size to base 10 for easier calculations (1rem = 10px)*/
   font-size: 62.5%;
 }
+
 body {
+  background-color: $backgroundColor;
+  color: $textColor;
+  font-weight: 300;
+  font-size: 1.6rem;
+  font-style: normal;
   font-family: $fontText;
-  h1,h2,h3,h4 {
-    font-family: $fontHeading;
+
+  a, input, button, textarea {
+    transition: all 0.2s linear;
   }
+  a {
+    color: $linkColor;
+    word-break: break-word;
+    &:hover,
+    &:focus {
+      color: $linkHoverColor;
+    }
+  }
+  h1,h2,h3,h4,h5 {
+    color: $headingColor;
+    font-family: $fontHeading;
+    font-weight: 700;
+  }
+  h1 { font-size: 3.0rem }  // 30px
+  h2 { font-size: 2.4rem; } // 24px
+  h3 { font-size: 2.0rem; } // 20px
+
+  table {
+    background-color: white;
+  }
+  .table-bordered td,
+  .table-bordered th {
+    border-color: $borderColor;
+  }
+  .form-control {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+}
+.dc-page {
+  h1 {
+    margin: 25px 0;
+  }
+  .swagger-ui .wrapper {
+    padding: 0;
+    .col-12 {
+      padding: 0;
+    }
+  }
+}
+.dc-dataset-page {
+  margin: 25px 0;
 }
