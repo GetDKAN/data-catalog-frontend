@@ -1,6 +1,6 @@
 context('Dataset', () => {
-  const table1 = '#resource_e4854391-e248-5eca-88ce-7b41d3bc02da';
-  const table2 = '#resource_eed01862-e6c0-5aa6-8c2b-91cca5108ed3';
+  const table1 = '#resource_f4b585d6-45e1-565c-9cc6-ab294d2c0cc0';
+  const table2 = '#resource_9e8af37e-3d44-51f6-b4e3-001fa12e1255';
 
   beforeEach(() => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6')

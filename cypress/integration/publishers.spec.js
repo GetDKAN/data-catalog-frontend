@@ -1,7 +1,7 @@
 context('Publishers', () => {
 
   beforeEach(() => {
-      cy.visit("http://dkan/home")
+      cy.visit("/")
     })
 
     it.only('When I click the main menu Publishers link I should end up on the Publishers page', () => {
