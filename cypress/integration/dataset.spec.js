@@ -2,6 +2,8 @@ context('Dataset', () => {
   const table1 = '#resource_e4854391-e248-5eca-88ce-7b41d3bc02da';
   const table2 = '#resource_eed01862-e6c0-5aa6-8c2b-91cca5108ed3';
 
+  let baseUrl = Cypress.config().baseUrl;
+
   beforeEach(() => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6')
   })
@@ -13,8 +15,8 @@ context('Dataset', () => {
 
   it('I see the file is available to download for each dataset', () => {
     cy.get('.dc-resource:first-of-type > svg').should('have.attr', 'class', 'dkan-icon')
-    cy.get(`${table1} .dc-resource > a`).should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv');
-    cy.get(`${table2} .dc-resource > a`).should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv');
+    cy.get(`${table1} .dc-resource > a`).should('have.attr', 'href', baseUrl + '/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv');
+    cy.get(`${table2} .dc-resource > a`).should('have.attr', 'href', baseUrl + '/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv');
   })
 
   // add check to make sure message updates to correct amount of rows

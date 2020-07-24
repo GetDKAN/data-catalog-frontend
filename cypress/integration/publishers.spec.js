@@ -1,7 +1,9 @@
 context('Publishers', () => {
 
+  let baseUrl = Cypress.config().baseUrl;
+
   beforeEach(() => {
-      cy.visit("http://dkan/home")
+      cy.visit(baseUrl + "/home")
     })
 
     it.only('When I click the main menu Publishers link I should end up on the Publishers page', () => {
