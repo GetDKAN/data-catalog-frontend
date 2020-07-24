@@ -51,6 +51,7 @@ jobs:
           command: |
             export PATH=$PATH:~/dkan-tools/bin
             cd ~/sandbox
+            dktl dc up -d
             dktl dc exec web chmod -R 777 /var/www/docroot/data-catalog-frontend
             dktl drush user:create testuser --password="2jqzOAnXS9mmcLasy"
             dktl drush en sample_content frontend -y
