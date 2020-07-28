@@ -10,6 +10,7 @@ context('Dataset', () => {
 
   it('I see the file is available to download for each dataset', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
+      cy.wait(6000)
       const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
       cy.get('.dc-resource:first-of-type > svg').should('have.attr', 'class', 'dkan-icon')
       cy.get(`#${tables[0].id} .dc-resource > a`).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv`);
@@ -20,32 +21,32 @@ context('Dataset', () => {
   // add check to make sure message updates to correct amount of rows
   it('I can filter the each table individually', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
+      cy.wait(6000)
       const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
+      cy.get(`#${tables[0].id} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('Washington')
+      cy.wait(3000)
+      cy.get(`#${tables[1].id} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('California')
+      cy.wait(3000)
+      cy.get(`#${tables[0].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'WA')
+      cy.get(`#${tables[0].id} .data-table-results`).contains('1 - 1 of 1 rows')
+      cy.wait(3000)
+      cy.get(`#${tables[1].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'CA')
+      cy.get(`#${tables[1].id} .data-table-results`).contains('1 - 1 of 1 rows')
     })
-    cy.wait(6000)
-    cy.get(`#${tables[0].id} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('Washington')
-    cy.wait(3000)
-    cy.get(`#${tables[1].id} .dc-datatable > .dc-table > :nth-child(2) .tr > :nth-child(3) input`).type('California')
-    cy.wait(3000)
-    cy.get(`#${tables[0].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'WA')
-    cy.get(`#${tables[0].id} .data-table-results`).contains('1 - 1 of 1 rows')
-    cy.wait(3000)
-    cy.get(`#${tables[1].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'CA')
-    cy.get(`#${tables[1].id} .data-table-results`).contains('1 - 1 of 1 rows')
   })
 
   it('I can sort each table individually', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
+      cy.wait(6000)
       const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
+      cy.get(`#${tables[0].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
+      cy.wait(3000)
+      cy.get(`#${tables[0].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'AK')
+      cy.get(`#${tables[1].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
+      cy.get(`#${tables[1].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
+      cy.wait(5000)
+      cy.get(`#${tables[1].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'WY')
     })
-    cy.wait(6000)
-    cy.get(`#${tables[0].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-    cy.wait(3000)
-    cy.get(`#${tables[0].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'AK')
-    cy.get(`#${tables[1].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-    cy.get(`#${tables[1].id} .dc-table > :nth-child(1) .tr > :nth-child(2)`).click()
-    cy.wait(5000)
-    cy.get(`#${tables[1].id} .dc-table .dc-tbody > :nth-child(1) > :nth-child(2)`).should('contain', 'WY')
   })
 
   it('I see the tags.', () => {
@@ -84,8 +85,8 @@ context('Dataset', () => {
   // Add check to make sure message updates correctly
   it('I can select the number of rows per page in each table.', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
-      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
       cy.wait(6000)
+      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
       cy.get(`#${tables[0].id} .-pageInfo`).should('contain', 'Page 1 of 3')
       cy.get(`#${tables[0].id} .page-size-select`).select('50')
       cy.get(`#${tables[0].id} .-pageInfo`).should('contain', 'Page 1 of 2')
@@ -104,8 +105,8 @@ context('Dataset', () => {
 
   it('I can change the density of the data table rows', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
+      cy.wait(6000)
       const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
-      cy.wait(3000)
       cy.get(`#${tables[0].id} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '5px')
       cy.get(`#${tables[0].id} [title="expanded"]`).click()
       cy.get(`#${tables[0].id} .dc-tbody > .dc-tr > :nth-child(1)`).should('have.css', 'padding', '21px 5px')
@@ -122,8 +123,8 @@ context('Dataset', () => {
 
   it('I can resize the data preview columns without changing the other table.', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
+      cy.wait(6000)
       const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
-      cy.wait(3000)
       cy.get(`#${tables[0].id} .dc-table > :nth-child(1) .tr > :nth-child(1)`).should('have.css', 'flex', '150 0 auto')
       cy.get(`#${tables[0].id} :nth-child(1) > .resizer`)
         .trigger('mousedown', { which: 1 })
@@ -139,8 +140,8 @@ context('Dataset', () => {
 
   it('I can open and close Manage Columns', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
-      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
       cy.wait(6000)
+      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)]
       cy.get(`#${tables[1].id} #dc-modal-manage_columns-open`).click()
       // cy.get('#react-aria-modal-dialog #dialog-title').should('contain', 'Display column')
       // Test close button in top right
@@ -183,8 +184,8 @@ context('Dataset', () => {
 
   it('I can reorder table columns on just one table', () => {
     cy.visit('dataset/1f2042ad-c513-4fcf-a933-cae6c6fd35e6').then((contentWindow) => {
-      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)];
       cy.wait(6000)
+      const tables = [...contentWindow.document.querySelectorAll(`div[id^="resource"]`)];
       cy.get(`#${tables[1].id} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`).should('contain', 'record_number')
       cy.get(`#${tables[0].id} .dc-table:first-of-type > :nth-child(1) > .tr > :nth-child(1)`).should('contain', 'record_number')
       cy.get(`#${tables[1].id} #dc-modal-manage_columns-open`).click()
