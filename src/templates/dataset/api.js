@@ -4,7 +4,6 @@ import Loader from "react-loader-advanced";
 import LoadingSpin from "react-loading-spin";
 import {
   ApiDocs,
-  Title,
   Organization
 } from "@civicactions/data-catalog-components";
 import Layout from "../../components/Layout";
@@ -82,7 +81,7 @@ class ApiDocsSpecific extends Component {
               </div>
             </div>
             <div className="results-list col-md-9 col-sm-12">
-              <Title title={this.props.pageContext.dataset.title} />
+              <h1>{this.props.pageContext.dataset.title}</h1>
               {this.state.window && (
                 <Loader
                   backgroundStyle={{ backgroundColor: "#f9fafb" }}
