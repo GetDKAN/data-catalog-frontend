@@ -57,3 +57,8 @@ This is meant to be a blueprint for your frontend, from which you can make minor
 - Add custom .scss files to `src/theme/styles/` to override the default css classes with your new color variables and other changes.
 - Import your .scss files to `src/theme/styles/index.scss`
 - Run `gatsby develop` to preview, then `npm run build` to generate the public files.
+- Edit the cypress.json file to update the `baseUrl` to match your site.
+
+## To Do
+
+Update cypress tests to not use ids or classes as identifying elements. These can change without warning.

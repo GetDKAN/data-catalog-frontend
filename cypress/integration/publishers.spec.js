@@ -1,10 +1,10 @@
 context('Publishers', () => {
 
   beforeEach(() => {
-      cy.visit("http://dkan/home")
+      cy.visit("/")
     })
 
-    it.only('When I click the main menu Publishers link I should end up on the Publishers page', () => {
+    it('When I click the main menu Publishers link I should end up on the Publishers page', () => {
       cy.get('.navbar .nav').contains('Publishers').click({ force: true })
       cy.wait(5000)
       cy.get('h1').contains('Dataset Publishers')
