@@ -1,0 +1,69 @@
+@import "../variables";
+
+.dc-main-navigation {
+    background-color: $navBarBackgroundColor;
+    position: relative;
+    display: block;
+    clear: both;
+    z-index: 1;
+    &:after {
+        content: "";
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .navbar-expand-md {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .navbar-toggler {
+        height: 34px;
+        width: 34px;
+        svg {
+          color: white;
+        }
+    }
+    .nav-item a {
+        display: inline-flex;
+        padding: 0.9em 1.2em;
+        text-decoration: none;
+        -webkit-font-smoothing: antialiased;
+        -webkit-touch-callout: none;
+        user-select: none;
+        cursor: pointer;
+        font-weight: 500;
+        color: $navBarLink;
+        transition: all 0.2s linear;
+        &:hover {
+            color: $navBarLink;
+            text-decoration: none;
+            background-color: $navBarLinkHoverBack;
+        }
+        &.active {
+            background-color: none;
+            box-shadow: inset 0 -4px 0 $navBarLinkActiveHoverBack;
+            text-decoration: none;
+            color: $navBarLink;
+        }
+        &:hover.active {
+            background-color: none;
+            box-shadow: inset 0 -4px 0 $navBarLinkActiveHoverBack;
+            color: $navBarLink;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .navbar-expand-md {
+            padding: .5rem 1rem;
+        }
+        .nav-item {
+            width: 100%;
+            a {
+                display: block;
+            }
+        }
+    }
+}

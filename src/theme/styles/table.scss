@@ -1,0 +1,33 @@
+@import "../variables";
+
+.dc-table {
+    margin: 2rem 0;
+    &.table-striped,
+    &.table-hover {
+        > tbody tr:nth-of-type(odd):hover,
+        > tbody tr:nth-of-type(even):hover {
+            background-color: #FFFEEE;
+        }
+    }
+    td, tr {
+        word-break: break-all;
+    }
+    tr td, tr th {
+        border: 1px solid $borderColor;
+        font-size: 1.4rem;
+        padding: .5rem;
+    }
+    tr th {
+        background: $primaryDark;
+        border-top-color: $primaryDark;
+        border-bottom: none;
+        color: #fff;
+        font-weight: 300;
+        &:first-child {
+            border-left-color: $primaryDark;
+        }
+        &:last-child {
+            border-right-color: $primaryDark;
+        }
+    }
+}

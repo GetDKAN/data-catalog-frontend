@@ -1,0 +1,18 @@
+.dc-publisher-list {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  .dc-org-block {
+    min-width: 24%;
+    max-width: 24%;
+  }
+  @media screen and (max-width: 768px) {
+    .dc-org-block {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}

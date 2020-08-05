@@ -2,7 +2,7 @@ import React from "react";
 import { BreakpointProvider, setDefaultBreakpoints } from "react-socks";
 import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "@civicactions/data-catalog-components/dist/index.css";
-import "./src/theme/styles/index.scss";
+import "./src/theme/index.scss";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';

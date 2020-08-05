@@ -23,18 +23,20 @@ const Home = ({ pageContext: { themes, featuredDatasets }, path }) => {
   return (
     <Layout path={path} title="Home">
       <div className="home-page">
-        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} />
+        <Hero title={copy.hero[0].title} intro={copy.hero[0].intro} gradient="#162e51,#0978bc" />
         <IconList
           items={items}
           component={IconListItem}
           paneTitle="Dataset Topics"
           className="opendata-icon-list"
         />
-        <Blocks
-          items={copy.stats}
-          component={StatBlock}
-          className="StatBlock"
-        />
+        <div className="container-fluid StatBlock">
+          <Blocks
+            items={copy.stats}
+            component={StatBlock}
+            containerClass="container"
+          />
+        </div>
         <FeaturedDatasets datasets={featuredDatasets} />
       </div>
     </Layout>

@@ -1,0 +1,30 @@
+// Fonts and General css.
+@import "./fonts/rubik-cufonfonts-webfont/style.css";
+@import "./styles/general.scss";
+
+// Component styles.
+@import "./styles/filedownload.scss";
+@import "./styles/iconlist.scss";
+@import "./styles/iconlistitem.scss";
+@import "./styles/menu.scss";
+@import "./styles/organization.scss";
+@import "./styles/publisherslist.scss";
+@import "./styles/resource.scss";
+@import "./styles/searchinput.scss";
+@import "./styles/searchlistitem.scss";
+@import "./styles/searchfacets.scss";
+@import "./styles/tags.scss";
+@import "./styles/table.scss";
+@import "./styles/topicwrapper.scss";
+
+// Template styles.
+@import "./styles/featureddatasets.scss";
+@import "./styles/datatable.scss";
+@import "./styles/header.scss";
+@import "./styles/hero.scss";
+@import "./styles/footer.scss";
+@import "./styles/navbar.scss";
+@import "./styles/blocks.scss";
+@import "./styles/announcement.scss";
+@import "./styles/searchcontent.scss";
+@import "./styles/searchsidebar.scss";

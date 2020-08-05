@@ -1,0 +1,38 @@
+dc-menu {
+  ul {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    li {
+      list-style-type: none;
+    }
+    a {
+      display: block;
+      font-weight: 500;
+      padding: 4px;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .dc-menu-item {
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-touch-callout: none;
+    user-select: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    display: block;
+    width: 100%;
+    ul {
+      margin-right: 0;
+    }
+  }
+}

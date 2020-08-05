@@ -1,0 +1,61 @@
+@import "../variables";
+
+.dc-file-download {
+  clear: both;
+  margin: 15px 0;
+  position: relative;
+  padding-left: 35px;
+  a {
+    line-height: 50px;
+  }
+  .dkan-icon {
+    color: transparent;
+    font-weight: normal;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    width: 35px;
+    z-index: 0;
+    &[title='API'] path {
+      fill: $apiIcon;
+    }
+    &[title='BIN'] path {
+      fill: $binIcon;
+    }
+    &[title='CSV'] path {
+      fill: $csvIcon;
+    }
+    &[title='RDF'] path {
+      fill: $rdfIcon;
+    }
+    &[title='KML'] path {
+      fill: $kmlIcon;
+    }
+    &[title='JSON'] path {
+      fill: $jsonIcon;
+    }
+    &[title='PDF'] path {
+      fill: $pdfIcon;
+    }
+    &[title='PPT'] path {
+      fill: $pptIcon;
+    }
+    &[title='XLS'] path {
+      fill: $xlsIcon;
+    }
+    &[title='XML'] path {
+      fill: $xmlIcon;
+    }
+    &[title='ZIP'] path {
+      fill: $zipIcon;
+    }
+    &[title='HTML'] path {
+      fill: $htmlIcon;
+    }
+    &[title='DATA'] path {
+      fill: $dataIcon;
+    }
+  }
+}

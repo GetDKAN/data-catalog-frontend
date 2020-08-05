@@ -1,0 +1,54 @@
+@import "../variables";
+
+.dc-search-input.form-group {
+  display: flex;
+
+  input[type="text"] {
+    padding: 1rem 1.5rem;
+    font-size: 1.8rem;
+    height: auto;
+    width: 100%;
+    border-color: $borderColor;
+    border-radius: $borderRadius;
+    background-color: white;
+    position: relative;
+  }
+  button {
+    background-color: $secondary;
+    border-radius: $borderRadius;
+    border-style: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    height: 48px;
+    margin: 0 0 0 10px;
+    padding: 10px 0;
+    color: $primaryDark;
+    width: 100px;
+    svg {
+      margin-right: 5px;
+      vertical-align: middle;
+      path {
+        fill: $primaryDark;
+      }
+    }
+    &:hover {
+      background-color: $secondaryDark;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dc-search-input.form-group {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+    input.form-control {
+      width: 100%;
+    }
+  }
+}
