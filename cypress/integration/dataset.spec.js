@@ -23,11 +23,8 @@ context('Dataset', () => {
         const tables = [...response.body.distribution];
         cy.request(Cypress.config().baseUrl + '/api/1/datastore/imports/' + tables[0].identifier).then(() => {
           cy.get('.dc-resource:first-of-type > svg').should('have.attr', 'class', 'dkan-icon')
-          // cy.get(`#resource_${tables[0].identifier} .dc-resource > a`).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv`);
-          // cy.get(`#resource_${tables[1].identifier} .dc-resource > a`).should('have.attr', 'href', `${Cypress.config().baseUrl}/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv`);
-          cy.get(`#resource_${tables[0].identifier} .dc-resource > a`).should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv');
-          cy.get(`#resource_${tables[1].identifier} .dc-resource > a`).should('have.attr', 'href', 'http://dkan/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv');
-
+          cy.get(`#resource_${tables[0].identifier} .dc-resource > a`).should('have.attr', 'href').and('include', '/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/TobaccoTaxes2016_2_1.csv');
+          cy.get(`#resource_${tables[1].identifier} .dc-resource > a`).should('have.attr', 'href').and('include', '/sites/default/files/distribution/1f2042ad-c513-4fcf-a933-cae6c6fd35e6/CDCSmokingRates.csv');
         });
       })
   })
