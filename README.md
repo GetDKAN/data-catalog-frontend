@@ -1,4 +1,4 @@
-# Data Catalog Frontend
+# DEPRECATED - please use [data-catalog-app](https://github.com/GetDKAN/data-catalog-app)
 
 This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend.
 
