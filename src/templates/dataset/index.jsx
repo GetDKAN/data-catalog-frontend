@@ -116,7 +116,7 @@ const Dataset = props => {
           </div>
           <div className="col-md-9 col-sm-12">
             <h1>{item.title}</h1>
-            {theme.length && <div className="dc-item-theme">{themes(theme)}</div>}
+            {theme.length > 0 && <div className="dc-item-theme">{themes(theme)}</div>}
             <Text value={item.description} />
             {hasWindow && item.distribution &&
               item.distribution.map(dist => {
