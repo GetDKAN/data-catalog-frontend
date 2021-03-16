@@ -1,6 +1,6 @@
 # DEPRECATED - please use [data-catalog-app](https://github.com/GetDKAN/data-catalog-app)
 
-This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend.
+This is a REACT frontend designed to utilize the latest stable version of [DKAN 2.x](https://github.com/GetDKAN/dkan) as a backend. This frontend is decoupled from the Drupal DKAN backend and can be seen in action on the [DKAN Demo](https://demo.getdkan.com/) website. Note that currently whenever there are changes to the datasets in the Drupal DKAN backend the frontend needs to be rebuilt as it generates static content.
 
 This application serves as a starter app, or example of how to use the [data-catalog-components](https://github.com/GetDKAN/data-catalog-components) library to easily create open data catalogs.
 
